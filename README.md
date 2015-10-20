@@ -3,13 +3,17 @@
 In this repository, you can find the English and German handout for my
 workshops on test-driven development (TDD) with TYPO3 CMS.
 
-Find out more about the
-[workshops I give](https://www.oliverklee.de/workshops/workshops.html)
-on my home page (in German).
+## About me (Oliver Klee)
 
 I am the maintainer of the
 [PHPUnit TYPO3 extension](http://typo3.org/extensions/repository/view/phpunit),
 which is available in the TYPO3 extension repository (TER).
+
+Find out more about the
+[workshops I give](https://www.oliverklee.de/workshops/workshops.html)
+on my home page (in German).
+
+## License
 
 These documents are licensed under a
 [Creative Commons Attribution-ShareAlike 4.0 International Public License (CC BY-SA 4.0)](http://creativecommons.org/licenses/by-sa/4.0/).
