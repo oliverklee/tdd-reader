@@ -103,7 +103,7 @@ class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase  {
    * @test
    */
   public function getNameInitiallyReturnsEmptyString() {
-    $this->assertSame(
+    self::assertSame(
       '',
       $this->subject->getName()
     );
@@ -115,7 +115,7 @@ class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase  {
   public function setNameSetsName() {
     $this->subject->setName('foo bar');
 
-    $this->assertSame(
+    self::assertSame(
       'foo bar',
       $this->subject->getName()
     );
@@ -146,7 +146,7 @@ class Tx_Oelib_Tests_Unit_AttachmentTest extends \Tx_Phpunit_TestCase {
    * @test
    */
   public function getFileNameInitiallyReturnsAnEmptyString() {
-    $this->assertSame(
+    self::assertSame(
       '',
       $this->subject->getFileName()
     );
@@ -158,7 +158,7 @@ class Tx_Oelib_Tests_Unit_AttachmentTest extends \Tx_Phpunit_TestCase {
   public function getFileNameWithFileNameSetReturnsFileName() {
     $this->subject->setFileName('test.txt');
 
-    $this->assertSame(
+    self::assertSame(
       'test.txt',
       $this->subject->getFileName()
     );
@@ -197,7 +197,7 @@ class BookTest extends \PHPUnit_Framework_TestCase {
    * @test
    */
   public function getTitleInitiallyReturnsEmptyString() {
-    $this->assertSame(
+    self::assertSame(
       '',
       $this->subject->getTitle()
     );
@@ -209,7 +209,7 @@ class BookTest extends \PHPUnit_Framework_TestCase {
   public function setTitleSetsTitle() {
     $this->subject->setTitle('foo bar');
 
-    $this->assertSame(
+    self::assertSame(
       'foo bar',
       $this->subject->getTitle()
     );
@@ -327,7 +327,7 @@ class tx_oelib_DataMapperTest extends \Tx_Phpunit_TestCase {
       'tx_oelib_test', array('title' => 'foo')
     );
 
-    $this->assertSame(
+    self::assertSame(
       'foo',
       $this->subject->find($uid)->getTitle()
     );
@@ -362,7 +362,7 @@ public function checkFileWithPathOfExistingNonEmptyFileReturnsTrue() {
   $file = vfsStream::newFile('test.php')->at($this->moreStuff);
   $file->withContent('Hello world!');
 
-  $this->assertTrue(
+  self::assertTrue(
     $this->subject->checkFile(vfsStream::url('Stuff/moreStuff/test.php'))
   );
 }
