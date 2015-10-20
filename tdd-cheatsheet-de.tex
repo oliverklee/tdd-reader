@@ -82,7 +82,7 @@ Die ausführliche Version dieser Lizenz findet ihr online.\footnote{\url{http://
 \subsection{Extbase-Extensions}
 
 \small
-\begin{verbatim}
+\begin{phpcode}
 class Tx_Articlebase_Domain_Model_ArticleTest extends \Tx_Extbase_Tests_Unit_BaseTestCase {
   /**
    * @var \Tx_Articlebase_Domain_Model_Article
@@ -119,15 +119,16 @@ class Tx_Articlebase_Domain_Model_ArticleTest extends \Tx_Extbase_Tests_Unit_Bas
       $this->subject->getName()
     );
   }
-…
+  
+  // ...
 }
-\end{verbatim}
+\end{phpcode}
 \normalsize
 
 \subsection{Nicht-Extbase-Extensions}
 
 \small
-\begin{verbatim}
+\begin{phpcode}
 // Hier die zu testende Klasse einbinden, wenn eure Extension keine
 // ext_autoload.php benutzt.
 require_once(t3lib_extMgm::extPath('oelib') . 'class.tx_oelib_Attachment.php');
@@ -176,15 +177,16 @@ class tx_oelib_AttachmentTest extends \Tx_Phpunit_TestCase {
 
     $this->subject->setFileName('');
   }
-…
+
+  // ...
 }
-\end{verbatim}
+\end{phpcode}
 \normalsize
 
 \subsection{Nicht-TYPO3-PHP-Project}
 
 \small
-\begin{verbatim}
+\begin{phpcode}
 namespace Books\Domain\Model;
 
 $currentDirectory = dirname(__FILE__);
@@ -226,14 +228,14 @@ class BookTest extends \PHPUnit_Framework_TestCase {
     );
   }
 }
-\end{verbatim}
+\end{phpcode}
 \normalsize
 
 \section{Auf Exceptions testen}
 
 \subsection{Nur auf die Klasse testen (empfohlen)}
 \small
-\begin{verbatim}
+\begin{phpcode}
 /**
  * @test
  * @expectedException InvalidArgumentException
@@ -241,12 +243,12 @@ class BookTest extends \PHPUnit_Framework_TestCase {
 public function createBreadWithNegativeSizeThrowsException() {
   $this->subject->createBread(-1);
 }
-\end{verbatim}
+\end{phpcode}
 \normalsize
 
 \subsection{Auf Klasse, Nachricht und (optional) Code testen (empfohlen)}
 \small
-\begin{verbatim}
+\begin{phpcode}
 /**
  * @test
  */
@@ -271,12 +273,12 @@ public function createBreadWithZeroSizeThrowsException() {
 
   $this->subject->createBread(-1);
 }
-\end{verbatim}
+\end{phpcode}
 \normalsize
 
 \subsection{Try/catch (nicht empfohlen)}
 \small
-\begin{verbatim}
+\begin{phpcode}
 /**
  * @test
  */
@@ -287,17 +289,17 @@ public function createBreadWithNegativeSizeThrowsException() {
   } catch (InvalidArgumentException $exception) {
   }
 }
-\end{verbatim}
+\end{phpcode}
 \normalsize
 
 \section{Abstrakte Klassen testen}
 
 \subsection{Den PHPUnit-Mock-Builder benutzen (empfohlen)}
 
-Dies erzeugt eine Instanz der abstrakten Klassen, wobei alle abstrakten Methoden gemockt werden.
+Dies erzeugt eine Instanz der abstrakten Klassen, wobei alle abstrakten Methoden gemockt werden.\\
 
 \small
-\begin{verbatim}
+\begin{phpcode}
 class Tx_Coffee_Domain_Model_AbstractBeverageTest {
  /**
   * @var \Tx_Coffee_Domain_Model_AbstractBeverage|\PHPUnit_Framework_MockObject_MockObject
@@ -307,27 +309,27 @@ class Tx_Coffee_Domain_Model_AbstractBeverageTest {
  protected function setUp() {
    $this->subject = $this->getMockForAbstractClass('Tx_Coffee_Domain_Model_AbstractBeverage');
  }
-\end{verbatim}
+\end{phpcode}
 \normalsize
 
 \subsection{Eine konkrete Unterklasse erstellen (empfohlen)}
 
 Dies wird empfohlen, wenn die Subklasse zusätzliches oder spezifisches Verhalten haben soll.
 
-Erzeugt in \texttt{Tests/Unit/Fixtures/} eine Unterklasse der abstrakten Klasse:
+Erzeugt in \texttt{Tests/Unit/Fixtures/} eine Unterklasse der abstrakten Klasse:\\
 
 \small
-\begin{verbatim}
+\begin{phpcode}
 class Tx_Coffee_Domain_Model_TestingBeverage extends \Tx_Coffee_Domain_Model_AbstractBeverage {
-  …
+  // ...
 }
-\end{verbatim}
+\end{phpcode}
 \normalsize
 
-Dann könnt ihr die konkrete Unterklasse in euren Unit-Tests includen und instanziieren.
+Dann könnt ihr die konkrete Unterklasse in euren Unit-Tests includen und instanziieren.\\
 
 \small
-\begin{verbatim}
+\begin{phpcode}
 require_once(t3lib_extMgm::extPath('coffee') . 'Tests/Unit/Fixtures/TestingBeverage.php');
 
 class Tx_Coffee_Domain_Model_AbstractBeverageTest {
@@ -339,7 +341,7 @@ class Tx_Coffee_Domain_Model_AbstractBeverageTest {
  protected function setUp() {
    $this->subject = new Tx_Coffee_Domain_Model_TestingBeverage();
  }
-\end{verbatim}
+\end{phpcode}
 \normalsize
 
 \subsection{Using eval (nicht empfohlen)}
@@ -350,21 +352,19 @@ Dies ist nicht empfehlenswert, weil ihr damit die Code-Vervollständigung in eur
 \section{Das Test-Framework der phpunit-TYPO3-Extension benutzen}
 
 \small
-\begin{verbatim}
+\begin{phpcode}
 class tx_oelib_DataMapperTest extends \Tx_Phpunit_TestCase {
   /**
    * @var \Tx_Phpunit_Framework
    */
   protected $testingFramework = NULL;
-  /**
-   * @var \tx_oelib_DataMapper
-   */
+
   protected $subject = NULL;
 
   public function setUp() {
     $this->testingFramework = new Tx_Phpunit_Framework('tx_oelib');
 
-    $this->subject = …
+    $this->subject = new ...;
   }
 
   public function tearDown() {
@@ -386,12 +386,12 @@ class tx_oelib_DataMapperTest extends \Tx_Phpunit_TestCase {
       $this->subject->find($uid)->getTitle()
     );
   }
-\end{verbatim}
+\end{phpcode}
 \normalsize
 
 \section{Gemockte Dateisystem mit vfsStream benutzen}
 \subsection{Einrichten}
-\begin{verbatim}
+\begin{phpcode}
 use \org\bovigo\vfs\vfsStream;
 
 /**
@@ -406,10 +406,10 @@ public function setUp() {
 
   $this->subject = new ...
 }
-\end{verbatim}
+\end{phpcode}
 
 \subsection{Die Dateien benutzen}
-\begin{verbatim}
+\begin{phpcode}
 /**
  * @test
  */
@@ -421,7 +421,7 @@ public function checkFileWithPathOfExistingNonEmptyFileReturnsTrue() {
     $this->subject->checkFile(vfsStream::url('Stuff/moreStuff/test.php'))
   );
 }
-\end{verbatim}
+\end{phpcode}
 
 
 \section{PHPUnit-Assertions}
