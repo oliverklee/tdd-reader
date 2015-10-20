@@ -124,3 +124,10 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
+
+# Kile
+*.backup
+*.kilepr
+
+# PhpStorm
+.idea
