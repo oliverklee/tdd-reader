@@ -178,6 +178,21 @@ class Tx_Oelib_Tests_Unit_AttachmentTest extends \Tx_Phpunit_TestCase {
 
 \subsection{Non-TYPO3 PHP projects with Composer}
 
+\subsubsection{composer.json}
+\begin{jsoncode}
+{
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "..."
+        }
+    }
+}
+\end{jsoncode}
+
+\subsubsection{Test case}
 \begin{phpcode}
 namespace OliverKlee\Books\Tests\Unit\Domain\Model;
 
