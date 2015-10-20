@@ -29,7 +29,7 @@
 
 \section*{License}
 
-This handout is licensed under a \emph{Creative Commons} license, namely under a \emph{Attribution-ShareAlike~4.0 (CC BY-SA 4.0)}. This means that you can use, edit and distribute this handout (even commercially) under the following conditions:
+This handout is licensed under a \emph{Creative Commons} license, in this case under an \emph{Attribution-ShareAlike~4.0 (CC BY-SA 4.0)}. This means that you can use, edit and distribute this handout (even commercially) under the following conditions:
 
 \begin{description}
   \item[Attribution.] You need to give credit to the author (me) by listing my name (Oliver Klee). If you also list the source\footnote{\url{https://github.com/oliverklee/tdd-reader}}, that would be nice. And if you want to make me happy, please drop me an e-mail if you use this document.
@@ -40,7 +40,7 @@ This handout is licensed under a \emph{Creative Commons} license, namely under a
 You can find a more comprehensive version of this license online.\footnote{\url{http://creativecommons.org/licenses/by-sa/4.0/}}
 
 
-\newpage
+\pagebreak
 
 \tableofcontents
 
@@ -83,7 +83,6 @@ You can find a more comprehensive version of this license online.\footnote{\url{
 
 \subsection{Extbase extensions}
 
-\small
 \begin{phpcode}
 namespace OliverKlee\Shop\Tests\Unit\Domain\Model;
 
@@ -125,15 +124,13 @@ class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase  {
   // ...
 }
 \end{phpcode}
-\normalsize
 
 \subsection{Non-extbase extensions}
 
-\small
 \begin{phpcode}
 // You need to require_once the class to test only if your extension
 // does not make use of ext_autoload.php.
-// require_once(t3lib_extMgm::extPath('oelib') . 'class.tx_oelib_Attachment.php');
+// require_once t3lib_extMgm::extPath('oelib') . 'Classes/Attachment.php';
 
 class Tx_Oelib_Tests_Unit_AttachmentTest extends \Tx_Phpunit_TestCase {
   /**
@@ -178,11 +175,9 @@ class Tx_Oelib_Tests_Unit_AttachmentTest extends \Tx_Phpunit_TestCase {
   // ...
 }
 \end{phpcode}
-\normalsize
 
 \subsection{Non-TYPO3 PHP projects with Composer}
 
-\small
 \begin{phpcode}
 namespace OliverKlee\Books\Tests\Unit\Domain\Model;
 
@@ -221,12 +216,10 @@ class BookTest extends \PHPUnit_Framework_TestCase {
   }
 }
 \end{phpcode}
-\normalsize
 
 \section{Testing for Exceptions}
 
-\subsection{Test for the Exception class only (recommended)}
-\small
+\subsection{Test for the Exception class only}
 \begin{phpcode}
 /**
  * @test
@@ -236,9 +229,8 @@ public function createBreadWithNegativeSizeThrowsException() {
   $this->subject->createBread(-1);
 }
 \end{phpcode}
-\normalsize
 
-\subsection{Test for the exception class, message and the code (recommended)}
+\subsection{Test for the exception class, message and the code}
 \begin{phpcode}
 /**
  * @test
@@ -251,34 +243,35 @@ public function createBreadWithNegativeSizeThrowsException() {
 }
 \end{phpcode}
 
-\newpage
-
 \section{Testing abstract classes}
 
-\subsection{Using the PHPUnit mock builder (recommended)}
+\subsection{Using the PHPUnit mock builder}
 
 This will create an instance of the abstract class with all abstract methods mocked.\\
 
-\small
 \begin{phpcode}
+namespace OliverKlee\Coffee\Tests\Unit\Domain\Model;
+
+use OliverKlee\Coffee\Domain\Model\AbstractBeverage;
+
 class Tx_Coffee_Domain_Model_AbstractBeverageTest {
  /**
-  * @var \Tx_Coffee_Domain_Model_AbstractBeverage|\PHPUnit_Framework_MockObject_MockObject
+  * @var AbstractBeverage|\PHPUnit_Framework_MockObject_MockObject
   *
  protected $subject = null;
 
  protected function setUp() {
-   $this->subject = $this->getMockForAbstractClass('Tx_Coffee_Domain_Model_AbstractBeverage');
+   $this->subject = $this->getMockForAbstractClass(
+     'OliverKlee\\Coffee\\Domain\\Model\\AbstractBeverage'
+   );
  }
 \end{phpcode}
-\normalsize
 
-\subsection{Creating a concrete subclass (recommended)}
+\subsection{Creating a concrete subclass}
 This is recommended if you need to provide your subclass with some additional or specific behavior.
 
 In \texttt{Tests/Unit/Domain/Model/Fixtures/}, create a subclass of the abstract class:\\
 
-\small
 \begin{phpcode}
 namespace OliverKlee\Coffee\Tests\Unit\Domain\Model\Fixtures;
 
@@ -286,7 +279,6 @@ class TestingBeverage extends \OliverKlee\Coffee\Domain\Model\AbstractBeverage {
   // ...
 }
 \end{phpcode}
-\normalsize
 
 Then you can use and instantiate the concrete subclass in your unit tests:\\
 
@@ -304,11 +296,8 @@ class Tx_Coffee_Domain_Model_AbstractBeverageTest {
  }
 \end{phpcode}
 
-\newpage
-
 \section{Using the testing framework of the PHPUnit TYPO3 extension}
 
-\small
 \begin{phpcode}
 class tx_oelib_DataMapperTest extends \Tx_Phpunit_TestCase {
   /**
@@ -342,7 +331,6 @@ class tx_oelib_DataMapperTest extends \Tx_Phpunit_TestCase {
     );
   }
 \end{phpcode}
-\normalsize
 
 \section{Using mock file systems with vfsStream}
 \subsection{Setting it all up}

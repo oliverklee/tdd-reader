@@ -29,7 +29,7 @@
 
 \section*{Lizenz}
 
-Dieser Reader ist unter einer \emph{Creative-Commons}-Lizenz lizensiert, und zwar unter der \emph{Namensnennung-Weitergabe unter gleichen Bedingungen~4.0 (CC BY-SA 4.0)}. Das bedeutet, dass ihr den Reader unter diesen Bedingungen für euch kostenlos verbreiten, bearbeiten und nutzen könnt (auch kommerziell):
+Dieser Reader ist unter einer \emph{Creative-Commons}-Lizenz lizensiert, und zwar konkret unter der \emph{Namensnennung-Weitergabe unter gleichen Bedingungen~4.0 (CC BY-SA 4.0)}. Das bedeutet, dass ihr den Reader unter diesen Bedingungen für euch kostenlos verbreiten, bearbeiten und nutzen könnt (auch kommerziell):
 
 \begin{description}
   \item[Namensnennung.] Ihr müsst den Namen des Autors (Oliver Klee) nennen. Wenn ihr dabei zusätzlich auch noch die Quelle\footnote{\url{https://github.com/oliverklee/tdd-reader}} nennt, wäre das nett. Und wenn ihr mir zusätzlich eine Freude machen möchtet, sagt mir per E-Mail Bescheid.
@@ -40,7 +40,7 @@ Dieser Reader ist unter einer \emph{Creative-Commons}-Lizenz lizensiert, und zwa
 Die ausführliche Version dieser Lizenz findet ihr online.\footnote{\url{http://creativecommons.org/licenses/by-sa/4.0/}}
 
 
-\newpage
+\pagebreak
 
 \tableofcontents
 
@@ -83,7 +83,6 @@ Die ausführliche Version dieser Lizenz findet ihr online.\footnote{\url{http://
 
 \subsection{Extbase-Extensions}
 
-\small
 \begin{phpcode}
 namespace \OliverKlee\Shop\Tests\Unit\Domain\Model;
 
@@ -125,15 +124,13 @@ class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase  {
   // ...
 }
 \end{phpcode}
-\normalsize
 
 \subsection{Nicht-Extbase-Extensions}
 
-\small
 \begin{phpcode}
 // Hier die zu testende Klasse nur dann einbinden, wenn eure Extension keine
 // ext_autoload.php benutzt.
-// require_once(t3lib_extMgm::extPath('oelib') . 'class.tx_oelib_Attachment.php');
+// require_once(t3lib_extMgm::extPath('oelib') . 'Classes/Attachment.php');
 
 class Tx_Oelib_Tests_Unit_AttachmentTest extends \Tx_Phpunit_TestCase {
   /**
@@ -178,11 +175,9 @@ class Tx_Oelib_Tests_Unit_AttachmentTest extends \Tx_Phpunit_TestCase {
   // ...
 }
 \end{phpcode}
-\normalsize
 
 \subsection{Nicht-TYPO3-PHP-Project mit Composer}
 
-\small
 \begin{phpcode}
 namespace OliverKlee\Books\Tests\Unit\Domain\Model;
 
@@ -221,12 +216,10 @@ class BookTest extends \PHPUnit_Framework_TestCase {
   }
 }
 \end{phpcode}
-\normalsize
 
 \section{Auf Exceptions testen}
 
-\subsection{Nur auf die Klasse testen (empfohlen)}
-\small
+\subsection{Nur auf die Klasse testen}
 \begin{phpcode}
 /**
  * @test
@@ -236,9 +229,8 @@ public function createBreadWithNegativeSizeThrowsException() {
   $this->subject->createBread(-1);
 }
 \end{phpcode}
-\normalsize
 
-\subsection{Auf Klasse, Nachricht und Code testen (empfohlen)}
+\subsection{Auf Klasse, Nachricht und Code testen}
 \begin{phpcode}
 /**
  * @test
@@ -253,25 +245,29 @@ public function createBreadWithNegativeSizeThrowsException() {
 
 \section{Abstrakte Klassen testen}
 
-\subsection{Den PHPUnit-Mock-Builder benutzen (empfohlen)}
+\subsection{Den PHPUnit-Mock-Builder benutzen}
 
 Dies erzeugt eine Instanz der abstrakten Klassen, wobei alle abstrakten Methoden gemockt werden.\\
 
-\small
 \begin{phpcode}
+namespace OliverKlee\Coffee\Tests\Unit\Domain\Model;
+
+use OliverKlee\Coffee\Domain\Model\AbstractBeverage;
+
 class Tx_Coffee_Domain_Model_AbstractBeverageTest {
  /**
-  * @var \Tx_Coffee_Domain_Model_AbstractBeverage|\PHPUnit_Framework_MockObject_MockObject
+  * @var AbstractBeverage|\PHPUnit_Framework_MockObject_MockObject
   *
- protected $subject = NULL;
+ protected $subject = null;
 
  protected function setUp() {
-   $this->subject = $this->getMockForAbstractClass('Tx_Coffee_Domain_Model_AbstractBeverage');
+   $this->subject = $this->getMockForAbstractClass(
+     'OliverKlee\\Coffee\\Domain\\Model\\AbstractBeverage'
+   );
  }
 \end{phpcode}
-\normalsize
 
-\subsection{Eine konkrete Unterklasse erstellen (empfohlen)}
+\subsection{Eine konkrete Unterklasse erstellen}
 
 Dies wird empfohlen, wenn die Subklasse zusätzliches oder spezifisches Verhalten haben soll.
 
@@ -287,7 +283,6 @@ class TestingBeverage extends \OliverKlee\Coffee\Domain\Model\AbstractBeverage {
 
 Dann könnt ihr die konkrete Unterklasse in euren Unit-Tests usen und instanziieren.\\
 
-\small
 \begin{phpcode}
 use OliverKlee\Coffee\Tests\Unit\Domain\Model\Fixtures\TestingBeverage;
 
@@ -301,12 +296,10 @@ class Tx_Coffee_Domain_Model_AbstractBeverageTest {
    $this->subject = new TestingBeverage();
  }
 \end{phpcode}
-\normalsize
 
 
 \section{Das Test-Framework der PHPUnit-TYPO3-Extension benutzen}
 
-\small
 \begin{phpcode}
 class tx_oelib_DataMapperTest extends \Tx_Phpunit_TestCase {
   /**
@@ -340,7 +333,6 @@ class tx_oelib_DataMapperTest extends \Tx_Phpunit_TestCase {
     );
   }
 \end{phpcode}
-\normalsize
 
 \section{Gemockte Dateisystem mit vfsStream benutzen}
 \subsection{Einrichten}
