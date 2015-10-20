@@ -94,10 +94,6 @@ class Tx_Articlebase_Domain_Model_ArticleTest extends \Tx_Extbase_Tests_Unit_Bas
     $this->subject->initializeObject();
   }
 
-  public function tearDown() {
-    unset($this->subject);
-  }
-
   /**
    * @test
    */
@@ -141,10 +137,6 @@ class tx_oelib_AttachmentTest extends \Tx_Phpunit_TestCase {
 
   public function setUp() {
     $this->subject = new tx_oelib_Attachment();
-  }
-
-  public function tearDown() {
-    unset($this->subject);
   }
 
   /**
@@ -200,10 +192,6 @@ class BookTest extends \PHPUnit_Framework_TestCase {
 
   public function setUp() {
     $this->subject = new Book();
-  }
-
-  public function tearDown() {
-    unset($this->subject);
   }
 
   /**
@@ -369,8 +357,6 @@ class tx_oelib_DataMapperTest extends \Tx_Phpunit_TestCase {
 
   public function tearDown() {
     $this->testingFramework->cleanUp();
-
-    unset($this->subject, $this->testingFramework);
   }
 
   /**
