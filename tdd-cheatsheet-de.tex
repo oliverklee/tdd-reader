@@ -85,14 +85,18 @@ Die ausführliche Version dieser Lizenz findet ihr online.\footnote{\url{http://
 
 \small
 \begin{phpcode}
-class Tx_Articlebase_Domain_Model_ArticleTest extends \Tx_Extbase_Tests_Unit_BaseTestCase {
+namespace \OliverKlee\Shop\Tests\Unit\Domain\Model;
+
+use \OliverKlee\Shop\Domain\Model\Article;
+
+class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase  {
   /**
-   * @var \Tx_Articlebase_Domain_Model_Article
+   * @var Article;
    */
-  protected $subject = NULL;
+  protected $subject = null;
 
   public function setUp() {
-    $this->subject = new Tx_Articlebase_Domain_Model_Article();
+    $this->subject = new Article;
     $this->subject->initializeObject();
   }
 
@@ -131,14 +135,14 @@ class Tx_Articlebase_Domain_Model_ArticleTest extends \Tx_Extbase_Tests_Unit_Bas
 // ext_autoload.php benutzt.
 require_once(t3lib_extMgm::extPath('oelib') . 'class.tx_oelib_Attachment.php');
 
-class tx_oelib_AttachmentTest extends \Tx_Phpunit_TestCase {
+class Tx_Oelib_Tests_Unit_AttachmentTest extends \Tx_Phpunit_TestCase {
   /**
-   * @var \tx_oelib_Attachment
+   * @var \Tx_Oelib_Attachment
    */
   protected $subject = NULL;
 
   public function setUp() {
-    $this->subject = new tx_oelib_Attachment();
+    $this->subject = new \Tx_Oelib_Attachment();
   }
 
   /**
@@ -308,28 +312,28 @@ Dies wird empfohlen, wenn die Subklasse zusätzliches oder spezifisches Verhalte
 
 Erzeugt in \texttt{Tests/Unit/Fixtures/} eine Unterklasse der abstrakten Klasse:\\
 
-\small
 \begin{phpcode}
-class Tx_Coffee_Domain_Model_TestingBeverage extends \Tx_Coffee_Domain_Model_AbstractBeverage {
+namespace OliverKlee\Coffee\Tests\Unit\Domain\Model\Fixtures;
+
+class TestingBeverage extends \OliverKlee\Coffee\Domain\Model\AbstractBeverage {
   // ...
 }
 \end{phpcode}
-\normalsize
 
-Dann könnt ihr die konkrete Unterklasse in euren Unit-Tests includen und instanziieren.\\
+Dann könnt ihr die konkrete Unterklasse in euren Unit-Tests usen und instanziieren.\\
 
 \small
 \begin{phpcode}
-require_once(t3lib_extMgm::extPath('coffee') . 'Tests/Unit/Fixtures/TestingBeverage.php');
+use OliverKlee\Coffee\Tests\Unit\Domain\Model\Fixtures\TestingBeverage;
 
 class Tx_Coffee_Domain_Model_AbstractBeverageTest {
  /**
-  * @var \Tx_Coffee_Domain_Model_TestingBeverage
+  * @var TestingBeverage
   *
- protected $subject = NULL;
+ protected $subject = null;
 
  protected function setUp() {
-   $this->subject = new Tx_Coffee_Domain_Model_TestingBeverage();
+   $this->subject = new TestingBeverage();
  }
 \end{phpcode}
 \normalsize

@@ -85,14 +85,18 @@ You can find a more comprehensive version of this license online.\footnote{\url{
 
 \small
 \begin{phpcode}
-class Tx_Articlebase_Domain_Model_ArticleTest extends \Tx_Extbase_Tests_Unit_BaseTestCase {
+namespace OliverKlee\Shop\Tests\Unit\Domain\Model;
+
+use OliverKlee\Shop\Domain\Model\Article;
+
+class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase  {
   /**
-   * @var \Tx_Articlebase_Domain_Model_Article
+   * @var Article;
    */
   protected $subject = null;
 
   public function setUp() {
-    $this->subject = new Tx_Articlebase_Domain_Model_Article();
+    $this->subject = new Article;
     $this->subject->initializeObject();
   }
 
@@ -131,14 +135,14 @@ class Tx_Articlebase_Domain_Model_ArticleTest extends \Tx_Extbase_Tests_Unit_Bas
 // does not make use of ext_autoload.php.
 require_once(t3lib_extMgm::extPath('oelib') . 'class.tx_oelib_Attachment.php');
 
-class tx_oelib_AttachmentTest extends \Tx_Phpunit_TestCase {
+class Tx_Oelib_Tests_Unit_AttachmentTest extends \Tx_Phpunit_TestCase {
   /**
-   * @var \tx_oelib_Attachment
+   * @var \Tx_Oelib_Attachment
    */
   protected $subject = null;
 
   public function setUp() {
-    $this->subject = new tx_oelib_Attachment();
+    $this->subject = new \Tx_Oelib_Attachment();
   }
 
   /**
@@ -311,29 +315,29 @@ In \texttt{Tests/Unit/Fixtures/}, create a subclass of the abstract class:\\
 
 \small
 \begin{phpcode}
-class Tx_Coffee_Domain_Model_TestingBeverage extends \Tx_Coffee_Domain_Model_AbstractBeverage {
+namespace OliverKlee\Coffee\Tests\Unit\Domain\Model\Fixtures;
+
+class TestingBeverage extends \OliverKlee\Coffee\Domain\Model\AbstractBeverage {
   // ...
 }
 \end{phpcode}
 \normalsize
 
-Then you can include and instantiate the concrete subclass in your unit tests:\\
+Then you can use and instantiate the concrete subclass in your unit tests:\\
 
-\small
 \begin{phpcode}
-require_once(t3lib_extMgm::extPath('coffee') . 'Tests/Unit/Fixtures/TestingBeverage.php');
+use OliverKlee\Coffee\Tests\Unit\Domain\Model\Fixtures\TestingBeverage;
 
 class Tx_Coffee_Domain_Model_AbstractBeverageTest {
  /**
-  * @var \Tx_Coffee_Domain_Model_TestingBeverage
+  * @var TestingBeverage
   *
  protected $subject = null;
 
  protected function setUp() {
-   $this->subject = new Tx_Coffee_Domain_Model_TestingBeverage();
+   $this->subject = new TestingBeverage();
  }
 \end{phpcode}
-\normalsize
 
 \subsection{Using eval (not recommended)}
 This is not recommended as this breaks code completion in your IDE.
