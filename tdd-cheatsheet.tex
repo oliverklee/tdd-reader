@@ -131,9 +131,9 @@ class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase  {
 
 \small
 \begin{phpcode}
-// You need to require_once the class-to-test if your extension
+// You need to require_once the class to test only if your extension
 // does not make use of ext_autoload.php.
-require_once(t3lib_extMgm::extPath('oelib') . 'class.tx_oelib_Attachment.php');
+// require_once(t3lib_extMgm::extPath('oelib') . 'class.tx_oelib_Attachment.php');
 
 class Tx_Oelib_Tests_Unit_AttachmentTest extends \Tx_Phpunit_TestCase {
   /**
@@ -181,14 +181,13 @@ class Tx_Oelib_Tests_Unit_AttachmentTest extends \Tx_Phpunit_TestCase {
 \end{phpcode}
 \normalsize
 
-\subsection{Non-TYPO3 PHP projects}
+\subsection{Non-TYPO3 PHP projects with Composer}
 
 \small
 \begin{phpcode}
-namespace Books\Domain\Model;
+namespace OliverKlee\Books\Tests\Unit\Domain\Model;
 
-$currentDirectory = dirname(__FILE__);
-require_once($currentDirectory . '../../../../../Classes/Domain/Model/Book.php');
+use OliverKlee\Books\Domain\Model;
 
 class BookTest extends \PHPUnit_Framework_TestCase {
   /**
