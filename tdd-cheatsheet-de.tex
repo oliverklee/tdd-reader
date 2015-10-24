@@ -17,7 +17,7 @@
   \url{https://github.com/oliverklee/tdd-reader}
 }
 
-\date{Version 1.5.0, \today, für TYPO3 CMS 6.2}
+\date{Version 2.0.0, \today, für TYPO3 CMS 6.2}
 
 \title{
   Spickzettel zu testgetriebener Entwicklung mit TYPO3 CMS
@@ -182,10 +182,14 @@ class Tx_Oelib_Tests_Unit_AttachmentTest extends \Tx_Phpunit_TestCase {
 \subsection{Nicht-TYPO3-PHP-Project mit Composer}
 
 \subsubsection{composer.json}
+
+Diese composer.json installiert PHPUnit und vfsStream:\\
+
 \begin{jsoncode}
 {
     "require-dev": {
-        "phpunit/phpunit": "*"
+        "phpunit/phpunit": "*",
+        "mikey179/vfsStream": "*"
     },
     "autoload": {
         "psr-4": {
@@ -359,9 +363,11 @@ class tx_oelib_DataMapperTest extends \Tx_Phpunit_TestCase {
 
 Die funktionalen Tests zur FileUtility-Klasse im Tea-Beispiel zeigen, wie Tests mit vfsStream aussehen können.
 
+
 \subsection{Einrichten}
 \begin{phpcode}
 use org\bovigo\vfs\vfsStream;
+use org\bovigo\vfs\vfsStreamDirectory;
 
 /**
  * @var \org\bovigo\vfs\vfsStreamFile
@@ -370,27 +376,52 @@ protected $moreStuff;
 
 protected function setUp() {
   // This is the same as ::register and ::setRoot.
-  $root = vfsStream::setUp('Stuff');
-  $this->moreStuff = vfsStream::newDirectory('moreStuff')->at($root);
+  $this->root = vfsStream::setup('home');
+  $this->targetFilePath = vfsStream::url('home/target.txt');
 
   $this->subject = new ...
 }
 \end{phpcode}
 
 \subsection{Die Dateien benutzen}
+\small
 \begin{phpcode}
 /**
- * @test
- */
-public function checkFileWithPathOfExistingNonEmptyFileReturnsTrue() {
-  $file = vfsStream::newFile('test.php')->at($this->moreStuff);
-  $file->withContent('Hello world!');
+  * @test
+  */
+public function concatenateWithOneEmptySourceFileCreatesEmptyTargetFile() {
+  // This is one way to create a file with contents, using PHP's file functions.
+  $sourceFileName = vfsStream::url('home/source.txt');
+  // Just calling vfsStream::url does not create the file yet.
+  // We need to write into it to create it.
+  file_put_contents($sourceFileName, '');
 
-  self::assertTrue(
-    $this->subject->checkFile(vfsStream::url('Stuff/moreStuff/test.php'))
+  $this->subject->concatenate($this->targetFilePath, array($sourceFileName));
+
+  self::assertSame(
+    '',
+    file_get_contents($this->targetFilePath)
+  );
+}
+
+/**
+  * @test
+  */
+public function concatenateWithOneFileCopiesContentsFromSourceFileToTargetFile() {
+  // This is vfsStream's way of creating a file with contents.
+  $contents = 'Hello world!';
+  $sourceFileName = vfsStream::url('home/source.txt');
+  vfsStream::newFile('source.txt')->at($this->root)->setContent($contents);
+
+  $this->subject->concatenate($this->targetFilePath, array($sourceFileName));
+
+  self::assertSame(
+    $contents,
+    file_get_contents($this->targetFilePath)
   );
 }
 \end{phpcode}
+\normalsize
 
 
 \section{PHPUnit-Assertions}
