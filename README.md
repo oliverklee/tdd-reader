@@ -1,5 +1,7 @@
 # Handout for workshops on Test-driven Development with TYPO3 CMS
 
+[![Flattr this git repo](https://button.flattr.com/flattr-badge-large.png)](https://flattr.com/submit/auto?fid=45y2xw&url=https%3A%2F%2Fgithub.com%2Foliverklee%2Ftdd-reader)
+
 In this repository, you can find the English and German handout for my
 workshops on test-driven development (TDD) and unit testing for TYPO3 CMS
 using PHPUnit.
