@@ -17,7 +17,7 @@
   \url{https://github.com/oliverklee/tdd-reader}
 }
 
-\date{Version 2.0.0, \today, für TYPO3 CMS 6.2}
+\date{Version 2.0.1, \today, für TYPO3 CMS 6.2}
 
 \title{
   Spickzettel zu testgetriebener Entwicklung mit TYPO3 CMS
@@ -91,40 +91,43 @@ namespace \OliverKlee\Shop\Tests\Unit\Domain\Model;
 
 use OliverKlee\Shop\Domain\Model\Article;
 
-class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase  {
-  /**
-   * @var Article;
-   */
-  protected $subject = null;
+class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
+    /**
+     * @var Article;
+     */
+    protected $subject = null;
 
-  protected function setUp() {
-    $this->subject = new Article;
-    $this->subject->initializeObject();
-  }
+    protected function setUp()
+    {
+        $this->subject = new Article;
+        $this->subject->initializeObject();
+    }
 
-  /**
-   * @test
-   */
-  public function getNameInitiallyReturnsEmptyString() {
-    self::assertSame(
-      '',
-      $this->subject->getName()
-    );
-  }
+    /**
+     * @test
+     */
+    public function getNameInitiallyReturnsEmptyString()
+    {
+        self::assertSame(
+            '',
+            $this->subject->getName()
+        );
+    }
 
-  /**
-   * @test
-   */
-  public function setNameSetsName() {
-    $this->subject->setName('foo bar');
+    /**
+     * @test
+     */
+    public function setNameSetsName()
+    {
+        $this->subject->setName('foo bar');
 
-    self::assertSame(
-      'foo bar',
-      $this->subject->getName()
-    );
-  }
+        self::assertSame(
+            'foo bar',
+            $this->subject->getName()
+        );
+    }
 
-  // ...
+    // ...
 }
 \end{phpcode}
 
@@ -136,46 +139,50 @@ class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase  {
 // require_once(t3lib_extMgm::extPath('oelib') . 'Classes/Attachment.php');
 
 class Tx_Oelib_Tests_Unit_AttachmentTest extends \Tx_Phpunit_TestCase {
-  /**
-   * @var \Tx_Oelib_Attachment
-   */
-  protected $subject = NULL;
+    /**
+     * @var \Tx_Oelib_Attachment
+     */
+    protected $subject = null;
 
-  protected function setUp() {
-    $this->subject = new \Tx_Oelib_Attachment();
-  }
+    protected function setUp()
+    {
+        $this->subject = new \Tx_Oelib_Attachment();
+    }
 
-  /**
-   * @test
-   */
-  public function getFileNameInitiallyReturnsAnEmptyString() {
-    self::assertSame(
-      '',
-      $this->subject->getFileName()
-    );
-  }
+    /**
+     * @test
+     */
+    public function getFileNameInitiallyReturnsAnEmptyString()
+    {
+        self::assertSame(
+            '',
+            $this->subject->getFileName()
+        );
+    }
 
-  /**
-   * @test
-   */
-  public function getFileNameWithFileNameSetReturnsFileName() {
-    $this->subject->setFileName('test.txt');
+    /**
+     * @test
+     */
+    public function getFileNameWithFileNameSetReturnsFileName()
+    {
+        $this->subject->setFileName('test.txt');
 
-    self::assertSame(
-      'test.txt',
-      $this->subject->getFileName()
-    );
-  }
+        self::assertSame(
+            'test.txt',
+            $this->subject->getFileName()
+        );
+    }
 
-  /**
-   * @test
-   * @expectedException \InvalidArgumentException
-   */
-  public function setFileNameWithEmptyFileNameThrowsException() {
-    $this->subject->setFileName('');
-  }
+    /**
+     * @test
+     * @expectedException \InvalidArgumentException
+     */
+    public function setFileNameWithEmptyFileNameThrowsException()
+    {
+        $this->subject->setFileName('');
+    }
 
-  // ...
+    // ...
 }
 \end{phpcode}
 
@@ -206,36 +213,39 @@ namespace OliverKlee\Books\Tests\Unit\Domain\Model;
 use OliverKlee\Books\Domain\Model;
 
 class BookTest extends \PHPUnit_Framework_TestCase {
-  /**
-   * @var Book
-   */
-  protected $subject = NULL;
+    /**
+     * @var Book
+     */
+    protected $subject = null;
 
-  protected function setUp() {
-    $this->subject = new Book();
-  }
+    protected function setUp()
+    {
+        $this->subject = new Book();
+    }
 
-  /**
-   * @test
-   */
-  public function getTitleInitiallyReturnsEmptyString() {
-    self::assertSame(
-      '',
-      $this->subject->getTitle()
-    );
-  }
+    /**
+     * @test
+     */
+    public function getTitleInitiallyReturnsEmptyString()
+    {
+        self::assertSame(
+            '',
+            $this->subject->getTitle()
+        );
+    }
 
-  /**
-   * @test
-   */
-  public function setTitleSetsTitle() {
-    $this->subject->setTitle('foo bar');
+    /**
+     * @test
+     */
+    public function setTitleSetsTitle()
+    {
+        $this->subject->setTitle('foo bar');
 
-    self::assertSame(
-      'foo bar',
-      $this->subject->getTitle()
-    );
-  }
+        self::assertSame(
+            'foo bar',
+            $this->subject->getTitle()
+        );
+    }
 }
 \end{phpcode}
 
@@ -247,8 +257,9 @@ class BookTest extends \PHPUnit_Framework_TestCase {
  * @test
  * @expectedException InvalidArgumentException
  */
-public function createBreadWithNegativeSizeThrowsException() {
-  $this->subject->createBread(-1);
+public function createBreadWithNegativeSizeThrowsException()
+{
+    $this->subject->createBread(-1);
 }
 \end{phpcode}
 
@@ -260,8 +271,9 @@ public function createBreadWithNegativeSizeThrowsException() {
  * @expectedExceptionMessage size must be > 0.
  * @expectedExceptionCode 1323700434
  */
-public function createBreadWithNegativeSizeThrowsException() {
-  $this->subject->createBread(-1);
+public function createBreadWithNegativeSizeThrowsException()
+{
+    $this->subject->createBread(-1);
 }
 \end{phpcode}
 
@@ -277,16 +289,17 @@ namespace OliverKlee\Coffee\Tests\Unit\Domain\Model;
 use OliverKlee\Coffee\Domain\Model\AbstractBeverage;
 
 class Tx_Coffee_Domain_Model_AbstractBeverageTest {
- /**
-  * @var AbstractBeverage|\PHPUnit_Framework_MockObject_MockObject
-  *
- protected $subject = null;
+    /**
+     * @var AbstractBeverage|\PHPUnit_Framework_MockObject_MockObject
+     *
+    protected $subject = null;
 
- protected function setUp() {
-   $this->subject = $this->getMockForAbstractClass(
-     'OliverKlee\\Coffee\\Domain\\Model\\AbstractBeverage'
-   );
- }
+    protected function setUp()
+    {
+        $this->subject = $this->getMockForAbstractClass(
+            'OliverKlee\\Coffee\\Domain\\Model\\AbstractBeverage'
+        );
+    }
 \end{phpcode}
 
 \subsection{Eine konkrete Unterklasse erstellen}
@@ -299,7 +312,7 @@ Erzeugt in \texttt{Tests/Unit/Unit/Domain/Model/Fixtures/} eine Unterklasse der 
 namespace OliverKlee\Coffee\Tests\Unit\Domain\Model\Fixtures;
 
 class TestingBeverage extends \OliverKlee\Coffee\Domain\Model\AbstractBeverage {
-  // ...
+    // ...
 }
 \end{phpcode}
 
@@ -309,14 +322,15 @@ Dann könnt ihr die konkrete Unterklasse in euren Unit-Tests usen und instanziie
 use OliverKlee\Coffee\Tests\Unit\Domain\Model\Fixtures\TestingBeverage;
 
 class Tx_Coffee_Domain_Model_AbstractBeverageTest {
- /**
-  * @var TestingBeverage
-  *
- protected $subject = null;
+    /**
+     * @var TestingBeverage
+     *
+    protected $subject = null;
 
- protected function setUp() {
-   $this->subject = new TestingBeverage();
- }
+    protected function setUp()
+    {
+        $this->subject = new TestingBeverage();
+    }
 \end{phpcode}
 
 
@@ -324,36 +338,39 @@ class Tx_Coffee_Domain_Model_AbstractBeverageTest {
 
 \begin{phpcode}
 class tx_oelib_DataMapperTest extends \Tx_Phpunit_TestCase {
-  /**
-   * @var \Tx_Phpunit_Framework
-   */
-  protected $testingFramework = NULL;
+    /**
+     * @var \Tx_Phpunit_Framework
+     */
+    protected $testingFramework = null;
 
-  protected $subject = NULL;
+    protected $subject = null;
 
-  protected function setUp() {
-    $this->testingFramework = new Tx_Phpunit_Framework('tx_oelib');
+    protected function setUp()
+    {
+        $this->testingFramework = new Tx_Phpunit_Framework('tx_oelib');
 
-    $this->subject = new ...;
-  }
+        $this->subject = new ...;
+    }
 
-  protected function tearDown() {
-    $this->testingFramework->cleanUp();
-  }
+    protected function tearDown()
+    {
+        $this->testingFramework->cleanUp();
+    }
 
-  /**
-   * @test
-   */
-  public function findWithUidOfExistingRecordReturnsModelDataFromDatabase() {
-    $uid = $this->testingFramework->createRecord(
-      'tx_oelib_test', array('title' => 'foo')
-    );
+    /**
+     * @test
+     */
+    public function findWithUidOfExistingRecordReturnsModelDataFromDatabase()
+    {
+        $uid = $this->testingFramework->createRecord(
+            'tx_oelib_test', array('title' => 'foo')
+        );
 
-    self::assertSame(
-      'foo',
-      $this->subject->find($uid)->getTitle()
-    );
-  }
+        self::assertSame(
+            'foo',
+            $this->subject->find($uid)->getTitle()
+        );
+    }
 \end{phpcode}
 
 
@@ -374,12 +391,13 @@ use org\bovigo\vfs\vfsStreamDirectory;
  */
 protected $moreStuff;
 
-protected function setUp() {
-  // This is the same as ::register and ::setRoot.
-  $this->root = vfsStream::setup('home');
-  $this->targetFilePath = vfsStream::url('home/target.txt');
+protected function setUp()
+{
+    // This is the same as ::register and ::setRoot.
+    $this->root = vfsStream::setup('home');
+    $this->targetFilePath = vfsStream::url('home/target.txt');
 
-  $this->subject = new ...
+    $this->subject = new ...
 }
 \end{phpcode}
 
@@ -387,38 +405,40 @@ protected function setUp() {
 \small
 \begin{phpcode}
 /**
-  * @test
-  */
-public function concatenateWithOneEmptySourceFileCreatesEmptyTargetFile() {
-  // This is one way to create a file with contents, using PHP's file functions.
-  $sourceFileName = vfsStream::url('home/source.txt');
-  // Just calling vfsStream::url does not create the file yet.
-  // We need to write into it to create it.
-  file_put_contents($sourceFileName, '');
+ * @test
+ */
+public function concatenateWithOneEmptySourceFileCreatesEmptyTargetFile()
+{
+    // This is one way to create a file with contents, using PHP's file functions.
+    $sourceFileName = vfsStream::url('home/source.txt');
+    // Just calling vfsStream::url does not create the file yet.
+    // We need to write into it to create it.
+    file_put_contents($sourceFileName, '');
 
-  $this->subject->concatenate($this->targetFilePath, array($sourceFileName));
+    $this->subject->concatenate($this->targetFilePath, array($sourceFileName));
 
-  self::assertSame(
-    '',
-    file_get_contents($this->targetFilePath)
-  );
+    self::assertSame(
+        '',
+        file_get_contents($this->targetFilePath)
+    );
 }
 
 /**
-  * @test
-  */
-public function concatenateWithOneFileCopiesContentsFromSourceFileToTargetFile() {
-  // This is vfsStream's way of creating a file with contents.
-  $contents = 'Hello world!';
-  $sourceFileName = vfsStream::url('home/source.txt');
-  vfsStream::newFile('source.txt')->at($this->root)->setContent($contents);
+ * @test
+ */
+public function concatenateWithOneFileCopiesContentsFromSourceFileToTargetFile()
+{
+    // This is vfsStream's way of creating a file with contents.
+    $contents = 'Hello world!';
+    $sourceFileName = vfsStream::url('home/source.txt');
+    vfsStream::newFile('source.txt')->at($this->root)->setContent($contents);
 
-  $this->subject->concatenate($this->targetFilePath, array($sourceFileName));
+    $this->subject->concatenate($this->targetFilePath, array($sourceFileName));
 
-  self::assertSame(
-    $contents,
-    file_get_contents($this->targetFilePath)
-  );
+    self::assertSame(
+        $contents,
+        file_get_contents($this->targetFilePath)
+    );
 }
 \end{phpcode}
 \normalsize
