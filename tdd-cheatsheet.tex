@@ -291,13 +291,13 @@ use OliverKlee\Coffee\Domain\Model\AbstractBeverage;
 class Tx_Coffee_Domain_Model_AbstractBeverageTest {
     /**
      * @var AbstractBeverage|\PHPUnit_Framework_MockObject_MockObject
-     *
+     */
     protected $subject = null;
 
     protected function setUp()
     {
         $this->subject = $this->getMockForAbstractClass(
-            'OliverKlee\\Coffee\\Domain\\Model\\AbstractBeverage'
+            AbstractBeverage::class
         );
     }
 \end{phpcode}
