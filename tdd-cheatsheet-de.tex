@@ -58,8 +58,6 @@ Die ausführliche Version dieser Lizenz findet ihr online.\footnote{\url{http://
   \hline
   \texttt{Classes/Service/BaristaService.php} & \texttt{Tests/Unit/Service/BaristaServiceTest.php} \\
   \hline
-  \texttt{pi1/class.tx\_frubble\_pi1.php} & \texttt{Tests/Unit/pi1/pi1Test.php} \\
-  \hline
 \end{tabular}
 
 
@@ -73,8 +71,6 @@ Die ausführliche Version dieser Lizenz findet ihr online.\footnote{\url{http://
   \texttt{OliverKlee\textbackslash Shop\textbackslash Domain\textbackslash Model\textbackslash Shoe} & \texttt{OliverKlee\textbackslash Shop\textbackslash Tests\textbackslash Unit\textbackslash Domain\textbackslash Model\textbackslash ShoeTest} \\
   \hline
   \texttt{OliverKlee\textbackslash Shop\textbackslash Service\textbackslash BaristaService} & \texttt{OliverKlee\textbackslash Shop\textbackslash Tests\textbackslash Unit\textbackslash Service\textbackslash BaristaServiceTest} \\
-  \hline
-  \texttt{tx\_frubble\_pi1} & \texttt{tx\_frubble\_Tests\_Unit\_pi1\_pi1Test} \\
   \hline
 \end{tabular}
 \normalsize
@@ -134,11 +130,7 @@ class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 \subsection{Nicht-Extbase-Extensions}
 
 \begin{phpcode}
-// Hier die zu testende Klasse nur dann einbinden, wenn eure Extension keine
-// ext_autoload.php benutzt.
-// require_once(t3lib_extMgm::extPath('oelib') . 'Classes/Attachment.php');
-
-class Tx_Oelib_Tests_Unit_AttachmentTest extends \Tx_Phpunit_TestCase {
+class AttachmentTest extends \Tx_Phpunit_TestCase {
     /**
      * @var \Tx_Oelib_Attachment
      */
@@ -288,7 +280,7 @@ namespace OliverKlee\Coffee\Tests\Unit\Domain\Model;
 
 use OliverKlee\Coffee\Domain\Model\AbstractBeverage;
 
-class Tx_Coffee_Domain_Model_AbstractBeverageTest {
+class AbstractBeverageTest {
     /**
      * @var AbstractBeverage|\PHPUnit_Framework_MockObject_MockObject
      */
@@ -321,7 +313,7 @@ Dann könnt ihr die konkrete Unterklasse in euren Unit-Tests usen und instanziie
 \begin{phpcode}
 use OliverKlee\Coffee\Tests\Unit\Domain\Model\Fixtures\TestingBeverage;
 
-class Tx_Coffee_Domain_Model_AbstractBeverageTest {
+class AbstractBeverageTest {
     /**
      * @var TestingBeverage
      *
@@ -337,7 +329,7 @@ class Tx_Coffee_Domain_Model_AbstractBeverageTest {
 \section{Das Test-Framework der PHPUnit-TYPO3-Extension benutzen}
 
 \begin{phpcode}
-class tx_oelib_DataMapperTest extends \Tx_Phpunit_TestCase {
+class _DataMapperTest extends \Tx_Phpunit_TestCase {
     /**
      * @var \Tx_Phpunit_Framework
      */
@@ -347,7 +339,7 @@ class tx_oelib_DataMapperTest extends \Tx_Phpunit_TestCase {
 
     protected function setUp()
     {
-        $this->testingFramework = new Tx_Phpunit_Framework('tx_oelib');
+        $this->testingFramework = new \Tx_Phpunit_Framework('tx_oelib');
 
         $this->subject = new ...;
     }
