@@ -75,6 +75,8 @@ You can find a more comprehensive version of this license online.\footnote{\url{
 \end{tabular}
 \normalsize
 
+
+\pagebreak
 \section{Test class structure}
 
 \subsection{Extbase extensions}
@@ -104,10 +106,7 @@ class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
      */
     public function getNameInitiallyReturnsEmptyString()
     {
-        self::assertSame(
-            '',
-            $this->subject->getName()
-        );
+        self::assertSame('', $this->subject->getName());
     }
 
     /**
@@ -115,12 +114,11 @@ class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
      */
     public function setNameSetsName()
     {
-        $this->subject->setName('foo bar');
+        $name = 'foo bar';
 
-        self::assertSame(
-            'foo bar',
-            $this->subject->getName()
-        );
+        $this->subject->setName($name);
+
+        self::assertSame($name, $this->subject->getName());
     }
 
     // ...
@@ -146,10 +144,7 @@ class AttachmentTest extends \Tx_Phpunit_TestCase {
      */
     public function getFileNameInitiallyReturnsAnEmptyString()
     {
-        self::assertSame(
-            '',
-            $this->subject->getFileName()
-        );
+        self::assertSame('', $this->subject->getFileName());
     }
 
     /**
@@ -157,12 +152,11 @@ class AttachmentTest extends \Tx_Phpunit_TestCase {
      */
     public function getFileNameWithFileNameSetReturnsFileName()
     {
-        $this->subject->setFileName('test.txt');
+        $fileName = 'test.txt';
 
-        self::assertSame(
-            'test.txt',
-            $this->subject->getFileName()
-        );
+        $this->subject->setFileName($fileName);
+
+        self::assertSame($fileName, $this->subject->getFileName());
     }
 
     /**
@@ -220,10 +214,7 @@ class BookTest extends \PHPUnit_Framework_TestCase {
      */
     public function getTitleInitiallyReturnsEmptyString()
     {
-        self::assertSame(
-            '',
-            $this->subject->getTitle()
-        );
+        self::assertSame('', $this->subject->getTitle());
     }
 
     /**
@@ -231,16 +222,17 @@ class BookTest extends \PHPUnit_Framework_TestCase {
      */
     public function setTitleSetsTitle()
     {
-        $this->subject->setTitle('foo bar');
+        $title = 'foo bar';
 
-        self::assertSame(
-            'foo bar',
-            $this->subject->getTitle()
-        );
+        $this->subject->setTitle($title);
+
+        self::assertSame('foo bar', $this->subject->getTitle());
     }
 }
 \end{phpcode}
 
+
+\pagebreak
 \section{Testing for Exceptions}
 
 \subsection{Test for the Exception class only}
@@ -269,6 +261,8 @@ public function createBreadWithNegativeSizeThrowsException()
 }
 \end{phpcode}
 
+
+\pagebreak
 \section{Testing abstract classes}
 
 \subsection{Using the PHPUnit mock builder}
@@ -324,6 +318,8 @@ class AbstractBeverageTest {
     }
 \end{phpcode}
 
+
+\pagebreak
 \section{Using the testing framework of the PHPUnit TYPO3 extension}
 
 \begin{phpcode}
@@ -352,14 +348,12 @@ class DataMapperTest extends \Tx_Phpunit_TestCase {
      */
     public function findWithUidOfExistingRecordReturnsModelDataFromDatabase()
     {
+        $title = 'foo';
         $uid = $this->testingFramework->createRecord(
-            'tx_oelib_test', ['title' => 'foo']
+            'tx_oelib_test', ['title' => $title]
         );
 
-        self::assertSame(
-            'foo',
-            $this->subject->find($uid)->getTitle()
-        );
+        self::assertSame($title, $this->subject->find($uid)->getTitle());
     }
 \end{phpcode}
 
@@ -368,6 +362,7 @@ class DataMapperTest extends \Tx_Phpunit_TestCase {
 The functional tests for the FileUtility class in the tea example show what tests with vfsStream can look like.
 
 
+\pagebreak
 \section{Using mock file systems with vfsStream}
 \subsection{Setting it all up}
 \begin{phpcode}
@@ -405,10 +400,7 @@ public function concatenateWithOneEmptySourceFileCreatesEmptyTargetFile()
 
     $this->subject->concatenate($this->targetFilePath, [$sourceFileName]);
 
-    self::assertSame(
-        '',
-        file_get_contents($this->targetFilePath)
-    );
+    self::assertSame('', file_get_contents($this->targetFilePath));
 }
 
 /**
@@ -423,15 +415,12 @@ public function concatenateWithOneFileCopiesContentsFromSourceFileToTargetFile()
 
     $this->subject->concatenate($this->targetFilePath, [$sourceFileName]);
 
-    self::assertSame(
-        $contents,
-        file_get_contents($this->targetFilePath)
-    );
+    self::assertSame($contents, file_get_contents($this->targetFilePath));
 }
 \end{phpcode}
 \normalsize
 
-
+\pagebreak
 \section{PHPUnit assertions}
 This list is current for PHPUnit 4.8.x.
 
