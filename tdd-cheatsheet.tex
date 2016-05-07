@@ -361,7 +361,7 @@ class tx_oelib_DataMapperTest extends \Tx_Phpunit_TestCase {
     public function findWithUidOfExistingRecordReturnsModelDataFromDatabase()
     {
         $uid = $this->testingFramework->createRecord(
-            'tx_oelib_test', array('title' => 'foo')
+            'tx_oelib_test', ['title' => 'foo']
         );
 
         self::assertSame(
@@ -411,7 +411,7 @@ public function concatenateWithOneEmptySourceFileCreatesEmptyTargetFile()
     // We need to write into it to create it.
     file_put_contents($sourceFileName, '');
 
-    $this->subject->concatenate($this->targetFilePath, array($sourceFileName));
+    $this->subject->concatenate($this->targetFilePath, [$sourceFileName]);
 
     self::assertSame(
         '',
@@ -429,7 +429,7 @@ public function concatenateWithOneFileCopiesContentsFromSourceFileToTargetFile()
     $sourceFileName = vfsStream::url('home/source.txt');
     vfsStream::newFile('source.txt')->at($this->root)->setContent($contents);
 
-    $this->subject->concatenate($this->targetFilePath, array($sourceFileName));
+    $this->subject->concatenate($this->targetFilePath, [$sourceFileName]);
 
     self::assertSame(
         $contents,
