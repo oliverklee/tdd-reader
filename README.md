@@ -6,10 +6,16 @@ In this repository, you can find the English and German handout for my
 workshops on test-driven development (TDD) and unit testing for TYPO3 CMS
 using PHPUnit.
 
-The directory [additional-documents/](additional-documents/) contains additional
+
+The directory [AdditionalDocuments/](AdditionalDocuments/) contains additional
 single documents:
 
-* the [PHPUnit mocking cheatsheet](additional-documents/mocking-cheatsheet.pdf)
+* the [PHPUnit mocking cheatsheet](AdditionalDocuments/mocking-cheatsheet.pdf)
+
+
+The directory [Resources/](Resources/) contains additional resources:
+
+* the [Live Templates for tests in PhpStorm](Resources/PhpStorm/LiveTemplates.jar)
 
 
 ## Example projects
