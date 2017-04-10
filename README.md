@@ -28,6 +28,8 @@ The directory [Resources/](Resources/) contains additional resources:
   is the finished result of a code kata for TDD
 * [Coffee example](https://github.com/oliverklee/coffee)
   is my starting point for demonstrating TDD
+* [TDD Seed](https://github.com/oliverklee/tdd-seed)
+  for starting PHPUnit projects with Composer (without TYPO3 CMS)
 
 
 ## About me (Oliver Klee)
