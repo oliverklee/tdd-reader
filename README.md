@@ -10,6 +10,7 @@ using PHPUnit.
 The directory [AdditionalDocuments/](AdditionalDocuments/) contains additional
 single documents:
 
+* the [Prophecy cheatsheet](AdditionalDocuments/prophecy-cheatsheet.pdf)
 * the [PHPUnit mocking cheatsheet](AdditionalDocuments/mocking-cheatsheet.pdf)
 
 

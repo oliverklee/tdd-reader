@@ -130,3 +130,6 @@ sympy-plots-for-*.tex/
 
 # PhpStorm
 .idea
+
+# Mac
+.DS_Store
