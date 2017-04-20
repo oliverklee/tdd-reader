@@ -7,8 +7,8 @@
 
 \hypersetup{
  pdfauthor={Oliver Klee, typo3-coding@oliverklee.de},
- pdftitle={Testgetriebene Entwicklung mit TYPO3 CMS},
- pdfsubject={Handout zu Oliver Klees workshops zu testgetriebener Entwicklung mit TYPO3 CMS.},
+ pdftitle={Testgetriebene Entwicklung mit PHPUnit (mit oder ohne TYPO3)},
+ pdfsubject={Handout zu Oliver Klees Workshops zu testgetriebener Entwicklung mit PHPUnit (mit oder ohne TYPO3).},
  pdfkeywords={TDD, unit testing, PHPUnit, workshop, seminar, PHP}
 }
 
@@ -17,10 +17,10 @@
   \url{https://github.com/oliverklee/tdd-reader}
 }
 
-\date{Version 2.0.1, \today, für TYPO3 CMS 6.2}
+\date{Version 2.0.2, \today, für TYPO3 CMS 6.2}
 
 \title{
-  Spickzettel zu testgetriebener Entwicklung mit TYPO3 CMS
+  Spickzettel zu testgetriebener Entwicklung mit PHPUnit (mit oder ohne TYPO3)
 }
 
 \begin{document}
@@ -174,15 +174,39 @@ class AttachmentTest extends \Tx_Phpunit_TestCase {
 
 \subsection{Nicht-TYPO3-PHP-Project mit Composer}
 
+Es gibt auf GitHub dazu auch ein leeres Startprojekt:\\
+\url{https://github.com/oliverklee/tdd-seed}
+
 \subsubsection{composer.json}
 
-Diese composer.json installiert PHPUnit und vfsStream:\\
+Diese composer.json installiert PHPUnit und vfsStream für \fett{PHP bis 5.6}:\\
 
 \begin{jsoncode}
 {
     "require-dev": {
-        "phpunit/phpunit": "~4.8.0",
-        "mikey179/vfsStream": "*"
+        "phpunit/phpunit": "^5.7.19",
+        "mikey179/vfsStream": "^1.6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "..."
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "..."
+        }
+    }
+}
+\end{jsoncode}
+
+Diese composer.json installiert PHPUnit und vfsStream für \fett{PHP ab 6}:\\
+
+\begin{jsoncode}
+{
+    "require-dev": {
+        "phpunit/phpunit": "^6.0.13",
+        "mikey179/vfsStream": "^1.6.4"
     },
     "autoload": {
         "psr-4": {
