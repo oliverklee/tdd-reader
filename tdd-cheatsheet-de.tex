@@ -17,10 +17,10 @@
   \url{https://github.com/oliverklee/tdd-reader}
 }
 
-\date{Version 2.0.2, \today, für TYPO3 CMS 6.2}
+\date{Version 2.0.2, \today, für PHP >= 5.6 und TYPO3 CMS 7.6}
 
 \title{
-  Spickzettel zu testgetriebener Entwicklung mit PHPUnit (mit oder ohne TYPO3)
+  Spickzettel zu testgetriebener Entwicklung mit PHPUnit
 }
 
 \begin{document}
@@ -68,13 +68,12 @@ Die ausführliche Version dieser Lizenz findet ihr online.\footnote{\url{http://
   \hline
   \fett{Name der Klasse im Produktionscode} & \fett{Name der Testklasse} \\
   \hline
-  \texttt{OliverKlee\textbackslash Shop\textbackslash Domain\textbackslash Model\textbackslash Shoe} & \texttt{OliverKlee\textbackslash Shop\textbackslash Tests\textbackslash Unit\textbackslash Domain\textbackslash Model\textbackslash ShoeTest} \\
+  \texttt{Shoes\textbackslash Shop\textbackslash Domain\textbackslash Model\textbackslash Shoe} & \texttt{Shoes\textbackslash Shop\textbackslash Tests\textbackslash Unit\textbackslash Domain\textbackslash Model\textbackslash ShoeTest} \\
   \hline
-  \texttt{OliverKlee\textbackslash Shop\textbackslash Service\textbackslash BaristaService} & \texttt{OliverKlee\textbackslash Shop\textbackslash Tests\textbackslash Unit\textbackslash Service\textbackslash BaristaServiceTest} \\
+  \texttt{Shoes\textbackslash Shop\textbackslash Service\textbackslash BaristaService} & \texttt{Shoes\textbackslash Shop\textbackslash Tests\textbackslash Unit\textbackslash Service\textbackslash BaristaServiceTest} \\
   \hline
 \end{tabular}
 \normalsize
-
 
 \pagebreak
 \section{Struktur von Testklassen}
@@ -353,7 +352,7 @@ class AbstractBeverageTest {
 \section{Das Test-Framework der PHPUnit-TYPO3-Extension benutzen}
 
 \begin{phpcode}
-class _DataMapperTest extends \Tx_Phpunit_TestCase {
+class DataMapperTest extends \Tx_Phpunit_TestCase {
     /**
      * @var \Tx_Phpunit_Framework
      */
