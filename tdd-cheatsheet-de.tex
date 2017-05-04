@@ -260,6 +260,23 @@ class BookTest extends \PHPUnit_Framework_TestCase {
 \end{phpcode}
 
 
+\section{Mocks}
+
+\subsection{Warum mocken?}
+\begin{itemize}
+  \item um eine Methode \glqq auszuschalten\grqq\ (damit sie nicht in die DB schreibt, kein Cruise-Missile abschießt etc.) und \texttt{null} zurückzugeben
+  \item um einer Methode einen bestimmten Rückgabewert zu geben oder sie eine Exception werfen zu lassen
+  \item um zu testen, dass eine Methode auf eine bestimmte Art und Weise aufgerufen wird
+\end{itemize}
+
+\subsection{Tools für Mocks}
+
+\paragraph{Prophecy:} Das empfohlene, einfach benutzbare, aktuelle Mocking-Framework. Allerdings kann es keine partiellen Mocks erzeugen.\footnote{Prophecy-Cheatsheet:\\ \url{https://github.com/oliverklee/tdd-reader/blob/master/AdditionalDocuments/prophecy-cheatsheet.pdf}}
+\paragraph{PHPUnit mocks:} Die alte Art, Mocks zu erzeugen. Mocking ist damit etwas unhandlich, aber dafür kann es auch partielle Mocks erzeugen.\footnote{PHPUnit-Mocking-Cheatsheet:\\ \url{https://github.com/oliverklee/tdd-reader/blob/master/AdditionalDocuments/mocking-cheatsheet.pdf}}
+\paragraph{Mockery:} Auch sehr elegant.\footnote{\url{https://github.com/mockery/mockery}}
+
+
+
 \pagebreak
 \section{Auf Exceptions testen}
 
