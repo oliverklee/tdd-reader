@@ -41,10 +41,20 @@ Die ausführliche Version dieser Lizenz findet ihr online.\footnote{\url{http://
 
 
 \pagebreak
-
 \tableofcontents
 
 \pagebreak
+\section{Ein Wort zu TYPO3 CMS 8.7}
+
+Die TYPO3-spezifischen Teile dieses Handouts passen zu TYPO3 CMS 7.6. Für die Version 8.7 gibt es ein paar Unterschiede:
+
+\begin{itemize}
+  \item Benutzt das TYPO3-Testing-Framework\footnote{\url{https://github.com/TYPO3/testing-framework}} anstelle des Testing-Frameworks des PHPUnit-Extension.
+  \item Die Test-Basisklasse kommt jetzt aus dem TYPO3-Testing-Framework und nicht mehr aus dem TYPO3-Core.
+  \item Da TYPO3 CMS 8.7 kein PHP 5.6 mehr unterstützt, könnt könnt ihr PHPUnit 6 benutzen (das PHP 7 erfordert).
+\end{itemize}
+
+
 
 \section{Benennung von Dateien und Klassen}
 
