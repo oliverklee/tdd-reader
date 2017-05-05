@@ -161,7 +161,7 @@ class AttachmentTest extends \Tx_Phpunit_TestCase {
 
     /**
      * @test
-     * @expectedException \InvalidArgumentException
+     * @expectedException \UnexpectedValueException
      */
     public function setFileNameWithEmptyFileNameThrowsException()
     {
@@ -262,6 +262,171 @@ class BookTest extends \PHPUnit_Framework_TestCase {
 \end{phpcode}
 
 
+\pagebreak
+\section{Executing the tests}
+
+\subsection{Non-TYPO3 projects}
+
+\subsubsection{On the command line}
+
+\begin{bashcode}
+vendor/bin/phpunit Test/
+\end{bashcode}
+
+\subsubsection{Within PhpStorm}
+\begin{enumerate}
+  \item Settings > Languages \& Frameworks > PHP > PHPUnit
+  \item PHPUnit library > Use Composer autoloader
+  \item PHPUnit library > Path to script: \texttt{vendor/autoload}
+  \item OK
+  \item right-click on the \texttt{Tests/} folder (or any test file or folder)
+  \item Run 'Tests'
+\end{enumerate}
+
+
+\subsection{TYPO3 extensions}
+
+\subsubsection{Within PhpStorm}
+
+\paragraph{For an existing TYPO3 installation in Composer mode:}
+
+This will also load all existing extensions (including the PHPUnit extension), making it possible to use the features of the PHPUnit extension.
+
+\begin{enumerate}
+  \item Settings > Languages \& Frameworks > PHP > PHPUnit
+  \item PHPUnit library > Use Composer autoloader
+  \item PHPUnit library > Path to script: \texttt{vendor/autoload} within the TYPO3 document root
+  \item Test runner > Default configuration file: \texttt{typo3/sysext/core/Build/UnitTests.xml} within the TYPO3 document root
+  \item OK
+  \item Run > Edit Configurations
+  \item Defaults > PHPUnit
+  \item Command Line > Environment variables
+  \item add two variables:
+    \begin{itemize}
+      \item \texttt{TYPO3\_CONTENT = Development}
+      \item \texttt{TYPO3\_PATH\_WEB =} the absolute path to the TYPO3 document root (without the trailing slash)
+    \end{itemize}
+  \item right-click on the \texttt{Tests/} folder (or any test file or folder)
+  \item Run 'Tests'
+\end{enumerate}
+
+
+\paragraph{For an existing TYPO3 installation in classic mode (non-Composer mode):}
+
+In this case, you will not be able to autoload any classe from other extensions, i.\,e., you will not be able to use any features of the PHPUnit extension (or of any other extension dependencies).
+
+\begin{enumerate}
+  \item If you have downloaded the TYPO3 source via git instead of as a TAR package, you'll need to do a \texttt{composer install} in the TYPO3 source directory.
+  \item Settings > Languages \& Frameworks > PHP > PHPUnit
+  \item PHPUnit library > Use Composer autoloader
+  \item PHPUnit library > Path to script: \texttt{vendor/autoload} within the TYPO3 source
+  \item Test runner > Default configuration file: \texttt{typo3/sysext/core/Build/UnitTests.xml} within the TYPO3 document root
+  \item OK
+  \item Run > Edit Configurations
+  \item Defaults > PHPUnit
+  \item Command Line > Environment variables
+  \item add two variables:
+    \begin{itemize}
+      \item \texttt{TYPO3\_CONTENT = Development}
+      \item \texttt{TYPO3\_PATH\_WEB =} the absolute path to the TYPO3 document root (without the trailing slash)
+    \end{itemize}
+  \item right-click on the \texttt{Tests/} folder (or any test file or folder)
+  \item Run 'Tests'
+\end{enumerate}
+
+
+\paragraph{Without using an existing TYPO3 installation}
+
+This is the approach used in the TYPO3 extension skeleton\footnote{\url{https://github.com/helhum/ext_scaffold}} by Helmut Hummel and Nicole Cordes.
+
+Add the following sections the \texttt{composer.json} of your extension:
+
+\small
+\begin{jsoncode}
+"require": {
+  "typo3/cms": "~7.6.0"
+},
+"require-dev": {
+  "namelesscoder/typo3-repository-client": "^1.2",
+  "nimut/testing-framework": "^1.0",
+  "mikey179/vfsStream": "^1.4",
+  "phpunit/phpunit": "^4.7 || ^5.0"
+},
+"config": {
+  "vendor-dir": ".Build/vendor",
+  "bin-dir": ".Build/bin"
+},
+"scripts": {
+  "post-autoload-dump": [
+    "mkdir -p .Build/Web/typo3conf/ext/",
+    "[ -L .Build/Web/typo3conf/ext/tea ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/tea"
+  ]
+},
+"extra": {
+  "typo3/cms": {
+    "cms-package-dir": "{$vendor-dir}/typo3/cms",
+    "web-dir": ".Build/Web"
+  }
+}
+\end{jsoncode}
+\normalsize
+
+You'll need to replace \texttt{tea} in line 18 with the key of your extension.
+
+If you'd like to use other extensions that are available from the TER (e.\,g., the PHPUnit extension), you'll need to add (or merge) these sections to your \texttt{composer.json}:
+
+\begin{jsoncode}
+"repositories": [
+{
+  "type": "composer",
+  "url": "https://composer.typo3.org/"
+}
+],
+"require-dev": {
+  "typo3-ter/phpunit": "*"
+},
+\end{jsoncode}
+
+Then do the following in PhpStorm:
+\begin{enumerate}
+  \item Settings > Languages \& Frameworks > PHP > PHPUnit
+  \item PHPUnit library > Use Composer autoloader
+  \item PHPUnit library > Path to script:
+    \begin{itemize}
+      \item click on the \emph{Show hidden files and directories} button
+      \texttt{.Build/vendor/autoload.php} within the extension directory
+    \end{itemize}
+  \item Test runner > Default configuration file: \texttt{typo3/sysext/core/Build/UnitTests.xml} within the TYPO3 source
+  \item OK
+  \item Run > Edit Configurations
+  \item Defaults > PHPUnit
+  \item Command Line > Environment variables
+  \item add two variables:
+    \begin{itemize}
+      \item \texttt{TYPO3\_CONTENT = Development}
+      \item \texttt{TYPO3\_PATH\_WEB =} the absolute path to \texttt{.Build/Web} folder in your extension directory (without the trailing slash)
+    \end{itemize}
+  \item right-click on the \texttt{Tests/} folder (or any test file or folder)
+  \item Run 'Tests'
+\end{enumerate}
+
+
+
+\subsubsection{Using the PHPUnit back-end module}
+
+This works for TYPO3 installations both in Composer mode and in classic mode.
+
+This will load all installed extensions (including the PHPUnit extension), making it possible to use the features of the PHPUnit extension.
+
+However, this will also execute the tests in the current back-end context, making the tests very brittle. This works fine for most unit tests of extensions, but will not work for functional tests.
+
+\begin{enumerate}
+  \item Admin > PHPUnit
+\end{enumerate}
+
+
+
+\pagebreak
 \section{Mocks}
 
 \subsection{Why mock?}
@@ -285,7 +450,7 @@ class BookTest extends \PHPUnit_Framework_TestCase {
 \begin{phpcode}
 /**
  * @test
- * @expectedException InvalidArgumentException
+ * @expectedException \UnexpectedValueException
  */
 public function createBreadWithNegativeSizeThrowsException()
 {
@@ -297,7 +462,7 @@ public function createBreadWithNegativeSizeThrowsException()
 \begin{phpcode}
 /**
  * @test
- * @expectedException \InvalidArgumentException
+ * @expectedException \UnexpectedValueException
  * @expectedExceptionMessage size must be > 0.
  * @expectedExceptionCode 1323700434
  */

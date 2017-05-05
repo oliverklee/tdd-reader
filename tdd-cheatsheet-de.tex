@@ -2,7 +2,7 @@
 \include{packages}
 \include{styles}
 
-\usepackage[ngerman,american]{babel}
+\usepackage[ngerman]{babel}
 \selectlanguage{ngerman}
 
 \hypersetup{
@@ -160,7 +160,7 @@ class AttachmentTest extends \Tx_Phpunit_TestCase {
 
     /**
      * @test
-     * @expectedException \InvalidArgumentException
+     * @expectedException \UnexpectedValueException
      */
     public function setFileNameWithEmptyFileNameThrowsException()
     {
@@ -260,6 +260,171 @@ class BookTest extends \PHPUnit_Framework_TestCase {
 \end{phpcode}
 
 
+\pagebreak
+\section{Tests ausführen}
+
+\subsection{Nicht-TYPO3-Projekte}
+
+\subsubsection{Auf der Kommandozeile}
+
+\begin{bashcode}
+vendor/bin/phpunit Test/
+\end{bashcode}
+
+\subsubsection{In PhpStorm}
+\begin{enumerate}
+  \item Settings > Languages \& Frameworks > PHP > PHPUnit
+  \item PHPUnit library > Use Composer autoloader
+  \item PHPUnit library > Path to script: \texttt{vendor/autoload}
+  \item OK
+  \item auf den Order \texttt{Tests/} rechtsklicken (oder einen anderen Ordner oder eine Testdatei)
+  \item Run 'Tests'
+\end{enumerate}
+
+
+\subsection{TYPO3-Extensions}
+
+\subsubsection{In PhpStorm}
+
+\paragraph{Für eine existierende TYPO3-Installation im Composer-Modus:}
+
+Bei diesem Ansatz werden alle installierten Extensions geladen, sodass ihr auch die Features der PHPUnit-Extension nutzen könnt.
+
+\begin{enumerate}
+  \item Settings > Languages \& Frameworks > PHP > PHPUnit
+  \item PHPUnit library > Use Composer autoloader
+  \item PHPUnit library > Path to script: \texttt{vendor/autoload} aus dem Document-Root der TYPO3-Installation
+  \item Test runner > Default configuration file: \texttt{typo3/sysext/core/Build/UnitTests.xml} innerhalb des Document-Roots der TYPO3-Installation
+  \item OK
+  \item Run > Edit Configurations
+  \item Defaults > PHPUnit
+  \item Command Line > Environment variables
+  \item zwei Variablen hinzufügen:
+    \begin{itemize}
+      \item \texttt{TYPO3\_CONTENT = Development}
+      \item \texttt{TYPO3\_PATH\_WEB =} der absolute Pfad zum Document-Root der TYPO3-Installation (ohne den Slash am Ende)
+    \end{itemize}
+  \item auf den Order \texttt{Tests/} rechtsklicken (oder einen anderen Ordner oder eine Testdatei)
+  \item Run 'Tests'
+\end{enumerate}
+
+
+\paragraph{Für eine existierende TYPO3-Installation im Klassik-Modus (Nicht-Composer-Modus):}
+
+In diesem Fall werdet ihr keine Klassen aus anderen Extensions autoloaden können, d.\,h., ihr werdet auch keine Features der PHPUnit-Extension nutzen können (und auch nicht von anderen Extension-Abhängigkeiten).
+
+\begin{enumerate}
+  \item Wenn ihr den TYPO3-Source per git statt als TAR-Paket heruntergeladen habt, braucht ihr ein \texttt{composer install} im TYPO3-Source-Verzeichnis.
+  \item Settings > Languages \& Frameworks > PHP > PHPUnit
+  \item PHPUnit library > Use Composer autoloader
+  \item PHPUnit library > Path to script: \texttt{vendor/autoload} innerhalb des TYPO3-Source
+  \item Test runner > Default configuration file: \texttt{typo3/sysext/core/Build/UnitTests.xml} innerhalb des TYPO3-Document-Roots
+  \item OK
+  \item Run > Edit Configurations
+  \item Defaults > PHPUnit
+  \item Command Line > Environment variables
+  \item zwei Variablen hinzufügen:
+    \begin{itemize}
+      \item \texttt{TYPO3\_CONTENT = Development}
+      \item \texttt{TYPO3\_PATH\_WEB =} der absolute Pfad zum Document-Root der TYPO3-Installation (ohne den Slash am Ende)
+    \end{itemize}
+  \item auf den Order \texttt{Tests/} rechtsklicken (oder einen anderen Ordner oder eine Testdatei)
+  \item Run 'Tests'
+\end{enumerate}
+
+
+\paragraph{Ohne eine existierende TYPO3-Installation}
+
+Dieser Ansatz benutzt das TYPO3-Extension-Skelett\footnote{\url{https://github.com/helhum/ext_scaffold}} von Helmut Hummel und Nicole Cordes.
+
+Fügt die folgenden Abschnitte zur \texttt{composer.json} eurer Extension hinzu:
+
+\small
+\begin{jsoncode}
+"require": {
+  "typo3/cms": "~7.6.0"
+},
+"require-dev": {
+  "namelesscoder/typo3-repository-client": "^1.2",
+  "nimut/testing-framework": "^1.0",
+  "mikey179/vfsStream": "^1.4",
+  "phpunit/phpunit": "^4.7 || ^5.0"
+},
+"config": {
+  "vendor-dir": ".Build/vendor",
+  "bin-dir": ".Build/bin"
+},
+"scripts": {
+  "post-autoload-dump": [
+    "mkdir -p .Build/Web/typo3conf/ext/",
+    "[ -L .Build/Web/typo3conf/ext/tea ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/tea"
+  ]
+},
+"extra": {
+  "typo3/cms": {
+    "cms-package-dir": "{$vendor-dir}/typo3/cms",
+    "web-dir": ".Build/Web"
+  }
+}
+\end{jsoncode}
+\normalsize
+
+Ersetzt dabei \texttt{tea} in Zeile 18 durch den Schlüssel eurer Extension.
+
+Wenn ihr außerdem noch andere, im TER verfügbarer Extensions in den Tests nutzen möchtet (z.\,B.~die PHPUnit-Extension), fügt noch diese Abschnitte zu eurer \texttt{composer.json} hinzu (bzw.~ mergt sie):
+
+\begin{jsoncode}
+"repositories": [
+{
+  "type": "composer",
+  "url": "https://composer.typo3.org/"
+}
+],
+"require-dev": {
+  "typo3-ter/phpunit": "*"
+},
+\end{jsoncode}
+
+Führt danach diese Schritte in PhpStorm aus:
+\begin{enumerate}
+  \item Settings > Languages \& Frameworks > PHP > PHPUnit
+  \item PHPUnit library > Use Composer autoloader
+  \item PHPUnit library > Path to script:
+    \begin{itemize}
+      \item auf den Button \emph{Show hidden files and directories} klicken
+      \texttt{.Build/vendor/autoload.php} im Verzeichnis der Extension
+    \end{itemize}
+  \item Test runner > Default configuration file: \texttt{typo3/sysext/core/Build/UnitTests.xml} im TYPO3-Source-Verzeichnis
+  \item OK
+  \item Run > Edit Configurations
+  \item Defaults > PHPUnit
+  \item Command Line > Environment variables
+  \item zwei Variablen hinzufügen:
+    \begin{itemize}
+      \item \texttt{TYPO3\_CONTENT = Development}
+      \item \texttt{TYPO3\_PATH\_WEB =} der absolute Pfad zu \texttt{.Build/Web} im Verzeichnis der Extension (ohne den Slash am Ende)
+    \end{itemize}
+  \item auf den Order \texttt{Tests/} rechtsklicken (oder einen anderen Ordner oder eine Testdatei)
+  \item Run 'Tests'
+\end{enumerate}
+
+
+
+\subsubsection{Mit dem Backend-Modul der PHPUnit-Extension}
+
+Dieser Ansatz funktioniert sowohl für TYPO3-Installationen im Composer-Modus als auch im Klassik-Modus.
+
+Dabei werden alle installierten Extensions geladen (inklusive der PHPUnit-Extension), sodass ihr die Features der PHPUnit-Extension nutzen könnt.
+
+Allerdings werden die Tests dann im Kontext der aktuellen Backend-Session ausgeführt, was die Tests sehr zehrbrechlich macht. Für die meisten Unit-Tests von Extensions funktioniert das, für funktionale Tests wird es hingegen meistens nicht git funktionieren.
+
+\begin{enumerate}
+  \item Admin > PHPUnit
+\end{enumerate}
+
+
+
+\pagebreak
 \section{Mocks}
 
 \subsection{Warum mocken?}
@@ -284,7 +449,7 @@ class BookTest extends \PHPUnit_Framework_TestCase {
 \begin{phpcode}
 /**
  * @test
- * @expectedException InvalidArgumentException
+ * @expectedException \UnexpectedValueException
  */
 public function createBreadWithNegativeSizeThrowsException()
 {
@@ -296,7 +461,7 @@ public function createBreadWithNegativeSizeThrowsException()
 \begin{phpcode}
 /**
  * @test
- * @expectedException \InvalidArgumentException
+ * @expectedException \UnexpectedValueException
  * @expectedExceptionMessage size must be > 0.
  * @expectedExceptionCode 1323700434
  */
