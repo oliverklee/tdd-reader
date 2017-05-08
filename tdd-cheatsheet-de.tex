@@ -547,6 +547,17 @@ public function createBreadWithNegativeSizeThrowsException()
 \end{phpcode}
 
 
+\section{Protected- und Private-Methoden testen}
+
+\subsection{Indirekt testen (empfohlen)}
+
+Tests sollten nur Verhalten testen, das von außen sichtbar ist. Daher solltet ihr Protected-Methoden über Test für Public-Methoden testen, die Gebrauch von den Protected-Methoden machen.
+
+\subsection{Testing-Unterklasse erstellen}
+
+Wenn ihr Protected-Methoden habt, die explizit Teil der API für Unterklassen sind, könnt ihr in \texttt{Fixtures/} eine Testing-Unterklasse erstellen, die eine Public-Methode hat, die die entsprechende Protected-Methode aufruft.
+
+
 \pagebreak
 \section{Abstrakte Klassen testen}
 

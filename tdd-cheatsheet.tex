@@ -547,6 +547,17 @@ public function createBreadWithNegativeSizeThrowsException()
 \end{phpcode}
 
 
+\section{Testing protected and private methods}
+
+\subsection{Testing indirectly (recommended)}
+
+Tests should only test the behavior that has effects that can be observed from the outside. So protected methods should be tested by tests for public methods that call the protected methods.
+
+\subsection{Create a testing subclass}
+
+If you have protected methods that explicitly are part of the API to be used in subclasses, you can create a testing subclass located in \texttt{Fixtures/} that provides a public method calling the protected method.
+
+
 \pagebreak
 \section{Testing abstract classes}
 
