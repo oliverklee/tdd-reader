@@ -1,4 +1,4 @@
-\documentclass[a4paper,10pt,headsepline]{scrartcl}
+\documentclass[a4paper,11pt,headsepline]{scrartcl}
 \include{packages}
 \include{styles}
 
@@ -51,18 +51,18 @@ Dank für viele dieser Konzepte geht an Filip Defar, der in seinem Blog\footnote
 
 \subsection{Test-Level}
 
-\paragraph{Unit-Tests} sind klein und laufen schnell. Sie sind außerdem normalerweise am schnellsten zu schreiben. Ihr benutzt sie, um alle Details eurer Anwendung zu testen~-- einschließlich Fälle, die auf GUI-Ebene nicht sinnvoll testbar sind. Es gibt einige Ausnahmen, bei denen Unit-Tests nicht sinnvoll sind, z.~,B.~Tests für Queries in Extbase-Repositories. Manchmal wird der Begriff \emph{Unit-Tests} auch für alle Tests benutzt, die mit einem Unit-Testing-Framework ausgeführt werden (also auch etwa Systemtests).
+\paragraph{Unit-Tests} sind klein und laufen schnell. Sie sind außerdem normalerweise am schnellsten zu schreiben. Ihr benutzt sie, um alle Details eurer Anwendung zu testen~-- einschließlich Fälle, die auf GUI-Ebene nicht sinnvoll testbar sind. Es gibt einige Ausnahmen, bei denen Unit-Tests nicht sinnvoll sind, z.,B.~Tests für Queries in Extbase-Repositories. Manchmal wird der Begriff \emph{Unit-Tests} auch für alle Tests benutzt, die mit einem Unit-Testing-Framework ausgeführt werden (also auch etwa Systemtests).
 
-\paragraph{Integrationstests} laufen langsamer. Ihr benutzt sie, um zu testen, wie Komponenten zusammenarbeiten, und testet normalerweise nicht jedes Detail damit. In der TYPO3-Welt werden die Integrationstests \emph{funktionale Tests} genannt.
+\paragraph{Integrationstests} laufen langsamer. Ihr benutzt sie, um zu testen, wie Komponenten zusammenarbeiten, und testet normalerweise nicht jedes Detail damit. In der TYPO3-Welt werden die Integrationstests \fett{funktionale Tests} genannt.
 
 \paragraph{Systemtests} sind die größten und langsamsten Tests. Ihr benutzt sie, um eure Anwendung als Ganzes zu testen. Systemtests werden normalerweise für relativ wenige, große Usecases benutzt.
 
 
 \subsection{Test-Typen}
 
-\paragraph{Blackbox-Tests} testen, wie sich eine Einheit oder API nach außen verhält. Sie gehen davon aus, dass ihr kein Wissen darüber habt, wie die Einheit innen drin arbeitet. Blackbox-Tests erleichtern Refactoring. Sie sind das eine Ende eines Kontinuums, bei dem Whitebox-Tests das andere Extrem bilden.
+\paragraph{Blackbox-Tests} testen, wie sich eine Einheit oder API nach außen verhält. Sie gehen davon aus, dass ihr kein Wissen darüber habt, wie die Einheit innen arbeitet. Blackbox-Tests erleichtern Refactoring. Sie sind das eine Ende eines Kontinuums, bei dem Whitebox-Tests das andere Extrem bilden.
 
-\paragraph{Whitebox-Tests} testen, wie einen Einheit innen drin arbeitet. Dies erschwert Refactoring und wird nicht empfohlen. Blackbox-Tests erleichtern Refactoring. Sie sind das eine Ende eines Kontinuums, bei dem Blackbox-Tests das andere Extrem bilden. Tests sollten normalerweise Blackbox-Tests sein (oder sehr dunkelgrau).
+\paragraph{Whitebox-Tests} testen, wie einen Einheit innen arbeitet. Dies erschwert Refactoring und wird nicht empfohlen. Blackbox-Tests erleichtern Refactoring. Sie sind das eine Ende eines Kontinuums, bei dem Blackbox-Tests das andere Extrem bilden. Tests sollten normalerweise Blackbox-Tests sein (oder sehr dunkelgrau).
 
 \paragraph{Funktionale Tests} testen das Verhalten einer Einheit. Die allermeisten Test sind funktionale Tests. Hinweis: In der TYPO3-Welt versteht man unter funktionalen Tests eigentlich \emph{Integrationstests} (und manchmal \emph{Systemtests}).
 
@@ -151,14 +151,15 @@ Die TYPO3-spezifischen Teile dieses Handouts passen zu TYPO3 CMS 7.6. Für die V
 \subsection{Extbase-Extensions}
 
 Es gibt auf GitHub dazu auch ein Beispielprojekt (das \emph{Tea-Example}):\\
-\url{https://github.com/oliverklee/ext_tea}\\
+\url{https://github.com/oliverklee/ext_tea}
 
 \begin{phpcode}
 namespace \OliverKlee\Shop\Tests\Unit\Domain\Model;
 
 use OliverKlee\Shop\Domain\Model\Article;
 
-class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
+class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+{
     /**
      * @var Article;
      */
@@ -194,52 +195,6 @@ class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 }
 \end{phpcode}
 
-\subsection{Nicht-Extbase-Extensions}
-
-\begin{phpcode}
-class AttachmentTest extends \Tx_Phpunit_TestCase {
-    /**
-     * @var \Tx_Oelib_Attachment
-     */
-    protected $subject = null;
-
-    protected function setUp()
-    {
-        $this->subject = new \Tx_Oelib_Attachment();
-    }
-
-    /**
-     * @test
-     */
-    public function getFileNameInitiallyReturnsAnEmptyString()
-    {
-        self::assertSame('', $this->subject->getFileName());
-    }
-
-    /**
-     * @test
-     */
-    public function getFileNameWithFileNameSetReturnsFileName()
-    {
-        $fileName = 'test.txt';
-
-        $this->subject->setFileName($fileName);
-
-        self::assertSame($fileName, $this->subject->getFileName());
-    }
-
-    /**
-     * @test
-     * @expectedException \UnexpectedValueException
-     */
-    public function setFileNameWithEmptyFileNameThrowsException()
-    {
-        $this->subject->setFileName('');
-    }
-
-    // ...
-}
-\end{phpcode}
 
 \subsection{Nicht-TYPO3-PHP-Projekt mit Composer}
 
@@ -248,7 +203,7 @@ Es gibt auf GitHub dazu auch ein leeres Startprojekt:\\
 
 \subsubsection{composer.json}
 
-Diese composer.json installiert PHPUnit und vfsStream für \fett{PHP bis 5.6}:\\
+Diese composer.json installiert PHPUnit und vfsStream für \fett{PHP bis 5.6}:
 
 \begin{jsoncode}
 {
@@ -269,7 +224,7 @@ Diese composer.json installiert PHPUnit und vfsStream für \fett{PHP bis 5.6}:\\
 }
 \end{jsoncode}
 
-Diese composer.json installiert PHPUnit und vfsStream für \fett{PHP ab 6}:\\
+Diese composer.json installiert PHPUnit und vfsStream für \fett{PHP ab Version 7}:
 
 \begin{jsoncode}
 {
@@ -296,7 +251,8 @@ namespace OliverKlee\Books\Tests\Unit\Domain\Model;
 
 use OliverKlee\Books\Domain\Model;
 
-class BookTest extends \PHPUnit_Framework_TestCase {
+class BookTest extends \PHPUnit_Framework_TestCase
+{
     /**
      * @var Book
      */
@@ -563,14 +519,15 @@ Wenn ihr Protected-Methoden habt, die explizit Teil der API für Unterklassen si
 
 \subsection{Den PHPUnit-Mock-Builder benutzen}
 
-Dies erzeugt eine Instanz der abstrakten Klassen, wobei alle abstrakten Methoden gemockt werden.\\
+Dies erzeugt eine Instanz der abstrakten Klassen, wobei alle abstrakten Methoden gemockt werden.
 
 \begin{phpcode}
 namespace OliverKlee\Coffee\Tests\Unit\Domain\Model;
 
 use OliverKlee\Coffee\Domain\Model\AbstractBeverage;
 
-class AbstractBeverageTest {
+class AbstractBeverageTest
+{
     /**
      * @var AbstractBeverage|\PHPUnit_Framework_MockObject_MockObject
      */
@@ -588,22 +545,24 @@ class AbstractBeverageTest {
 
 Dies wird empfohlen, wenn die Subklasse zusätzliches oder spezifisches Verhalten haben soll.
 
-Erzeugt in \texttt{Tests/Unit/Unit/Domain/Model/Fixtures/} eine Unterklasse der abstrakten Klasse:\\
+Erzeugt in \texttt{Tests/Unit/Unit/Domain/Model/Fixtures/} eine Unterklasse der abstrakten Klasse:
 
 \begin{phpcode}
 namespace OliverKlee\Coffee\Tests\Unit\Domain\Model\Fixtures;
 
-class TestingBeverage extends \OliverKlee\Coffee\Domain\Model\AbstractBeverage {
+class TestingBeverage extends \OliverKlee\Coffee\Domain\Model\AbstractBeverage
+{
     // ...
 }
 \end{phpcode}
 
-Dann könnt ihr die konkrete Unterklasse in euren Unit-Tests usen und instanziieren.\\
+Dann könnt ihr die konkrete Unterklasse in euren Unit-Tests usen und instanziieren.
 
 \begin{phpcode}
 use OliverKlee\Coffee\Tests\Unit\Domain\Model\Fixtures\TestingBeverage;
 
-class AbstractBeverageTest {
+class AbstractBeverageTest
+{
     /**
      * @var TestingBeverage
      *
@@ -620,7 +579,8 @@ class AbstractBeverageTest {
 \section{Das Test-Framework der PHPUnit-TYPO3-Extension benutzen}
 
 \begin{phpcode}
-class DataMapperTest extends \Tx_Phpunit_TestCase {
+class DataMapperTest extends \Tx_Phpunit_TestCase
+{
     /**
      * @var \Tx_Phpunit_Framework
      */
@@ -683,7 +643,6 @@ protected function setUp()
 \end{phpcode}
 
 \subsection{Die Dateien benutzen}
-\small
 \begin{phpcode}
 /**
  * @test
@@ -716,7 +675,6 @@ public function concatenateWithOneFileCopiesContentsFromSourceFileToTargetFile()
     self::assertSame($contents, file_get_contents($this->targetFilePath));
 }
 \end{phpcode}
-\normalsize
 
 
 

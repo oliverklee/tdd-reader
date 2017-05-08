@@ -1,4 +1,4 @@
-\documentclass[a4paper,10pt,headsepline]{scrartcl}
+\documentclass[a4paper,11pt,headsepline]{scrartcl}
 \include{packages}
 \include{styles}
 
@@ -34,7 +34,7 @@ This handout is licensed under a \emph{Creative Commons} license, in this case u
 \begin{description}
   \item[Attribution.] You need to give credit to the author (me) by listing my name (Oliver Klee). If you also list the source\footnote{\url{https://github.com/oliverklee/tdd-reader}}, that would be nice. And if you want to make me happy, please drop me an e-mail if you use this document.
   \item[ShareAlike.] If you edit or change this document or use it as a basis for some other document, you must use the same license for the resulting document.
-  \item[Name the license.] If you distribute this document, you'll need to mention or enclose the license.
+  \item[Name the license.] If you distribute this document, you will need to mention or enclose the license.
 \end{description}
 
 You can find a more comprehensive version of this license online.\footnote{\url{http://creativecommons.org/licenses/by-sa/4.0/}}
@@ -51,11 +51,11 @@ Thanks for of these concepts go to Filip Defar who wrote about this in his blog\
 
 \subsection{Test levels}
 
-\paragraph{Unit tests} are small and execute fast. They also usually are the fastest to write. You use them to test every detail of your application, including things that cannot be tested at the GUI level. There are a few cases where unit tests do not make much sense, e.\,g.~queries in Extbase repositories. Please note that \emph{unit tests} also sometimes is used for all tests that are executed with a unit-testing framework (including system tests).
+\paragraph{Unit tests} are small and execute fast. They also usually are the fastest to write. You use them to test every detail of your application, including things that cannot be tested at the GUI level. There are a few cases where unit tests do not make much sense, e.\,g., queries in Extbase repositories. Please note that \emph{unit tests} also sometimes is used for all tests that are executed with a unit-testing framework (including system tests).
 
-\paragraph{Integration tests} are slower to execute. You use them to test how components work together. Usually, you don't test every detail with them. In the TYPO3 world, these tests are called \fett{functional tests}.
+\paragraph{Integration tests} are slower to execute. You use them to test how components work together. Usually, you do not test every detail with them. In the TYPO3 world, these tests are called \fett{functional tests}.
 
-\paragraph{System tests} are the biggest and the slowest to execute. You use those to test you application as a whole. They're used to test few bigger use cases.
+\paragraph{System tests} are the biggest and the slowest to execute. You use those to test you application as a whole. They are used to test few bigger use cases.
 
 
 \subsection{Test types}
@@ -150,8 +150,8 @@ The TYPO3-specific parts of this handout apply to TYPO3 CMS 7.6. For version 8.7
 
 \subsection{Extbase extensions}
 
-There's an example project (the tea example) for this on GitHub:\\
-\url{https://github.com/oliverklee/ext_tea}\\
+There is an example project (the tea example) for this on GitHub:\\
+\url{https://github.com/oliverklee/ext_tea}
 
 \begin{phpcode}
 namespace OliverKlee\Shop\Tests\Unit\Domain\Model;
@@ -194,52 +194,6 @@ class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 }
 \end{phpcode}
 
-\subsection{Non-extbase extensions}
-
-\begin{phpcode}
-class AttachmentTest extends \Tx_Phpunit_TestCase {
-    /**
-     * @var \Tx_Oelib_Attachment
-     */
-    protected $subject = null;
-
-    protected function setUp()
-    {
-        $this->subject = new \Tx_Oelib_Attachment();
-    }
-
-    /**
-     * @test
-     */
-    public function getFileNameInitiallyReturnsAnEmptyString()
-    {
-        self::assertSame('', $this->subject->getFileName());
-    }
-
-    /**
-     * @test
-     */
-    public function getFileNameWithFileNameSetReturnsFileName()
-    {
-        $fileName = 'test.txt';
-
-        $this->subject->setFileName($fileName);
-
-        self::assertSame($fileName, $this->subject->getFileName());
-    }
-
-    /**
-     * @test
-     * @expectedException \UnexpectedValueException
-     */
-    public function setFileNameWithEmptyFileNameThrowsException()
-    {
-        $this->subject->setFileName('');
-    }
-
-    // ...
-}
-\end{phpcode}
 
 \subsection{Non-TYPO3 PHP projects with Composer}
 
@@ -249,7 +203,7 @@ There is an empty starter project for this on GitHub:\\
 
 \subsubsection{composer.json}
 
-This setup installs PHPUnit and vfsStream \fett{for PHP up to 5.6}:\\
+This setup installs PHPUnit and vfsStream \fett{for PHP up to 5.6}:
 
 \begin{jsoncode}
 {
@@ -270,7 +224,7 @@ This setup installs PHPUnit and vfsStream \fett{for PHP up to 5.6}:\\
 }
 \end{jsoncode}
 
-This setup installs PHPUnit and vfsStream \fett{for PHP 6}:\\
+This setup installs PHPUnit and vfsStream \fett{for PHP 7}:
 
 \begin{jsoncode}
 {
@@ -291,13 +245,15 @@ This setup installs PHPUnit and vfsStream \fett{for PHP 6}:\\
 }
 \end{jsoncode}
 
+
 \subsubsection{Test case}
 \begin{phpcode}
 namespace OliverKlee\Books\Tests\Unit\Domain\Model;
 
 use OliverKlee\Books\Domain\Model;
 
-class BookTest extends \PHPUnit_Framework_TestCase {
+class BookTest extends \PHPUnit_Framework_TestCase
+{
     /**
      * @var Book
      */
@@ -390,7 +346,7 @@ This will also load all existing extensions (including the PHPUnit extension), m
 In this case, you will not be able to autoload any classe from other extensions, i.\,e., you will not be able to use any features of the PHPUnit extension (or of any other extension dependencies).
 
 \begin{enumerate}
-  \item If you have downloaded the TYPO3 source via git instead of as a TAR package, you'll need to do a \texttt{composer install} in the TYPO3 source directory.
+  \item If you have downloaded the TYPO3 source via git instead of as a TAR package, you will need to do a \texttt{composer install} in the TYPO3 source directory.
   \item Settings > Languages \& Frameworks > PHP > PHPUnit
   \item PHPUnit library > Use Composer autoloader
   \item PHPUnit library > Path to script: \texttt{vendor/autoload} within the TYPO3 source
@@ -447,7 +403,7 @@ Add the following sections the \texttt{composer.json} of your extension:
 
 You'll need to replace \texttt{tea} in line 18 with the key of your extension.
 
-If you'd like to use other extensions that are available from the TER (e.\,g., the PHPUnit extension), you'll need to add (or merge) these sections to your \texttt{composer.json}:
+If you'd like to use other extensions that are available from the TER (e.\,g., the PHPUnit extension), you will need to add (or merge) these sections to your \texttt{composer.json}:
 
 \begin{jsoncode}
 "repositories": [
@@ -563,14 +519,15 @@ If you have protected methods that explicitly are part of the API to be used in 
 
 \subsection{Using the PHPUnit mock builder}
 
-This will create an instance of the abstract class with all abstract methods mocked.\\
+This will create an instance of the abstract class with all abstract methods mocked.
 
 \begin{phpcode}
 namespace OliverKlee\Coffee\Tests\Unit\Domain\Model;
 
 use OliverKlee\Coffee\Domain\Model\AbstractBeverage;
 
-class AbstractBeverageTest {
+class AbstractBeverageTest
+{
     /**
      * @var AbstractBeverage|\PHPUnit_Framework_MockObject_MockObject
      */
@@ -587,22 +544,24 @@ class AbstractBeverageTest {
 \subsection{Creating a concrete subclass}
 This is recommended if you need to provide your subclass with some additional or specific behavior.
 
-In \texttt{Tests/Unit/Domain/Model/Fixtures/}, create a subclass of the abstract class:\\
+In \texttt{Tests/Unit/Domain/Model/Fixtures/}, create a subclass of the abstract class:
 
 \begin{phpcode}
 namespace OliverKlee\Coffee\Tests\Unit\Domain\Model\Fixtures;
 
-class TestingBeverage extends \OliverKlee\Coffee\Domain\Model\AbstractBeverage {
+class TestingBeverage extends \OliverKlee\Coffee\Domain\Model\AbstractBeverage
+{
     // ...
 }
 \end{phpcode}
 
-Then you can use and instantiate the concrete subclass in your unit tests:\\
+Then you can use and instantiate the concrete subclass in your unit tests:
 
 \begin{phpcode}
 use OliverKlee\Coffee\Tests\Unit\Domain\Model\Fixtures\TestingBeverage;
 
-class AbstractBeverageTest {
+class AbstractBeverageTest
+{
     /**
      * @var TestingBeverage
      *
@@ -619,7 +578,8 @@ class AbstractBeverageTest {
 \section{Using the testing framework of the PHPUnit TYPO3 extension}
 
 \begin{phpcode}
-class DataMapperTest extends \Tx_Phpunit_TestCase {
+class DataMapperTest extends \Tx_Phpunit_TestCase
+{
     /**
      * @var \Tx_Phpunit_Framework
      */
@@ -681,7 +641,6 @@ protected function setUp()
 \end{phpcode}
 
 \subsection{Using the files}
-\small
 \begin{phpcode}
 /**
  * @test
@@ -714,13 +673,12 @@ public function concatenateWithOneFileCopiesContentsFromSourceFileToTargetFile()
     self::assertSame($contents, file_get_contents($this->targetFilePath));
 }
 \end{phpcode}
-\normalsize
 
 
 \pagebreak
 \section{Testing Extbase controllers}
 
-For controllers that are built in a clean way, you will mostly only need to test that data is passed correctly from the request to the repositories and from the repositories to the views. In addition, you'll occasionally want to tests forwards and redirects.
+For controllers that are built in a clean way, you will mostly only need to test that data is passed correctly from the request to the repositories and from the repositories to the views. In addition, you will occasionally want to tests forwards and redirects.
 
 \subsection{Mocking and injecting repositories}
 
