@@ -77,6 +77,21 @@ Dank für viele dieser Konzepte geht an Filip Defar, der in seinem Blog\footnote
 
 
 \pagebreak
+\section{Testphasen}
+
+Innerhalb der einzelnen Testmethoden sollte Code für die Testphasen durch Leerzeilen getrennt sein, damit die Struktur direkt sichtbar wird.
+
+\hspace{1em}
+
+\begin{tabular}{l l l}
+  \emph{Setup}    & (aufbauen)  & \texttt{setUp()} und Code am Anfang der Testmethode (falls nötig)\\
+  \emph{Exercise} & (ausführen) & Methodenaufruf \\
+  \emph{Verify}   & (prüfen)    & \texttt{self::assert…()} \\
+  \emph{Teardown} & (abbauen)   & \texttt{tearDown()} \\
+\end{tabular}
+
+
+
 \section{Ein Wort zu TYPO3 CMS 8.7}
 
 Die TYPO3-spezifischen Teile dieses Handouts passen zu TYPO3 CMS 7.6. Für die Version 8.7 gibt es ein paar Unterschiede:
@@ -214,7 +229,7 @@ class AttachmentTest extends \Tx_Phpunit_TestCase {
 }
 \end{phpcode}
 
-\subsection{Nicht-TYPO3-PHP-Project mit Composer}
+\subsection{Nicht-TYPO3-PHP-Projekt mit Composer}
 
 Es gibt auf GitHub dazu auch ein leeres Startprojekt:\\
 \url{https://github.com/oliverklee/tdd-seed}

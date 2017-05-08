@@ -77,6 +77,21 @@ Thanks for of these concepts go to Filip Defar who wrote about this in his blog\
 
 
 \pagebreak
+\section{Test phases}
+
+Within the test methods, the code for the test phases should be separated by blank lines to make the structure easily visible.
+
+\hspace{1em}
+
+\begin{tabular}{l l}
+  \emph{Setup}    & \texttt{setUp()} and code at the beginning of the method (if needed) \\
+  \emph{Exercise} & Method call \\
+  \emph{Verify}   & \texttt{self::assert…()} \\
+  \emph{Teardown} & \texttt{tearDown()} \\
+\end{tabular}
+
+
+
 \section{A note about TYPO3 CMS 8.7}
 
 The TYPO3-specific parts of this handout apply to TYPO3 CMS 7.6. For version 8.7, there are a few differences:
