@@ -44,6 +44,39 @@ You can find a more comprehensive version of this license online.\footnote{\url{
 \tableofcontents
 
 \pagebreak
+\section{Test levels and types}
+
+Thanks for of these concepts go to Filip Defar who wrote about this in his blog\footnote{\url{http://filipdefar.com/2015/06/tested-be-thy-name.html}}.
+
+
+\subsection{Test levels}
+
+\paragraph{Unit tests} are small and execute fast. They also usually are the fastest to write. You use them to test every detail of your application, including things that cannot be tested at the GUI level. There are a few cases where unit tests do not make much sense, e.\,g.~queries in Extbase repositories. Please note that \emph{unit tests} also sometimes is used for all tests that are executed with a unit-testing framework (including system tests).
+
+\paragraph{Integration tests} are slower to execute. You use them to test how components work together. Usually, you don't test every detail with them. In the TYPO3 world, these tests are called \fett{functional tests}.
+
+\paragraph{System tests} are the biggest and the slowest to execute. You use those to test you application as a whole. They're used to test few bigger use cases.
+
+
+\subsection{Test types}
+
+\paragraph{Black-box tests} test how a unit or API behaves on the outside. No knowledge about the way it works inside is assumed. Black-box tests facilitate refactoring. They are one extreme of a continuum where white-box tests are the other extreme.
+
+\paragraph{White-box tests} test how a unit works on the inside. They obstruct refactoring and are not recommended. They are one extreme of a continuum where black-box tests are the other extreme. Usually, tests should be black-box (or a very dark gray).
+
+\paragraph{Functional tests} test the behavior of a unit. Most tests are functional tests. Note: In the TYPO3 world, \emph{functional test} actually means \emph{integration test} (and sometimes \emph{system test}).
+
+\paragraph{Acceptance tests} test how the application works on the GUI level (or in the web interface). Sometimes this term is used as a synonym for \emph{story tests}.
+
+\paragraph{Regression tests} test that bugs to not reappear. In the optimal case, they are written together with the corresponding bug fix.
+
+\paragraph{Smoke tests} test that your application runs at all.
+
+\paragraph{Story tests} test use cases for user stories. Usually, they are written in the \emph{Gherkin} language for behavior-driven design (BDD). These test sometimes also are called \emph{acceptance tests}.
+
+
+
+\pagebreak
 \section{A note about TYPO3 CMS 8.7}
 
 The TYPO3-specific parts of this handout apply to TYPO3 CMS 7.6. For version 8.7, there are a few differences:

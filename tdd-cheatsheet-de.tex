@@ -44,6 +44,39 @@ Die ausführliche Version dieser Lizenz findet ihr online.\footnote{\url{http://
 \tableofcontents
 
 \pagebreak
+\section{Test-Level und -Typen}
+
+Dank für viele dieser Konzepte geht an Filip Defar, der in seinem Blog\footnote{\url{http://filipdefar.com/2015/06/tested-be-thy-name.html}} darüber geschrieben hat.
+
+
+\subsection{Test-Level}
+
+\paragraph{Unit-Tests} sind klein und laufen schnell. Sie sind außerdem normalerweise am schnellsten zu schreiben. Ihr benutzt sie, um alle Details eurer Anwendung zu testen~-- einschließlich Fälle, die auf GUI-Ebene nicht sinnvoll testbar sind. Es gibt einige Ausnahmen, bei denen Unit-Tests nicht sinnvoll sind, z.~,B.~Tests für Queries in Extbase-Repositories. Manchmal wird der Begriff \emph{Unit-Tests} auch für alle Tests benutzt, die mit einem Unit-Testing-Framework ausgeführt werden (also auch etwa Systemtests).
+
+\paragraph{Integrationstests} laufen langsamer. Ihr benutzt sie, um zu testen, wie Komponenten zusammenarbeiten, und testet normalerweise nicht jedes Detail damit. In der TYPO3-Welt werden die Integrationstests \emph{funktionale Tests} genannt.
+
+\paragraph{Systemtests} sind die größten und langsamsten Tests. Ihr benutzt sie, um eure Anwendung als Ganzes zu testen. Systemtests werden normalerweise für relativ wenige, große Usecases benutzt.
+
+
+\subsection{Test-Typen}
+
+\paragraph{Blackbox-Tests} testen, wie sich eine Einheit oder API nach außen verhält. Sie gehen davon aus, dass ihr kein Wissen darüber habt, wie die Einheit innen drin arbeitet. Blackbox-Tests erleichtern Refactoring. Sie sind das eine Ende eines Kontinuums, bei dem Whitebox-Tests das andere Extrem bilden.
+
+\paragraph{Whitebox-Tests} testen, wie einen Einheit innen drin arbeitet. Dies erschwert Refactoring und wird nicht empfohlen. Blackbox-Tests erleichtern Refactoring. Sie sind das eine Ende eines Kontinuums, bei dem Blackbox-Tests das andere Extrem bilden. Tests sollten normalerweise Blackbox-Tests sein (oder sehr dunkelgrau).
+
+\paragraph{Funktionale Tests} testen das Verhalten einer Einheit. Die allermeisten Test sind funktionale Tests. Hinweis: In der TYPO3-Welt versteht man unter funktionalen Tests eigentlich \emph{Integrationstests} (und manchmal \emph{Systemtests}).
+
+\paragraph{Akzeptanztests} testen, wie sich eine Anwendung auf GUI-Ebene (oder im Web-Interface) verhält. Manchmal wird dieser Begriff als Synonym für \emph{Story-Tests} benutzt.
+
+\paragraph{Regressionstests} testen, dass Bugs nicht erneut auftreten. Man schreib sie optimalerweise direkt zusammen mit dem Bugfix.
+
+\paragraph{Smoketests} testen, dass die Anwendung überhaupt irgendwie läuft.
+
+\paragraph{Storytests} testen Usecases für User-Stories. Sie werden normalerweise in der Sprache \emph{Gherkin} für Behavior-driven-Design (BDD) geschrieben. Dieser Begriff wird manchmal als synonym für \emph{Akzeptanztests} benutzt.
+
+
+
+\pagebreak
 \section{Ein Wort zu TYPO3 CMS 8.7}
 
 Die TYPO3-spezifischen Teile dieses Handouts passen zu TYPO3 CMS 7.6. Für die Version 8.7 gibt es ein paar Unterschiede:
