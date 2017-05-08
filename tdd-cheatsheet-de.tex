@@ -17,7 +17,7 @@
   \url{https://github.com/oliverklee/tdd-reader}
 }
 
-\date{Version 2.0.2, \today, für PHP >= 5.6 und TYPO3 CMS 7.6}
+\date{Version 3.0.0, \today, für PHP >= 5.6 und TYPO3 CMS 7.6}
 
 \title{
   Spickzettel zu testgetriebener Entwicklung mit PHPUnit
@@ -659,7 +659,7 @@ class DataMapperTest extends \Tx_Phpunit_TestCase {
 
 \subsection{Lauffähige Beispiele}
 
-Die funktionalen Tests zur FileUtility-Klasse im Tea-Beispiel zeigen, wie Tests mit vfsStream aussehen können.
+Die funktionalen Tests zur FileUtility-Klasse im Tea-Beispiel\footnote{\url{https://github.com/oliverklee/ext_tea}} zeigen, wie Tests mit vfsStream aussehen können.
 
 
 \subsection{Einrichten}
@@ -717,6 +717,65 @@ public function concatenateWithOneFileCopiesContentsFromSourceFileToTargetFile()
 }
 \end{phpcode}
 \normalsize
+
+
+
+\pagebreak
+\section{Extbase-Controller testen}
+
+Bei sauber gebauten Controllern werdet ihr hauptsächlich testen, dass die Daten korrekt vom Request zu den Repositories gehen sowie von den Repositories zum View. Außerdem werdet ihr gelegentlich die Forwards und Redirects testen wollen.
+
+\subsection{Repositories mocken und injecten}
+
+\begin{phpcode}
+protected function setUp()
+{
+    $this->subject = new TestimonialController();
+
+    $this->viewProphecy = $this->prophesize(ViewInterface::class);
+    $this->view = $this->viewProphecy->reveal();
+    $this->inject($this->subject, 'view', $this->view);
+
+    $this->testimonialRepositoryProphecy
+        = $this->prophesize(TestimonialRepository::class);
+    $this->testimonialRepository
+        = $this->testimonialRepositoryProphecy->reveal();
+    $this->inject(
+        $this->subject,
+        'testimonialRepository',
+        $this->testimonialRepository
+    );
+}
+\end{phpcode}
+
+Die \texttt{inject}-Method ist eine Hilfsmethode der Testcase-Basisklasse.
+
+Wenn ihr für bessere Performance im Controller explizite \texttt{inject…}-Methoden benutzt statt der \texttt{@inject}-Annotationen, könnt ihr diese benutzen:
+
+\begin{phpcode}
+$this->subject->injectTestimonialRepository($this->testimonialRepository);
+\end{phpcode}
+
+
+\subsection{Datenfluss vom Repository zum View testen}
+
+\begin{phpcode}
+/**
+  * @test
+  */
+public function indexActionPassesAllTestimonialsAsTestimonialsToView()
+{
+    $allTestimonials = new ObjectStorage();
+    $this->testimonialRepositoryProphecy->findAll()
+        ->willReturn($allTestimonials);
+
+    $this->viewProphecy->assign('testimonials', $allTestimonials)
+        ->shouldBeCalled();
+
+    $this->subject->indexAction();
+}
+\end{phpcode}
+
 
 
 \pagebreak
