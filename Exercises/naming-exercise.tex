@@ -1,0 +1,58 @@
+\documentclass[a4paper,12pt]{scrartcl}
+
+\input{single-page-layout}
+\usepackage[american]{babel}
+\selectlanguage{american}
+
+\begin{document}
+\raggedbottom
+
+\section*{Test naming exercises}
+
+\begin{enumerate}
+  \item The list view hides the \emph{Next} link if the current page is the last page.
+
+  \item The Scheduler task calls the \texttt{run} function of the Import service.
+
+  \item The method \texttt{locateUser} fetches the geo coordinates for a user and saves the user.
+
+  \item The \texttt{convertRequest} method copies the client name to the request.
+
+  \item The \texttt{import} function updates the user's settings.
+
+  \item When an e-mail is sent, the \texttt{lastEmailSent} date field gets updated.
+
+  \item A title shorter than 80 characters does not cropped, and a title with a length of at least 80 characters gets cropped.
+
+  \item The e-mail contains the item title.
+
+  \item For articles that are not published yet, no e-mail gets sent.
+
+  \item \texttt{isNew} initially returns \texttt{true}. After a call to \texttt{markAsFinished}, it returns \texttt{false}.
+
+  \item \texttt{hasGeoError} returns \texttt{true} after \texttt{setGeoError} has been called.
+
+  \item \texttt{getCountry} returns the models's associated country.
+
+  \item \texttt{getMessages} returns all logged messages in one concatenated string. An arbitrary number of log messages can be added: none, one, two, three, \ldots
+
+  \item \texttt{hasCity} returns \texttt{false} if the model has no associated city, and \texttt{true} if it has one.
+
+  \item \texttt{setRadius} sets the radius for positive integers and for zero. If the value is negative, an \texttt{UnexpectedValueException} gets thrown.
+
+  \item \texttt{clearGeoError} leads to \texttt{hasGeoError} returning \texttt{false} even if it has returned \texttt{true} before that.
+
+  \item \texttt{getSorting} returns zero if no other value has been set, and the value set via \texttt{setSorting} otherwise.
+
+  \item \texttt{setSorting} with a negative value throws an \texttt{UnexpectedValueException}.
+
+  \item \texttt{findAllWithinTimespan} returns models at the start, from in between and at the end of the time span, but not before or after.
+
+  \item \texttt{indexAction} passes the models from \texttt{findAll} to the view.
+  
+  \item \texttt{readFile} throws an \texttt{RuntimeException} if the file does not exist. And if called with an empty file, it will return an empty array. If there are several lines in the file, it returns the file's lines as an array of strings.
+  
+  \item \texttt{calculatePrice} returns the sum of all items' prices. There may also be no items.
+\end{enumerate}
+
+\end{document}
