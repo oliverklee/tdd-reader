@@ -1,0 +1,39 @@
+\documentclass[a4paper,12pt]{scrartcl}
+
+\input{single-page-layout}
+\usepackage[ngerman]{babel}
+\selectlanguage{ngerman}
+
+
+\begin{document}
+\raggedbottom
+
+\section*{Übungen zu TDD mit TYPO3 CMS 7.6}
+
+\begin{enumerate}
+  \item Installiert euch die Extensions \texttt{phpunit} und \texttt{extension\_builder}.
+  
+  \item Lasst die Tests der \texttt{phpunit}-Extension im Backend laufen.
+  
+  \item Legt mit dem Extension-Builder eine leere Extension \texttt{stock} an. Legt zwei leere Models \texttt{Product} und \texttt{Color} an und löscht die automatisch generierten Tests wieder.
+  
+  \item Öffnet die Extension in eurer IDE und bindet den TYPO3-Source sowie die PHPUnit-Extension ein (oder die komplette TYPO3-Installation).
+  
+  \item Schreibt ein \texttt{Test/Unit/MathTest.php} einen Test, der überprüft, dass $1 + 1 = 2$ ist.\footnote{Es ist gut, das ab und an zu überprüfen, weil wir ein echtes Problem bekommen, falls das irgendwann nicht mehr stimmen sollte.} Führt die Tests aus.
+  
+  \item Schreibt einen Test für die beiden Model-Klasse, dass sie instanziiert werden können und Unterklassen der Model-Basisklasse sind.
+  
+  \item Fügt (testgetrieben) ein Feld \texttt{\$title} zu beiden Models hinzu. Werft eine \texttt{UnexpecteValueException}, falls bei setTitle ein leerer String übergeben wird.
+  
+  \item Legt (testgetrieben) eine 1:n-Assoziation \texttt{Product.colors} an (inklusive aller nötigen Methoden).
+  
+  \item Schreibt (testgetrieben) eine Methode \texttt{Product.getFullTitle}, die den Title inklusive aller Farben zurückgibt.
+  
+  \item Schreibt ein \texttt{ProductRepository} und testet, dass ihr es instanziieren könnt und dass es eine Unterklasse der Repository-Basisklasse ist. Ihr benötigt dafür wahrscheinlich ein gemockten \texttt{ObjectManager}. Schaut euch dafür den Konstruktor der Basisklasse an.
+  
+  \item Schreibt einen \texttt{Service/ImportService.php}, der Produkt-Titel aus einer Textdatei liest (eine pro Zeile) und diese im Repository neu anlegt. Der Service braucht nicht zu überprüfen, ob es schon Produkte mit demselben Titel gibt.
+ 
+\end{enumerate}
+
+
+\end{document}
