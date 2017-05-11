@@ -11,29 +11,30 @@
 \section*{Übungen zu TDD mit TYPO3 CMS 7.6}
 
 \begin{enumerate}
-  \item Installiert euch die Extensions \texttt{phpunit} und \texttt{extension\_builder}.
-  
-  \item Lasst die Tests der \texttt{phpunit}-Extension im Backend laufen.
-  
-  \item Legt mit dem Extension-Builder eine leere Extension \texttt{stock} an. Legt zwei leere Models \texttt{Product} und \texttt{Color} an und löscht die automatisch generierten Tests wieder.
-  
-  \item Öffnet die Extension in eurer IDE und bindet den TYPO3-Source sowie die PHPUnit-Extension ein (oder die komplette TYPO3-Installation).
-  
-  \item Schreibt ein \texttt{Test/Unit/MathTest.php} einen Test, der überprüft, dass $1 + 1 = 2$ ist.\footnote{Es ist gut, das ab und an zu überprüfen, weil wir ein echtes Problem bekommen, falls das irgendwann nicht mehr stimmen sollte.} Führt die Tests aus.
-  
-  \item Schreibt einen Test für die beiden Model-Klasse, dass sie instanziiert werden können und Unterklassen der Model-Basisklasse \texttt{AbstractEntity} sind.
-  
-  \item Fügt (testgetrieben) ein Feld \texttt{\$title} mit dem Getter und Setter zu beiden Models hinzu. Werft eine \texttt{UnexpecteValueException}, falls bei setTitle ein leerer String übergeben wird.
-  
-  \item Legt (testgetrieben) eine 1:n-Assoziation \texttt{Product.colors} an (inklusive aller nötigen Methoden).
-  
-  \item Schreibt (testgetrieben) eine Methode \texttt{Product.getFullTitle}, die den Title inklusive aller Farben zurückgibt.
-  
-  \item Schreibt ein \texttt{ProductRepository} und testet, dass ihr es instanziieren könnt und dass es eine Unterklasse der Repository-Basisklasse ist. Ihr benötigt dafür wahrscheinlich ein gemockten \texttt{ObjectManager}. Schaut euch dafür den Konstruktor der Basisklasse an.
-  
-  \item Schreibt einen \texttt{Service/ImportService.php}, der Produkt-Titel aus einer Textdatei liest (eine pro Zeile) und diese im Repository neu anlegt. Der Service braucht nicht zu überprüfen, ob es schon Produkte mit demselben Titel gibt.
- 
-\end{enumerate}
+  \item Installiert euch die Extensions \texttt{coffee}\footnote{\url{https://github.com/oliverklee/coffee}}.
 
+  \item Richtet PHPUnit in PhpStorm ein und lasst die Tests der Extension in PhpUnit laufen.
+
+  \item Nehmt euch ein Blatt Papier und schreibt \emph{Testliste} darauf. Das ist eure Testliste, auf die ihr notiert, welche Tests ihr schreiben möchtet.
+
+  \item Schreibt in \texttt{Test/Unit/MathTest.php} einen Test, der überprüft, dass $1 + 1 = 2$ ist.\footnote{Es ist gut, das ab und an zu überprüfen, weil wir ein echtes Problem bekommen, falls das irgendwann nicht mehr stimmen sollte.} Führt die Tests aus.
+
+  \item Legt ein \texttt{SizeOption}-Model an. Testet, dass es instanziiert werden kann und eine Unterklasse der Model-Basisklasse \texttt{AbstractEntity} ist.
+
+  \item Fügt (testgetrieben) ein Feld Integer-Feld \texttt{SizeOption.milliliters}  hinzu. Werft eine \texttt{UnexpecteValueException}, falls beim Setter 0 oder ein negativer Wert übergeben wird.
+
+  \item Fügt testgetrieben ein Boolean-Feld \texttt{SizeOption.isIncludedInPrice} mit Getter und Setter hinzu.
+
+  \item Legt (testgetrieben) eine 1:n-Assoziation \texttt{CoffeeBeverage.sizeOptions} an (inklusive aller nötigen Methoden). Ihr könnte dafür ein Array oder einen ObjectStorage benutzen (je nachdem, wieviel Arbeit ihr euch machen möchtet und wie nah an den Extbase-Konventionen ihr entwicklen möchtet).
+
+  \item Schreibt (testgetrieben) eine Methode \texttt{CoffeBeverage.getPriceTag}, die als einen String die verfügbaren Größen zurückgibt inklusive der Information, ob die Größe im Preis enthalten ist oder extra bezahlt werden muss.
+
+  \item Schreibt ein \texttt{CoffeeBeverageRepository} und testet, dass ihr es instanziieren könnt und dass es eine Unterklasse der Repository-Basisklasse ist. Ihr benötigt dafür einen gemockten \texttt{ObjectManager} als Parameter für den Konstruktor.
+
+  \item Schreibt testgetrieben einen \texttt{CoffeeBeverageController} mit einer \texttt{indexAction} und einer \texttt{showAction}. Bei Bedarf könnt ihr in der \texttt{tea}-Extension spicken.
+
+  \item Schreibt einen \texttt{Service/ImportService.php}, der \texttt{CoffeeBeverage}-Titel aus einer Textdatei liest (eine pro Zeile) und diese im Repository neu anlegt. Der Service braucht nicht zu überprüfen, ob es schon Models mit demselben Titel gibt.
+
+\end{enumerate}
 
 \end{document}
