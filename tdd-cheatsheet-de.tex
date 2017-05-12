@@ -5,6 +5,8 @@
 \usepackage[ngerman]{babel}
 \selectlanguage{ngerman}
 
+\bibliographystyle{alpha}
+
 \hypersetup{
  pdfauthor={Oliver Klee, typo3-coding@oliverklee.de},
  pdftitle={Testgetriebene Entwicklung mit PHPUnit (mit oder ohne TYPO3)},
@@ -24,6 +26,7 @@
 }
 
 \begin{document}
+\nocite*{}
 
 \maketitle
 
@@ -788,5 +791,7 @@ assertXmlFileEqualsXmlFile()
 assertXmlStringEqualsXmlFile()
 assertXmlStringEqualsXmlString()
 \end{verbatim}
+
+\bibliography{tdd-reader}
 
 \end{document}

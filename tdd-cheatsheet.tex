@@ -5,6 +5,8 @@
 \usepackage[american]{babel}
 \selectlanguage{american}
 
+\bibliographystyle{alpha}
+
 \hypersetup{
  pdfauthor={Oliver Klee, typo3-coding@oliverklee.de},
  pdftitle={Test-driven development with PHPUnit (with and without TYPO3)},
@@ -24,6 +26,7 @@
 }
 
 \begin{document}
+\nocite*{}
 
 \maketitle
 
@@ -787,5 +790,7 @@ assertXmlFileEqualsXmlFile()
 assertXmlStringEqualsXmlFile()
 assertXmlStringEqualsXmlString()
 \end{verbatim}
+
+\bibliography{tdd-reader}
 
 \end{document}
