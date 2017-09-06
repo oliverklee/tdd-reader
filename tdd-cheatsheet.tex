@@ -8,7 +8,7 @@
 \bibliographystyle{alpha}
 
 \hypersetup{
- pdfauthor={Oliver Klee, typo3-coding@oliverklee.de},
+ pdfauthor={Oliver Klee, typo3-coding@oliverklee.de, @oliklee},
  pdftitle={Test-driven development with PHPUnit (with and without TYPO3)},
  pdfsubject={Handout for Oliver Klee's workshops on test-driven development with PHPUnit (with and without TYPO3).},
  pdfkeywords={TDD, unit testing, PHPUnit, workshop, seminar, PHP}
@@ -19,7 +19,7 @@
   \url{https://github.com/oliverklee/tdd-reader}
 }
 
-\date{Version 3.0.0, \today, for TYPO3 PHP >= 5.6 and CMS 7.6}
+\date{Version 3.1.0, \today, for TYPO3 PHP >= 7.0 and CMS 7.6}
 
 \title{
   Cheatsheet for test-driven development with PHPUnit
@@ -206,34 +206,13 @@ There is an empty starter project for this on GitHub:\\
 
 \subsubsection{composer.json}
 
-This setup installs PHPUnit and vfsStream \fett{for PHP up to 5.6}:
+This setup installs PHPUnit and vfsStream:
 
 \begin{jsoncode}
 {
     "require-dev": {
-        "phpunit/phpunit": "^5.7.19",
-        "mikey179/vfsStream": "^1.6.4"
-    },
-    "autoload": {
-        "psr-4": {
-            "..."
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "..."
-        }
-    }
-}
-\end{jsoncode}
-
-This setup installs PHPUnit and vfsStream \fett{for PHP 7}:
-
-\begin{jsoncode}
-{
-    "require-dev": {
-        "phpunit/phpunit": "^6.0.13",
-        "mikey179/vfsStream": "^1.6.4"
+        "phpunit/phpunit": "^6.3.0",
+        "mikey179/vfsStream": "^1.6.0"
     },
     "autoload": {
         "psr-4": {
@@ -255,7 +234,7 @@ namespace OliverKlee\Books\Tests\Unit\Domain\Model;
 
 use OliverKlee\Books\Domain\Model;
 
-class BookTest extends \PHPUnit_Framework_TestCase
+class BookTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var Book
@@ -740,7 +719,7 @@ public function indexActionPassesAllTestimonialsAsTestimonialsToView()
 
 \pagebreak
 \section{PHPUnit assertions}
-This list is current for PHPUnit 5.7.x.
+This list is current for PHPUnit 6.3.x.
 
 \begin{verbatim}
 assertArrayHasKey()
