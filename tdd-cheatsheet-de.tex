@@ -438,20 +438,6 @@ Führt danach diese Schritte in PhpStorm aus:
 
 
 
-\subsubsection{Mit dem Backend-Modul der PHPUnit-Extension}
-
-Dieser Ansatz funktioniert sowohl für TYPO3-Installationen im Composer-Modus als auch im Klassik-Modus.
-
-Dabei werden alle installierten Extensions geladen (inklusive der PHPUnit-Extension), sodass ihr die Features der PHPUnit-Extension nutzen könnt.
-
-Allerdings werden die Tests dann im Kontext der aktuellen Backend-Session ausgeführt, was die Tests sehr zehrbrechlich macht. Für die meisten Unit-Tests von Extensions funktioniert das, für funktionale Tests wird es hingegen meistens nicht git funktionieren.
-
-\begin{enumerate}
-  \item Admin > PHPUnit
-\end{enumerate}
-
-
-
 \pagebreak
 \section{Mocks}
 
