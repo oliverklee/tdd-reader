@@ -79,7 +79,6 @@ Dank für viele dieser Konzepte geht an Filip Defar, der in seinem Blog\footnote
 
 
 
-\pagebreak
 \section{Testphasen}
 
 Innerhalb der einzelnen Testmethoden sollte Code für die Testphasen durch Leerzeilen getrennt sein, damit die Struktur direkt sichtbar wird.
@@ -104,18 +103,6 @@ Diese beiden PhpStorm-Plugins sind bei Unit-Tests besonders hilfreich:
 \end{itemize}
 
 
-
-
-
-\section{Ein Wort zu TYPO3 CMS 8.7}
-
-Die TYPO3-spezifischen Teile dieses Handouts passen zu TYPO3 CMS 7.6. Für die Version 8.7 gibt es ein paar Unterschiede:
-
-\begin{itemize}
-  \item Benutzt das TYPO3-Testing-Framework\footnote{\url{https://github.com/TYPO3/testing-framework}} anstelle des Testing-Frameworks des PHPUnit-Extension.
-  \item Die Test-Basisklasse kommt jetzt aus dem TYPO3-Testing-Framework und nicht mehr aus dem TYPO3-Core.
-  \item Da TYPO3 CMS 8.7 kein PHP 5.6 mehr unterstützt, könnt könnt ihr PHPUnit 6 benutzen (das PHP 7 erfordert).
-\end{itemize}
 
 
 
@@ -151,52 +138,32 @@ Die TYPO3-spezifischen Teile dieses Handouts passen zu TYPO3 CMS 7.6. Für die V
 \pagebreak
 \section{Struktur von Testklassen}
 
-\subsection{Extbase-Extensions}
+\subsection{Test-Basisklasse}
 
-Es gibt auf GitHub dazu auch ein Beispielprojekt (das \emph{Tea-Example}):\\
-\url{https://github.com/oliverklee/ext_tea}
+\subsubsection{Nicht-TYPO3-Projekt}
+\paragraph{PHPUnit <= 5.7} \texttt{\textbackslash PHPUnit\_Framework\_TestCase}
+\paragraph{PHPUnit >= 6.0} \texttt{\textbackslash PHPUnit\textbackslash Framework\textbackslash TestCase}
 
-\begin{phpcode}
-namespace \OliverKlee\Shop\Tests\Unit\Domain\Model;
+\subsubsection{TYPO3-Projekt}
+\subsubsection{Mit \texttt{nimut/testing-framework}}
 
-use OliverKlee\Shop\Domain\Model\Article;
+\paragraph{Unit-Tests}
+\texttt{\textbackslash Nimut\textbackslash TestingFramework\textbackslash TestCase\textbackslash UnitTestCase}
 
-class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
-{
-    /**
-     * @var Article;
-     */
-    protected $subject = null;
+\paragraph{ViewHelper-Tests}
+\texttt{\textbackslash Nimut\textbackslash TestingFramework\textbackslash TestCase\textbackslash ViewHelperBaseTestcase}
 
-    protected function setUp()
-    {
-        $this->subject = new Article;
-        $this->subject->initializeObject();
-    }
+\paragraph{Functional-Tests}
+\texttt{\textbackslash Nimut\textbackslash TestingFramework\textbackslash TestCase\textbackslash FunctionalTestCase}
 
-    /**
-     * @test
-     */
-    public function getNameInitiallyReturnsEmptyString()
-    {
-        self::assertSame('', $this->subject->getName());
-    }
 
-    /**
-     * @test
-     */
-    public function setNameSetsName()
-    {
-        $name = 'foo bar';
+\subsubsection{Mit \texttt{typo3/testing-framework}}
 
-        $this->subject->setName($name);
+\paragraph{Unit-Tests}
+\texttt{\textbackslash TYPO3\textbackslash TestingFramework\textbackslash Core\textbackslash Unit\textbackslash UnitTestCase}
 
-        self::assertSame($name, $this->subject->getName());
-    }
-
-    // ...
-}
-\end{phpcode}
+\paragraph{Functional-Tests}
+\texttt{\textbackslash TYPO3\textbackslash TestingFramework\textbackslash Core\textbackslash Unit\textbackslash FunctionalTestCase}
 
 
 \subsection{Nicht-TYPO3-PHP-Projekt mit Composer}
@@ -264,6 +231,54 @@ class BookTest extends \PHPUnit\Framework\TestCase
 
         self::assertSame($title, $this->subject->getTitle());
     }
+}
+\end{phpcode}
+
+
+\subsection{Extbase-Extensions}
+
+Es gibt auf GitHub dazu auch ein Beispielprojekt (das \emph{Tea-Example}):\\
+\url{https://github.com/oliverklee/ext_tea}
+
+\begin{phpcode}
+namespace \OliverKlee\Shop\Tests\Unit\Domain\Model;
+
+use OliverKlee\Shop\Domain\Model\Article;
+
+class ArticleTest extends \Nimut\TestingFramework\TestCase\UnitTestCase
+{
+    /**
+     * @var Article;
+     */
+    protected $subject = null;
+
+    protected function setUp()
+    {
+        $this->subject = new Article;
+        $this->subject->initializeObject();
+    }
+
+    /**
+     * @test
+     */
+    public function getNameInitiallyReturnsEmptyString()
+    {
+        self::assertSame('', $this->subject->getName());
+    }
+
+    /**
+     * @test
+     */
+    public function setNameSetsName()
+    {
+        $name = 'foo bar';
+
+        $this->subject->setName($name);
+
+        self::assertSame($name, $this->subject->getName());
+    }
+
+    // ...
 }
 \end{phpcode}
 
@@ -450,7 +465,7 @@ Allerdings werden die Tests dann im Kontext der aktuellen Backend-Session ausgef
 \subsection{Tools für Mocks}
 
 \paragraph{Prophecy:} Das empfohlene, einfach benutzbare, aktuelle Mocking-Framework. Allerdings kann es keine partiellen Mocks erzeugen.\footnote{Prophecy-Cheatsheet:\\ \url{https://github.com/oliverklee/tdd-reader/blob/master/AdditionalDocuments/prophecy-cheatsheet.pdf}}
-\paragraph{PHPUnit mocks:} Die alte Art, Mocks zu erzeugen. Mocking ist damit etwas unhandlich, aber dafür kann es auch partielle Mocks erzeugen.\footnote{PHPUnit-Mocking-Cheatsheet:\\ \url{https://github.com/oliverklee/tdd-reader/blob/master/AdditionalDocuments/mocking-cheatsheet.pdf}}
+\paragraph{PHPUnit-Mocks:} Die alte Art, Mocks zu erzeugen. Mocking ist damit etwas unhandlich, aber dafür kann es auch partielle Mocks erzeugen.\footnote{PHPUnit-Mocking-Cheatsheet:\\ \url{https://github.com/oliverklee/tdd-reader/blob/master/AdditionalDocuments/mocking-cheatsheet.pdf}}
 \paragraph{Mockery:} Auch sehr elegant.\footnote{\url{https://github.com/mockery/mockery}}
 
 

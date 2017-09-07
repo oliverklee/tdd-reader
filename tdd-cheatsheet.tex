@@ -79,7 +79,6 @@ Thanks for of these concepts go to Filip Defar who wrote about this in his blog\
 
 
 
-\pagebreak
 \section{Test phases}
 
 Within the test methods, the code for the test phases should be separated by blank lines to make the structure easily visible.
@@ -104,17 +103,6 @@ These two plug-ins for PhpStorm are particularly helpful when creating unit test
   \item DynamicReturnTypePlugin\footnote{\url{https://plugins.jetbrains.com/plugin/7251-dynamicreturntypeplugin}}
 \end{itemize}
 
-
-
-\section{A note about TYPO3 CMS 8.7}
-
-The TYPO3-specific parts of this handout apply to TYPO3 CMS 7.6. For version 8.7, there are a few differences:
-
-\begin{itemize}
-  \item Use the TYPO3 testing framework\footnote{\url{https://github.com/TYPO3/testing-framework}} instead of the testing framework that comes with the PHPUnit extension.
-  \item The test base class now comes from the TYPO3 testing framework, not from the TYPO3 Core.
-  \item As PHP 5.6 is not supported anymore with TYPO3 CMS 8.7, you can use PHPUnit 6 (which requires PHP 7).
-\end{itemize}
 
 
 
@@ -151,51 +139,33 @@ The TYPO3-specific parts of this handout apply to TYPO3 CMS 7.6. For version 8.7
 \pagebreak
 \section{Test class structure}
 
-\subsection{Extbase extensions}
 
-There is an example project (the tea example) for this on GitHub:\\
-\url{https://github.com/oliverklee/ext_tea}
+\subsection{Test base class}
 
-\begin{phpcode}
-namespace OliverKlee\Shop\Tests\Unit\Domain\Model;
+\subsubsection{Non-TYPO3 project}
+\paragraph{PHPUnit <= 5.7} \texttt{\textbackslash PHPUnit\_Framework\_TestCase}
+\paragraph{PHPUnit >= 6.0} \texttt{\textbackslash PHPUnit\textbackslash Framework\textbackslash TestCase}
 
-use OliverKlee\Shop\Domain\Model\Article;
+\subsubsection{TYPO3 project}
+\subsubsection{With \texttt{nimut/testing-framework}}
 
-class ArticleTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
-    /**
-     * @var Article;
-     */
-    protected $subject = null;
+\paragraph{Unit tests}
+\texttt{\textbackslash Nimut\textbackslash TestingFramework\textbackslash TestCase\textbackslash UnitTestCase}
 
-    protected function setUp()
-    {
-        $this->subject = new Article;
-        $this->subject->initializeObject();
-    }
+\paragraph{ViewHelper tests}
+\texttt{\textbackslash Nimut\textbackslash TestingFramework\textbackslash TestCase\textbackslash ViewHelperBaseTestcase}
 
-    /**
-     * @test
-     */
-    public function getNameInitiallyReturnsEmptyString()
-    {
-        self::assertSame('', $this->subject->getName());
-    }
+\paragraph{Functional tests}
+\texttt{\textbackslash Nimut\textbackslash TestingFramework\textbackslash TestCase\textbackslash FunctionalTestCase}
 
-    /**
-     * @test
-     */
-    public function setNameSetsName()
-    {
-        $name = 'foo bar';
 
-        $this->subject->setName($name);
+\subsubsection{With \texttt{typo3/testing-framework}}
 
-        self::assertSame($name, $this->subject->getName());
-    }
+\paragraph{Unit tests}
+\texttt{\textbackslash TYPO3\textbackslash TestingFramework\textbackslash Core\textbackslash Unit\textbackslash UnitTestCase}
 
-    // ...
-}
-\end{phpcode}
+\paragraph{Functional tests}
+\texttt{\textbackslash TYPO3\textbackslash TestingFramework\textbackslash Core\textbackslash Unit\textbackslash FunctionalTestCase}
 
 
 \subsection{Non-TYPO3 PHP projects with Composer}
@@ -267,6 +237,54 @@ class BookTest extends \PHPUnit\Framework\TestCase
     }
 }
 \end{phpcode}
+
+
+\subsection{Extbase extensions}
+
+There is an example project (the tea example) for this on GitHub:\\
+\url{https://github.com/oliverklee/ext_tea}
+
+\begin{phpcode}
+namespace OliverKlee\Shop\Tests\Unit\Domain\Model;
+
+use OliverKlee\Shop\Domain\Model\Article;
+
+class ArticleTest extends \Nimut\TestingFramework\TestCase\UnitTestCase {
+    /**
+     * @var Article;
+     */
+    protected $subject = null;
+
+    protected function setUp()
+    {
+        $this->subject = new Article;
+        $this->subject->initializeObject();
+    }
+
+    /**
+     * @test
+     */
+    public function getNameInitiallyReturnsEmptyString()
+    {
+        self::assertSame('', $this->subject->getName());
+    }
+
+    /**
+     * @test
+     */
+    public function setNameSetsName()
+    {
+        $name = 'foo bar';
+
+        $this->subject->setName($name);
+
+        self::assertSame($name, $this->subject->getName());
+    }
+
+    // ...
+}
+\end{phpcode}
+
 
 
 \pagebreak
