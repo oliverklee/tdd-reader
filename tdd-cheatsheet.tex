@@ -19,7 +19,7 @@
   \url{https://github.com/oliverklee/tdd-reader}
 }
 
-\date{Version 3.1.0, \today, for TYPO3 PHP >= 7.0 and CMS 7.6}
+\date{Version 3.1.0, \today, for TYPO3 PHP >= 7.0 and CMS 7.6-8.7}
 
 \title{
   Cheatsheet for test-driven development with PHPUnit
@@ -325,7 +325,7 @@ This will also load all existing extensions (including the PHPUnit extension), m
 
 \paragraph{For an existing TYPO3 installation in classic mode (non-Composer mode):}
 
-In this case, you will not be able to autoload any classe from other extensions, i.\,e., you will not be able to use any features of the PHPUnit extension (or of any other extension dependencies).
+In this case, you will not be able to autoload any classes from other extensions, i.\,e., you will not be able to use any features of the PHPUnit extension (or of any other extension dependencies).
 
 \begin{enumerate}
   \item If you have downloaded the TYPO3 source via git instead of as a TAR package, you will need to do a \texttt{composer install} in the TYPO3 source directory.
@@ -360,7 +360,7 @@ Add the following sections the \texttt{composer.json} of your extension:
 },
 "require-dev": {
   "namelesscoder/typo3-repository-client": "^1.2.0",
-  "nimut/testing-framework": "^1.0.0",
+  "nimut/testing-framework": "^2.0.0",
   "phpunit/phpunit": "^5.7.0",
   "mikey179/vfsStream": "^1.6.0"
 },
@@ -457,6 +457,8 @@ However, this will also execute the tests in the current back-end context, makin
 
 \pagebreak
 \section{Testing for Exceptions}
+
+According to a 2016 blog post\footnote{\url{https://thephp.cc/news/2016/02/questioning-phpunit-best-practices}} by Sebastian Bergmann (the author of PHPUnit), this is current best practise.
 
 \subsection{Test for the Exception class only}
 \begin{phpcode}

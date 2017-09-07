@@ -19,7 +19,7 @@
   \url{https://github.com/oliverklee/tdd-reader}
 }
 
-\date{Version 3.1.0, \today, für PHP >= 7.0 und TYPO3 CMS 7.6}
+\date{Version 3.1.0, \today, für PHP >= 7.0 und TYPO3 CMS 7.6-8.7}
 
 \title{
   Spickzettel zu testgetriebener Entwicklung mit PHPUnit
@@ -359,7 +359,7 @@ Fügt die folgenden Abschnitte zur \texttt{composer.json} eurer Extension hinzu:
 },
 "require-dev": {
   "namelesscoder/typo3-repository-client": "^1.2.0",
-  "nimut/testing-framework": "^1.0.0",
+  "nimut/testing-framework": "^2.0.0",
   "phpunit/phpunit": "^5.7.0",
   "mikey179/vfsStream": "^1.6.0"
 },
@@ -457,6 +457,8 @@ Allerdings werden die Tests dann im Kontext der aktuellen Backend-Session ausgef
 
 \pagebreak
 \section{Auf Exceptions testen}
+
+Laut einem Blogpost\footnote{\url{https://thephp.cc/news/2016/02/questioning-phpunit-best-practices}} von Sebastian Bergmann (dem Autor von PHPUnit) ist dies die aktuelle empfohlene Praxis.
 
 \subsection{Nur auf die Klasse testen}
 \begin{phpcode}
