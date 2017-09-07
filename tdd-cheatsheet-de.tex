@@ -358,10 +358,10 @@ Fügt die folgenden Abschnitte zur \texttt{composer.json} eurer Extension hinzu:
   "typo3/cms": "~7.6.0"
 },
 "require-dev": {
-  "namelesscoder/typo3-repository-client": "^1.2",
-  "nimut/testing-framework": "^1.0",
-  "mikey179/vfsStream": "^1.4",
-  "phpunit/phpunit": "^4.7 || ^5.0"
+  "namelesscoder/typo3-repository-client": "^1.2.0",
+  "nimut/testing-framework": "^1.0.0",
+  "phpunit/phpunit": "^5.7.0",
+  "mikey179/vfsStream": "^1.6.0"
 },
 "config": {
   "vendor-dir": ".Build/vendor",
@@ -462,10 +462,11 @@ Allerdings werden die Tests dann im Kontext der aktuellen Backend-Session ausgef
 \begin{phpcode}
 /**
  * @test
- * @expectedException \UnexpectedValueException
  */
 public function createBreadWithNegativeSizeThrowsException()
 {
+    $this->expectException(\UnexpectedValueException::class);
+
     $this->subject->createBread(-1);
 }
 \end{phpcode}
@@ -474,12 +475,13 @@ public function createBreadWithNegativeSizeThrowsException()
 \begin{phpcode}
 /**
  * @test
- * @expectedException \UnexpectedValueException
- * @expectedExceptionMessage size must be > 0.
- * @expectedExceptionCode 1323700434
  */
 public function createBreadWithNegativeSizeThrowsException()
 {
+    $this->expectException(\UnexpectedValueException::class);
+    $this->expectExceptionMessage('$size must be > 0.');
+    $this->expectExceptionCode(1323700434);
+
     $this->subject->createBread(-1);
 }
 \end{phpcode}
