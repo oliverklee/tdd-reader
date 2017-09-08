@@ -326,16 +326,19 @@ This will also load all existing extensions (including the PHPUnit extension), m
   \item Settings > Languages \& Frameworks > PHP > PHPUnit
   \item PHPUnit library > Use Composer autoloader
   \item PHPUnit library > Path to script: \texttt{vendor/autoload} within the TYPO3 document root
-  \item Test runner > Default configuration file: \texttt{typo3/sysext/core/Build/UnitTests.xml} within the TYPO3 document root
   \item OK
   \item Run > Edit Configurations
   \item Defaults > PHPUnit
+  \item Use alternative configuration file: \texttt{…/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml} or \texttt{…/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml}
   \item Command Line > Environment variables
-  \item add two variables:
+  \item add four variables (only necessary for functional tests):
     \begin{itemize}
-      \item \texttt{TYPO3\_CONTENT = Development}
-      \item \texttt{TYPO3\_PATH\_WEB =} the absolute path to the TYPO3 document root (without the trailing slash)
+      \item \texttt{typo3DatabaseUsername}
+      \item \texttt{typo3DatabasePassword}
+      \item \texttt{typo3DatabaseHost} (usually \texttt{localhost})
+      \item \texttt{typo3DatabaseName}
     \end{itemize}
+  \item OK
   \item right-click on the \texttt{Tests/} folder (or any test file or folder)
   \item Run 'Tests'
 \end{enumerate}
@@ -350,15 +353,17 @@ In this case, you will not be able to autoload any classes from other extensions
   \item Settings > Languages \& Frameworks > PHP > PHPUnit
   \item PHPUnit library > Use Composer autoloader
   \item PHPUnit library > Path to script: \texttt{vendor/autoload} within the TYPO3 source
-  \item Test runner > Default configuration file: \texttt{typo3/sysext/core/Build/UnitTests.xml} within the TYPO3 document root
   \item OK
   \item Run > Edit Configurations
   \item Defaults > PHPUnit
+  \item Use alternative configuration file: \texttt{…/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml} or \texttt{…/vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml}
   \item Command Line > Environment variables
-  \item add two variables:
+  \item add four variables (only necessary for functional tests):
     \begin{itemize}
-      \item \texttt{TYPO3\_CONTENT = Development}
-      \item \texttt{TYPO3\_PATH\_WEB =} the absolute path to the TYPO3 document root (without the trailing slash)
+      \item \texttt{typo3DatabaseUsername}
+      \item \texttt{typo3DatabasePassword}
+      \item \texttt{typo3DatabaseHost} (usually \texttt{localhost})
+      \item \texttt{typo3DatabaseName}
     \end{itemize}
   \item right-click on the \texttt{Tests/} folder (or any test file or folder)
   \item Run 'Tests'
@@ -426,15 +431,16 @@ Then do the following in PhpStorm:
       \item click on the \emph{Show hidden files and directories} button
       \texttt{.Build/vendor/autoload.php} within the extension directory
     \end{itemize}
-  \item Test runner > Default configuration file: \texttt{typo3/sysext/core/Build/UnitTests.xml} within the TYPO3 source
   \item OK
   \item Run > Edit Configurations
   \item Defaults > PHPUnit
   \item Command Line > Environment variables
-  \item add two variables:
+  \item add four variables (only necessary for functional tests):
     \begin{itemize}
-      \item \texttt{TYPO3\_CONTENT = Development}
-      \item \texttt{TYPO3\_PATH\_WEB =} the absolute path to \texttt{.Build/Web} folder in your extension directory (without the trailing slash)
+      \item \texttt{typo3DatabaseUsername}
+      \item \texttt{typo3DatabasePassword}
+      \item \texttt{typo3DatabaseHost} (usually \texttt{localhost})
+      \item \texttt{typo3DatabaseName}
     \end{itemize}
   \item right-click on the \texttt{Tests/} folder (or any test file or folder)
   \item Run 'Tests'
