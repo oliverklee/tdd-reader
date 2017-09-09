@@ -8,33 +8,35 @@
 \begin{document}
 \raggedbottom
 
-\section*{Übungen zu TDD mit TYPO3 CMS 7.6}
+\section{Übungen zu TDD mit PHP und TYPO3 CMS 7.6/8.7}
 
+\subsection{TDD mit Composer (ohne TYPO3)}
 \begin{enumerate}
-  \item Installiert euch die Extensions \texttt{coffee}\footnote{\url{https://github.com/oliverklee/coffee}}.
-
-  \item Richtet PHPUnit in PhpStorm ein und lasst die Tests der Extension in PhpUnit laufen.
-
-  \item Nehmt euch ein Blatt Papier und schreibt \emph{Testliste} darauf. Das ist eure Testliste, auf die ihr notiert, welche Tests ihr schreiben möchtet.
-
+  \item Klont euch das TDD-Seed-Projekt\footnote{\url{https://github.com/oliverklee/tdd-seed}, alternativ per Composer als \texttt{oliverklee/tdd-seed}}.
+  \item Führt ein \texttt{composer install} aus.
+  \item Richtet PHPUnit in PhpStorm ein und lasst die Tests des Projektes in PhpStorm laufen.
+  \item Lasst die Tests über die Kommandozeile laufen.
+  \item Wechselt vom \texttt{master}-Branch auf den Branch {feature/coffee}. Führt alle Tests aus.
   \item Schreibt in \texttt{Test/Unit/MathTest.php} einen Test, der überprüft, dass $1 + 1 = 2$ ist.\footnote{Es ist gut, das ab und an zu überprüfen, weil wir ein echtes Problem bekommen, falls das irgendwann nicht mehr stimmen sollte.} Führt die Tests aus.
-
-  \item Legt ein \texttt{SizeOption}-Model an. Testet, dass es instanziiert werden kann und eine Unterklasse der Model-Basisklasse \texttt{AbstractEntity} ist.
-
+  \item Nehmt euch ein Blatt Papier und schreibt \emph{Testliste} darauf. Das ist eure Testliste, auf die ihr notiert, welche Tests ihr schreiben möchtet.
+  \item Legt ein \texttt{SizeOption}-Model an. Testet, dass es instanziiert werden kann.
   \item Fügt (testgetrieben) ein Feld Integer-Feld \texttt{SizeOption.milliliters}  hinzu. Werft eine \texttt{UnexpecteValueException}, falls beim Setter 0 oder ein negativer Wert übergeben wird.
-
   \item Fügt testgetrieben ein Boolean-Feld \texttt{SizeOption.isIncludedInPrice} mit Getter und Setter hinzu.
-
-  \item Legt (testgetrieben) eine 1:n-Assoziation \texttt{CoffeeBeverage.sizeOptions} an (inklusive aller nötigen Methoden). Ihr könnte dafür ein Array oder einen ObjectStorage benutzen (je nachdem, wieviel Arbeit ihr euch machen möchtet und wie nah an den Extbase-Konventionen ihr entwicklen möchtet).
-
+  \item Legt (testgetrieben) eine 1:n-Assoziation \texttt{CoffeeBeverage.sizeOptions} an (inklusive aller nötigen Methoden).
   \item Schreibt (testgetrieben) eine Methode \texttt{CoffeBeverage.getPriceTag}, die als einen String die verfügbaren Größen zurückgibt inklusive der Information, ob die Größe im Preis enthalten ist oder extra bezahlt werden muss.
+\end{enumerate}
+\pagebreak
 
-  \item Schreibt ein \texttt{CoffeeBeverageRepository} und testet, dass ihr es instanziieren könnt und dass es eine Unterklasse der Repository-Basisklasse ist. Ihr benötigt dafür einen gemockten \texttt{ObjectManager} als Parameter für den Konstruktor.
-
-  \item Schreibt testgetrieben einen \texttt{CoffeeBeverageController} mit einer \texttt{indexAction} und einer \texttt{showAction}. Bei Bedarf könnt ihr in der \texttt{tea}-Extension spicken.
-
-  \item Schreibt einen \texttt{Service/ImportService.php}, der \texttt{CoffeeBeverage}-Titel aus einer Textdatei liest (eine pro Zeile) und diese im Repository neu anlegt. Der Service braucht nicht zu überprüfen, ob es schon Models mit demselben Titel gibt.
-
+\subsection{TDD mit TYPO3 CMS}
+\begin{enumerate}
+  \item Klont euch die tea-Extension\footnote{\url{https://github.com/oliverklee/tea}, alternativ per Composer als \texttt{oliverklee/tea}}.
+  \item Richtet PHPUnit in PhpStorm ein und lasst die Unit-Tests der Extension in PhpStorm laufen.
+  \item Richtet die Datenbank-Zugangsdaten für die Tests in PhpStorm ein und lasst die funktionalen Tests laufen.
+  \item Legt euch eine neue Testliste an.
+  \item Schreibt testgetrieben (mit Unit-Tests) beim Testimonial-Controller eine \texttt{showAction}.
+  \item Schreibt testgetrieben (mit Functional-Tests) \texttt{TestimonialRepository.findOneLatest}, die das zuletzt hinzugefügte Testimonial findet.
+  \item Schreibt testgetrieben (mit Unit-Tests) beim Testimonial-Controller eine \texttt{showLatestAction}.
+  \item Schreibt einen \texttt{Service/TeaBeverageImportService.php}, der \texttt{TeaBeverage}-Texte aus einer Textdatei liest (eins pro Zeile) und diese im Repository neu anlegt. Der Service braucht nicht zu überprüfen, ob es schon Models mit demselben Titel gibt.
 \end{enumerate}
 
 \end{document}
