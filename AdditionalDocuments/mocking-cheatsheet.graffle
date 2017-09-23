@@ -5,7 +5,7 @@
 	<key>ApplicationVersion</key>
 	<array>
 		<string>com.omnigroup.OmniGraffle6.MacAppStore</string>
-		<string>169.10</string>
+		<string>169.20</string>
 	</array>
 	<key>CreationDate</key>
 	<string>2010-09-29 09:07:49 +0000</string>
@@ -26,7 +26,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2016-05-07 21:06:11 +0000</string>
+	<string>2017-09-23 13:04:30 +0000</string>
 	<key>Modifier</key>
 	<string>Oliver Klee</string>
 	<key>NotesVisible</key>
@@ -60,7 +60,7 @@
 		<key>NSPaperSize</key>
 		<array>
 			<string>size</string>
-			<string>{841.8897705078125, 595.27556419372559}</string>
+			<string>{841.8900146484375, 595.2899923324585}</string>
 		</array>
 		<key>NSPrintReverseOrientation</key>
 		<array>
@@ -90,7 +90,7 @@
 			<key>BackgroundGraphic</key>
 			<dict>
 				<key>Bounds</key>
-				<string>{{0, 0}, {805.8897705078125, 536.27556419372559}}</string>
+				<string>{{0, 0}, {805.8900146484375, 536.2899923324585}}</string>
 				<key>Class</key>
 				<string>SolidGraphic</string>
 				<key>ID</key>
@@ -118,145 +118,91 @@
 			<array>
 				<dict>
 					<key>Bounds</key>
-					<string>{{641.84781194916343, 346.26130180648494}, {283, 12}}</string>
+					<string>{{413.62868362677557, 171.42337552149215}, {34.267033314254419, 15}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
-					<key>FitText</key>
-					<string>YES</string>
-					<key>Flow</key>
-					<string>Resize</string>
-					<key>FontInfo</key>
-					<dict>
-						<key>Font</key>
-						<string>Helvetica</string>
-						<key>Size</key>
-						<real>12</real>
-					</dict>
 					<key>ID</key>
-					<integer>41</integer>
+					<integer>46</integer>
 					<key>Rotation</key>
-					<real>270</real>
-					<key>Style</key>
-					<dict>
-						<key>fill</key>
-						<dict>
-							<key>Draws</key>
-							<string>NO</string>
-						</dict>
-						<key>shadow</key>
-						<dict>
-							<key>Draws</key>
-							<string>NO</string>
-						</dict>
-						<key>stroke</key>
-						<dict>
-							<key>Draws</key>
-							<string>NO</string>
-						</dict>
-					</dict>
-					<key>Text</key>
-					<dict>
-						<key>Pad</key>
-						<real>0.0</real>
-						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
-
-\f0\fs20 \cf0 \'a9 2010-2016 Oliver Klee, typo3-coding@oliverklee.de, @oliklee}</string>
-						<key>VerticalPad</key>
-						<real>0.0</real>
-					</dict>
-					<key>Wrap</key>
-					<string>NO</string>
-				</dict>
-				<dict>
-					<key>Bounds</key>
-					<string>{{27.173999999999999, 358.13}, {514.32600000000002, 157.04400000000001}}</string>
-					<key>Class</key>
-					<string>ShapedGraphic</string>
-					<key>FontInfo</key>
-					<dict>
-						<key>Font</key>
-						<string>Helvetica</string>
-						<key>Size</key>
-						<real>14</real>
-					</dict>
-					<key>ID</key>
-					<integer>9</integer>
-					<key>Shape</key>
-					<string>Cloud</string>
-					<key>Text</key>
-					<dict>
-						<key>Align</key>
-						<integer>0</integer>
-						<key>Pad</key>
-						<real>10</real>
-						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 LucidaGrande;}
-{\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-
-\f0\b\fs28 \cf0 Why mock a method?
-\b0 \
-
-\f1 \uc0\u9657 
-\f0  To "disable" a method (to not write to the DB, or to not launch a cruise missile) and return null.\
-
-\f1 \uc0\u9657 
-\f0  To have the method return a particular return value.\
-
-\f1 \uc0\u9657 
-\f0  To test that the method gets called in a certain way.}</string>
-						<key>VerticalPad</key>
-						<real>0.0</real>
-					</dict>
-				</dict>
-				<dict>
-					<key>Bounds</key>
-					<string>{{101.13, 251}, {104.67400000000001, 55.391300000000001}}</string>
-					<key>Class</key>
-					<string>ShapedGraphic</string>
-					<key>ID</key>
-					<integer>34</integer>
-					<key>Style</key>
-					<dict>
-						<key>stroke</key>
-						<dict>
-							<key>CornerRadius</key>
-							<real>9</real>
-						</dict>
-					</dict>
-					<key>Text</key>
-					<dict>
-						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
-
-\f0\fs24 \cf0 all parameters but the first can be omitted}</string>
-					</dict>
-				</dict>
-				<dict>
-					<key>Bounds</key>
-					<string>{{206.30364344151207, 235.01202634627657}, {89.696556175736504, 86.592500000000001}}</string>
-					<key>Class</key>
-					<string>ShapedGraphic</string>
-					<key>ID</key>
-					<integer>27</integer>
-					<key>Rotation</key>
-					<real>359.77279237404792</real>
+					<real>89.229189939049206</real>
 					<key>Shape</key>
 					<string>AdjustableArrow</string>
 					<key>ShapeData</key>
 					<dict>
 						<key>ratio</key>
-						<real>0.30343863368034363</real>
+						<real>0.32189163565635681</real>
 						<key>width</key>
-						<real>45.687362670898438</real>
+						<real>14.973806381225586</real>
+					</dict>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Color</key>
+							<dict>
+								<key>a</key>
+								<real>0.10000000000000001</real>
+								<key>b</key>
+								<real>0.0</real>
+								<key>g</key>
+								<real>0.0</real>
+								<key>r</key>
+								<real>0.0</real>
+							</dict>
+							<key>MiddleFraction</key>
+							<real>0.70634919404983521</real>
+						</dict>
+						<key>shadow</key>
+						<dict>
+							<key>Color</key>
+							<dict>
+								<key>a</key>
+								<real>0.40000000000000002</real>
+								<key>b</key>
+								<real>0.0</real>
+								<key>g</key>
+								<real>0.0</real>
+								<key>r</key>
+								<real>0.0</real>
+							</dict>
+							<key>Fuzziness</key>
+							<real>0.0</real>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>Color</key>
+							<dict>
+								<key>a</key>
+								<real>0.75</real>
+								<key>b</key>
+								<real>0.0</real>
+								<key>g</key>
+								<real>0.0</real>
+								<key>r</key>
+								<real>0.0</real>
+							</dict>
+						</dict>
+					</dict>
+					<key>TextRelativeArea</key>
+					<string>{{0.125, 0.25}, {0.75, 0.5}}</string>
+					<key>isConnectedShape</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{154.42604636964273, 270.26130180648494}, {49.919689805946547, 15}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>ID</key>
+					<integer>44</integer>
+					<key>Shape</key>
+					<string>AdjustableArrow</string>
+					<key>ShapeData</key>
+					<dict>
+						<key>ratio</key>
+						<real>0.32189163565635681</real>
+						<key>width</key>
+						<real>14.973806381225586</real>
 					</dict>
 					<key>Style</key>
 					<dict>
@@ -319,143 +265,7 @@
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{656.82600000000002, 438.37}, {104.67400000000001, 55.391300000000001}}</string>
-					<key>Class</key>
-					<string>ShapedGraphic</string>
-					<key>ID</key>
-					<integer>33</integer>
-					<key>Style</key>
-					<dict>
-						<key>stroke</key>
-						<dict>
-							<key>CornerRadius</key>
-							<real>9</real>
-						</dict>
-					</dict>
-					<key>Text</key>
-					<dict>
-						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
-
-\f0\fs24 \cf0 whether to call the original constructor}</string>
-					</dict>
-				</dict>
-				<dict>
-					<key>Bounds</key>
-					<string>{{656.82600000000002, 358.13}, {104.67400000000001, 55.391300000000001}}</string>
-					<key>Class</key>
-					<string>ShapedGraphic</string>
-					<key>ID</key>
-					<integer>32</integer>
-					<key>Style</key>
-					<dict>
-						<key>stroke</key>
-						<dict>
-							<key>CornerRadius</key>
-							<real>9</real>
-						</dict>
-					</dict>
-					<key>Text</key>
-					<dict>
-						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
-
-\f0\fs24 \cf0 name of the created class\
-(empty = auto)}</string>
-					</dict>
-				</dict>
-				<dict>
-					<key>Bounds</key>
-					<string>{{656.82600000000002, 277.89100000000002}, {104.67400000000001, 55.391300000000001}}</string>
-					<key>Class</key>
-					<string>ShapedGraphic</string>
-					<key>ID</key>
-					<integer>31</integer>
-					<key>Style</key>
-					<dict>
-						<key>stroke</key>
-						<dict>
-							<key>CornerRadius</key>
-							<real>9</real>
-						</dict>
-					</dict>
-					<key>Text</key>
-					<dict>
-						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
-
-\f0\fs24 \cf0 parameters for the constructor}</string>
-					</dict>
-				</dict>
-				<dict>
-					<key>Bounds</key>
-					<string>{{656.82600000000002, 197.65199999999999}, {104.67400000000001, 55.391300000000001}}</string>
-					<key>Class</key>
-					<string>ShapedGraphic</string>
-					<key>ID</key>
-					<integer>30</integer>
-					<key>Style</key>
-					<dict>
-						<key>stroke</key>
-						<dict>
-							<key>CornerRadius</key>
-							<real>9</real>
-						</dict>
-					</dict>
-					<key>Text</key>
-					<dict>
-						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
-
-\f0\fs24 \cf0 names of the methods to mock\
-(empty = all,\
-null = none)}</string>
-					</dict>
-				</dict>
-				<dict>
-					<key>Bounds</key>
-					<string>{{656.82600000000002, 117.413}, {104.67400000000001, 55.391300000000001}}</string>
-					<key>Class</key>
-					<string>ShapedGraphic</string>
-					<key>ID</key>
-					<integer>29</integer>
-					<key>Style</key>
-					<dict>
-						<key>stroke</key>
-						<dict>
-							<key>CornerRadius</key>
-							<real>9</real>
-						</dict>
-					</dict>
-					<key>Text</key>
-					<dict>
-						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
-
-\f0\fs24 \cf0 Name of the class to mock\
-(= to subclass)}</string>
-					</dict>
-				</dict>
-				<dict>
-					<key>AllowConnections</key>
-					<string>NO</string>
-					<key>Bounds</key>
-					<string>{{44.5, 208.696}, {443, 140}}</string>
+					<string>{{638.84781194916343, 346.26130180648494}, {289, 12}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -465,12 +275,14 @@ null = none)}</string>
 					<key>FontInfo</key>
 					<dict>
 						<key>Font</key>
-						<string>Helvetica-Bold</string>
+						<string>Helvetica</string>
 						<key>Size</key>
-						<real>36</real>
+						<real>12</real>
 					</dict>
 					<key>ID</key>
-					<integer>28</integer>
+					<integer>41</integer>
+					<key>Rotation</key>
+					<real>270</real>
 					<key>Style</key>
 					<dict>
 						<key>fill</key>
@@ -491,23 +303,16 @@ null = none)}</string>
 					</dict>
 					<key>Text</key>
 					<dict>
-						<key>Align</key>
-						<integer>0</integer>
 						<key>Pad</key>
 						<real>0.0</real>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
-{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+{\*\expandedcolortbl;;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
 
-\f0\fs36 \cf0 $mock = $this-&gt;getMock(\
-                        'Tx_Coffee_Cup',\
-                        ['fill', 'stir'],\
-                        [$size, $color],\
-                        'MockedCup',\
-                        false\
-);}</string>
+\f0\fs20 \cf0 \'a9 2010-2017 Oliver Klee | typo3-coding@oliverklee.de | @oliklee}</string>
 						<key>VerticalPad</key>
 						<real>0.0</real>
 					</dict>
@@ -516,7 +321,220 @@ null = none)}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{101.13, 117.413}, {104.67400000000001, 55.391300000000001}}</string>
+					<string>{{26.929134102599825, 364.25197180885027}, {514.32600000000002, 157.04400000000001}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>FontInfo</key>
+					<dict>
+						<key>Font</key>
+						<string>Helvetica</string>
+						<key>Size</key>
+						<real>14</real>
+					</dict>
+					<key>ID</key>
+					<integer>9</integer>
+					<key>Shape</key>
+					<string>Cloud</string>
+					<key>Text</key>
+					<dict>
+						<key>Align</key>
+						<integer>0</integer>
+						<key>Pad</key>
+						<real>10</real>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 LucidaGrande;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\b\fs28 \cf0 Why mock a method?
+\b0 \
+
+\f1 \uc0\u9657 
+\f0  To "disable" a method (to not write to the DB, or to not launch a cruise missile) and return null.\
+
+\f1 \uc0\u9657 
+\f0  To have the method return a particular return value.\
+
+\f1 \uc0\u9657 
+\f0  To test that the method gets called in a certain way.}</string>
+						<key>VerticalPad</key>
+						<real>0.0</real>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{44.5, 239.06593568060066}, {109.42604636964271, 77.390732251768554}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>ID</key>
+					<integer>34</integer>
+					<key>Style</key>
+					<dict>
+						<key>stroke</key>
+						<dict>
+							<key>CornerRadius</key>
+							<real>9</real>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
+
+\f0\fs24 \cf0 all calls except\
+for the first\
+and last one\
+can be omitted}</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{656.82600000000002, 333.76225425157628}, {104.67400000000001, 55.391300000000001}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>ID</key>
+					<integer>33</integer>
+					<key>Style</key>
+					<dict>
+						<key>stroke</key>
+						<dict>
+							<key>CornerRadius</key>
+							<real>9</real>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
+
+\f0\fs24 \cf0 whether to call the original constructor}</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{656.82600000000002, 257.94124068868217}, {104.67400000000001, 55.391300000000001}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>ID</key>
+					<integer>32</integer>
+					<key>Style</key>
+					<dict>
+						<key>stroke</key>
+						<dict>
+							<key>CornerRadius</key>
+							<real>9</real>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
+
+\f0\fs24 \cf0 name of the created class\
+(empty = auto)}</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{656.82600000000002, 182.12022712578809}, {104.67400000000001, 55.391300000000001}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>ID</key>
+					<integer>31</integer>
+					<key>Style</key>
+					<dict>
+						<key>stroke</key>
+						<dict>
+							<key>CornerRadius</key>
+							<real>9</real>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
+
+\f0\fs24 \cf0 parameters for the constructor}</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{656.82600000000002, 106.29921356289404}, {104.67400000000001, 55.391300000000001}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>ID</key>
+					<integer>30</integer>
+					<key>Style</key>
+					<dict>
+						<key>stroke</key>
+						<dict>
+							<key>CornerRadius</key>
+							<real>9</real>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
+
+\f0\fs24 \cf0 names of the methods to mock\
+(empty = all,\
+null = none)}</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{378.42520028390283, 106.29921356289404}, {104.67400000000001, 55.391300000000001}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>ID</key>
+					<integer>29</integer>
+					<key>Style</key>
+					<dict>
+						<key>stroke</key>
+						<dict>
+							<key>CornerRadius</key>
+							<real>9</real>
+						</dict>
+					</dict>
+					<key>Text</key>
+					<dict>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
+
+\f0\fs24 \cf0 Name of the class to mock\
+(= to subclass)}</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{212.59842712578808, 106.29921356289404}, {104.67400000000001, 55.391300000000001}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
@@ -532,9 +550,10 @@ null = none)}</string>
 					<key>Text</key>
 					<dict>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
 
 \f0\fs24 \cf0 Available in\
@@ -568,13 +587,13 @@ test cases}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{137.16180552783422, 182.93485363450907}, {34.266994474958437, 15}}</string>
+					<string>{{248.41174693518562, 171.82243451772138}, {34.267033314254419, 15}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
 					<integer>35</integer>
 					<key>Rotation</key>
-					<real>88.953078638987449</real>
+					<real>89.229189939049206</real>
 					<key>Shape</key>
 					<string>AdjustableArrow</string>
 					<key>ShapeData</key>
@@ -645,13 +664,13 @@ test cases}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{366.68597930910249, 374.39201918703236}, {303.53765913648215, 15}}</string>
+					<string>{{549.1233923901691, 314.13376776293558}, {110.94804154136666, 15}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
 					<integer>40</integer>
 					<key>Rotation</key>
-					<real>203.81541491091471</real>
+					<real>200.84949450895439</real>
 					<key>Shape</key>
 					<string>AdjustableArrow</string>
 					<key>ShapeData</key>
@@ -722,13 +741,13 @@ test cases}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{435.23205646564253, 327.60184894975117}, {226.36315912137078, 15}}</string>
+					<string>{{568.27830764652288, 272.74494605177443}, {88.116620011138323, 15}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
 					<integer>39</integer>
 					<key>Rotation</key>
-					<real>197.51287670611492</real>
+					<real>183.18732269754338</real>
 					<key>Shape</key>
 					<string>AdjustableArrow</string>
 					<key>ShapeData</key>
@@ -799,13 +818,13 @@ test cases}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{487.08432524175436, 283.51084838058625}, {169.71920623317703, 15}}</string>
+					<string>{{622.45576556373055, 239.062012598743}, {41.083676054150928, 15}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
 					<integer>38</integer>
 					<key>Rotation</key>
-					<real>186.06338453750604</real>
+					<real>150.95361378842324</real>
 					<key>Shape</key>
 					<string>AdjustableArrow</string>
 					<key>ShapeData</key>
@@ -876,13 +895,13 @@ test cases}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{492.22230135966987, 239.02085599390153}, {165.11584120492842, 15}}</string>
+					<string>{{531.56797328463597, 193.24042788907542}, {144.79688069671039, 15}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>ID</key>
 					<integer>37</integer>
 					<key>Rotation</key>
-					<real>171.04614696402655</real>
+					<real>147.60552143131258</real>
 					<key>Shape</key>
 					<string>AdjustableArrow</string>
 					<key>ShapeData</key>
@@ -952,204 +971,70 @@ test cases}</string>
 					<true/>
 				</dict>
 				<dict>
+					<key>AllowConnections</key>
+					<string>NO</string>
 					<key>Bounds</key>
-					<string>{{474.17204543761943, 192.747133607808}, {188.88589406297621, 15}}</string>
+					<string>{{44.5, 207.76130180648494}, {652.82284097258491, 140}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
-					<key>ID</key>
-					<integer>36</integer>
-					<key>Rotation</key>
-					<real>158.57939281305198</real>
-					<key>Shape</key>
-					<string>AdjustableArrow</string>
-					<key>ShapeData</key>
-					<dict>
-						<key>ratio</key>
-						<real>0.32189163565635681</real>
-						<key>width</key>
-						<real>14.973806381225586</real>
-					</dict>
-					<key>Style</key>
-					<dict>
-						<key>fill</key>
-						<dict>
-							<key>Color</key>
-							<dict>
-								<key>a</key>
-								<real>0.10000000000000001</real>
-								<key>b</key>
-								<real>0.0</real>
-								<key>g</key>
-								<real>0.0</real>
-								<key>r</key>
-								<real>0.0</real>
-							</dict>
-							<key>MiddleFraction</key>
-							<real>0.70634919404983521</real>
-						</dict>
-						<key>shadow</key>
-						<dict>
-							<key>Color</key>
-							<dict>
-								<key>a</key>
-								<real>0.40000000000000002</real>
-								<key>b</key>
-								<real>0.0</real>
-								<key>g</key>
-								<real>0.0</real>
-								<key>r</key>
-								<real>0.0</real>
-							</dict>
-							<key>Fuzziness</key>
-							<real>0.0</real>
-						</dict>
-						<key>stroke</key>
-						<dict>
-							<key>Color</key>
-							<dict>
-								<key>a</key>
-								<real>0.75</real>
-								<key>b</key>
-								<real>0.0</real>
-								<key>g</key>
-								<real>0.0</real>
-								<key>r</key>
-								<real>0.0</real>
-							</dict>
-						</dict>
-					</dict>
-					<key>Tail</key>
-					<dict>
-						<key>ID</key>
-						<integer>29</integer>
-					</dict>
-					<key>TextRelativeArea</key>
-					<string>{{0.125, 0.25}, {0.75, 0.5}}</string>
-					<key>isConnectedShape</key>
-					<true/>
-				</dict>
-				<dict>
-					<key>Bounds</key>
-					<string>{{303.26099999999997, 251}, {184.23900000000003, 82.282700000000006}}</string>
-					<key>Class</key>
-					<string>ShapedGraphic</string>
+					<key>FitText</key>
+					<string>Vertical</string>
+					<key>Flow</key>
+					<string>Resize</string>
 					<key>FontInfo</key>
 					<dict>
-						<key>Color</key>
-						<dict>
-							<key>archive</key>
-							<data>
-							YnBsaXN0MDDUAQIDBAUG
-							BwpZJGFyY2hpdmVyWCR2
-							ZXJzaW9uVCR0b3BYJG9i
-							amVjdHNfEA9OU0tleWVk
-							QXJjaGl2ZXISAAGGoNEI
-							CVRyb290gAGlCwwVGR5V
-							JG51bGzUDQ4PEBESExRf
-							EBJOU0N1c3RvbUNvbG9y
-							U3BhY2VXTlNXaGl0ZVxO
-							U0NvbG9yU3BhY2VWJGNs
-							YXNzgAJCMAAQA4AE0hYQ
-							FxhUTlNJRBACgAPSGhsc
-							D1gkY2xhc3Nlc1okY2xh
-							c3NuYW1log8dWE5TT2Jq
-							ZWN00hobHyCiIB1XTlND
-							b2xvcggRGyQpMkRJTFFT
-							WV9ofYWSmZueoKKnrK6w
-							tb7JzNXa3QAAAAAAAAEB
-							AAAAAAAAACEAAAAAAAAA
-							AAAAAAAAAADl
-							</data>
-							<key>b</key>
-							<string>0</string>
-							<key>g</key>
-							<string>0</string>
-							<key>r</key>
-							<string>0</string>
-						</dict>
 						<key>Font</key>
-						<string>Verdana</string>
-						<key>NSKern</key>
-						<real>0.0</real>
+						<string>CourierNewPS-BoldMT</string>
 						<key>Size</key>
-						<real>15</real>
+						<real>36</real>
 					</dict>
 					<key>ID</key>
-					<integer>12</integer>
-					<key>Magnets</key>
-					<array>
-						<string>{1, 0}</string>
-						<string>{-1, 0}</string>
-					</array>
+					<integer>28</integer>
 					<key>Style</key>
 					<dict>
 						<key>fill</key>
 						<dict>
-							<key>Color</key>
-							<dict>
-								<key>b</key>
-								<real>0.956044</real>
-								<key>g</key>
-								<real>0.956044</real>
-								<key>r</key>
-								<real>0.956044</real>
-							</dict>
-							<key>FillType</key>
-							<integer>2</integer>
-							<key>GradientAngle</key>
-							<real>0.0</real>
-							<key>GradientColor</key>
-							<dict>
-								<key>b</key>
-								<string>0.747253</string>
-								<key>g</key>
-								<string>0.747253</string>
-								<key>r</key>
-								<string>0.747253</string>
-							</dict>
+							<key>Draws</key>
+							<string>NO</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
-							<key>Beneath</key>
-							<string>YES</string>
-							<key>Color</key>
-							<dict>
-								<key>a</key>
-								<real>0.14999999999999999</real>
-								<key>b</key>
-								<real>0.0</real>
-								<key>g</key>
-								<real>0.0</real>
-								<key>r</key>
-								<real>0.0</real>
-							</dict>
-							<key>Fuzziness</key>
-							<real>0.0</real>
-							<key>ShadowVector</key>
-							<string>{2, 2}</string>
+							<key>Draws</key>
+							<string>NO</string>
 						</dict>
 						<key>stroke</key>
 						<dict>
-							<key>Color</key>
-							<dict>
-								<key>b</key>
-								<real>0.20000000000000001</real>
-								<key>g</key>
-								<real>0.20000000000000001</real>
-								<key>r</key>
-								<real>0.20000000000000001</real>
-							</dict>
 							<key>Draws</key>
 							<string>NO</string>
 						</dict>
 					</dict>
 					<key>Text</key>
 					<dict>
+						<key>Align</key>
+						<integer>0</integer>
+						<key>Pad</key>
+						<real>0.0</real>
+						<key>Text</key>
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fmodern\fcharset0 CourierNewPS-BoldMT;\f1\fmodern\fcharset0 CourierNewPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 $mock = $this-&gt;getMockBuilder(CoffeeCup:class),
+\f1\b0 \
+                 -&gt;setMethods(['fill', 'stir\'91)\
+                 -&gt;setConstructorArgs([$size, $color]),\
+                 -&gt;setMockClassName(\'92MockedCup\'92)\
+                 -&gt;disableOriginalConstructor()\
+                 
+\f0\b -&gt;getMock();
+\f1\b0 \
+             or: 
+\f0\b -&gt;getMockForAbstractClass();}</string>
 						<key>VerticalPad</key>
 						<real>0.0</real>
 					</dict>
-					<key>TextRelativeArea</key>
-					<string>{{0.10000000000000001, 0.14999999999999999}, {0.80000000000000004, 0.69999999999999996}}</string>
 				</dict>
 			</array>
 			<key>GridInfo</key>
@@ -1167,6 +1052,8 @@ test cases}</string>
 					<string>Ebene 1</string>
 					<key>Print</key>
 					<string>YES</string>
+					<key>Slices</key>
+					<string>NO</string>
 					<key>View</key>
 					<string>YES</string>
 				</dict>
@@ -1211,7 +1098,7 @@ test cases}</string>
 			<key>BackgroundGraphic</key>
 			<dict>
 				<key>Bounds</key>
-				<string>{{0, 0}, {805.8897705078125, 536.27556419372559}}</string>
+				<string>{{0, 0}, {805.8900146484375, 536.2899923324585}}</string>
 				<key>Class</key>
 				<string>SolidGraphic</string>
 				<key>ID</key>
@@ -1255,12 +1142,13 @@ test cases}</string>
 					<key>Text</key>
 					<dict>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
 
-\f0\fs24 \cf0 any of the last two parameters can be omitted}</string>
+\f0\fs24 \cf0 any of the last two calls can be omitted}</string>
 					</dict>
 				</dict>
 				<dict>
@@ -1673,7 +1561,7 @@ omit for never()}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{639.49998594107853, 342.10830526540144}, {283, 12}}</string>
+					<string>{{636.49998594107853, 342.10830526540144}, {289, 12}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -1714,12 +1602,13 @@ omit for never()}</string>
 						<key>Pad</key>
 						<real>0.0</real>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qc\partightenfactor0
 
-\f0\fs20 \cf0 \'a9 2010-2016 Oliver Klee, typo3-coding@oliverklee.de, @oliklee}</string>
+\f0\fs20 \cf0 \'a9 2010-2017 Oliver Klee | typo3-coding@oliverklee.de | @oliklee}</string>
 						<key>VerticalPad</key>
 						<real>0.0</real>
 					</dict>
@@ -1817,17 +1706,20 @@ at(2) for the third call}</string>
 						<key>Pad</key>
 						<real>0.0</real>
 						<key>Text</key>
-						<string>{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
-{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
+						<string>{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fmodern\fcharset0 CourierNewPS-BoldMT;\f1\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\f0\fs36 \cf0 $mock-&gt;expects(self::once())\
+\f0\b\fs36 \cf0 $mock-&gt;expects(self::once())
+\f1\b0 \
      -&gt;method('fill')\
      -&gt;with($coffee, 200)\
      -&gt;will(\
         self::returnValue(true)\
-     );}</string>
+     )
+\f0\b ;}</string>
 						<key>VerticalPad</key>
 						<real>0.0</real>
 					</dict>
@@ -1936,131 +1828,6 @@ at(2) for the third call}</string>
 					<key>isConnectedShape</key>
 					<true/>
 				</dict>
-				<dict>
-					<key>AllowConnections</key>
-					<string>NO</string>
-					<key>Bounds</key>
-					<string>{{90.260900000000007, 235.82599999999999}, {302.435, 82.282700000000006}}</string>
-					<key>Class</key>
-					<string>ShapedGraphic</string>
-					<key>FontInfo</key>
-					<dict>
-						<key>Color</key>
-						<dict>
-							<key>archive</key>
-							<data>
-							YnBsaXN0MDDUAQIDBAUG
-							BwpZJGFyY2hpdmVyWCR2
-							ZXJzaW9uVCR0b3BYJG9i
-							amVjdHNfEA9OU0tleWVk
-							QXJjaGl2ZXISAAGGoNEI
-							CVRyb290gAGlCwwVGR5V
-							JG51bGzUDQ4PEBESExRf
-							EBJOU0N1c3RvbUNvbG9y
-							U3BhY2VXTlNXaGl0ZVxO
-							U0NvbG9yU3BhY2VWJGNs
-							YXNzgAJCMAAQA4AE0hYQ
-							FxhUTlNJRBACgAPSGhsc
-							D1gkY2xhc3Nlc1okY2xh
-							c3NuYW1log8dWE5TT2Jq
-							ZWN00hobHyCiIB1XTlND
-							b2xvcggRGyQpMkRJTFFT
-							WV9ofYWSmZueoKKnrK6w
-							tb7JzNXa3QAAAAAAAAEB
-							AAAAAAAAACEAAAAAAAAA
-							AAAAAAAAAADl
-							</data>
-							<key>b</key>
-							<string>0</string>
-							<key>g</key>
-							<string>0</string>
-							<key>r</key>
-							<string>0</string>
-						</dict>
-						<key>Font</key>
-						<string>Verdana</string>
-						<key>NSKern</key>
-						<real>0.0</real>
-						<key>Size</key>
-						<real>15</real>
-					</dict>
-					<key>ID</key>
-					<integer>12</integer>
-					<key>Magnets</key>
-					<array>
-						<string>{1, 0}</string>
-						<string>{-1, 0}</string>
-					</array>
-					<key>Style</key>
-					<dict>
-						<key>fill</key>
-						<dict>
-							<key>Color</key>
-							<dict>
-								<key>b</key>
-								<real>0.956044</real>
-								<key>g</key>
-								<real>0.956044</real>
-								<key>r</key>
-								<real>0.956044</real>
-							</dict>
-							<key>FillType</key>
-							<integer>2</integer>
-							<key>GradientAngle</key>
-							<real>0.0</real>
-							<key>GradientColor</key>
-							<dict>
-								<key>b</key>
-								<string>0.747253</string>
-								<key>g</key>
-								<string>0.747253</string>
-								<key>r</key>
-								<string>0.747253</string>
-							</dict>
-						</dict>
-						<key>shadow</key>
-						<dict>
-							<key>Beneath</key>
-							<string>YES</string>
-							<key>Color</key>
-							<dict>
-								<key>a</key>
-								<real>0.14999999999999999</real>
-								<key>b</key>
-								<real>0.0</real>
-								<key>g</key>
-								<real>0.0</real>
-								<key>r</key>
-								<real>0.0</real>
-							</dict>
-							<key>Fuzziness</key>
-							<real>0.0</real>
-							<key>ShadowVector</key>
-							<string>{2, 2}</string>
-						</dict>
-						<key>stroke</key>
-						<dict>
-							<key>Color</key>
-							<dict>
-								<key>b</key>
-								<real>0.20000000000000001</real>
-								<key>g</key>
-								<real>0.20000000000000001</real>
-								<key>r</key>
-								<real>0.20000000000000001</real>
-							</dict>
-							<key>Draws</key>
-							<string>NO</string>
-						</dict>
-					</dict>
-					<key>Text</key>
-					<dict>
-						<key>VerticalPad</key>
-						<real>0.0</real>
-					</dict>
-					<key>TextRelativeArea</key>
-					<string>{{0.10000000000000001, 0.14999999999999999}, {0.80000000000000004, 0.69999999999999996}}</string>
-				</dict>
 			</array>
 			<key>GridInfo</key>
 			<dict/>
@@ -2077,6 +1844,8 @@ at(2) for the third call}</string>
 					<string>Ebene 1</string>
 					<key>Print</key>
 					<string>YES</string>
+					<key>Slices</key>
+					<string>NO</string>
 					<key>View</key>
 					<string>YES</string>
 				</dict>
