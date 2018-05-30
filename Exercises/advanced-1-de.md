@@ -12,8 +12,9 @@
 2. Klont die [Tea-Extension](https://github.com/oliverklee/tea) von GitHub.
 3. Installiert die Abhängigkeiten (für TYPO3 8.7) wie in der
    [README](https://github.com/oliverklee/tea) beschrieben.
-4. Richtet euch die PHPUnit-Run-Konfigurationsvorlage ein und gebt dort die
-   Datenbank-Zugangsdaten für den MySQL-User und die Datenbank ein.
+4. [Richtet euch die PHPUnit-Run-Konfigurationsvorlage ein](https://github.com/oliverklee/tea#general-phpunit-setup)
+   und gebt dort die Datenbank-Zugangsdaten für den MySQL-User und die
+   Datenbank ein.
 5. Bekommt die Unit-Tests in PhpStorm zum Laufen.
 6. Bekommt die funktionalen Tests in PhpStorm zum Laufen.
 7. Räumt die temporären Dateien der Tests wieder weg.
