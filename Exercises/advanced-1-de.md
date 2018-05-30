@@ -18,7 +18,7 @@
 5. Bekommt die Unit-Tests in PhpStorm zum Laufen.
 6. Bekommt die funktionalen Tests in PhpStorm zum Laufen.
 7. Räumt die temporären Dateien der Tests wieder weg.
-8. Löscht automatisch generierten Test-Datenbanken.
+8. Löscht die automatisch generierten Test-Datenbanken.
 
 ## Tests-Suites
 
