@@ -20,11 +20,6 @@
 7. Räumt die temporären Dateien der Tests wieder weg.
 8. Löscht die automatisch generierten Test-Datenbanken.
 
-## Tests-Suites
-
-1. Legt eine Konfigurationsdatei mit einer Test-Suite für alle funktionalen
-   Repository-Tests an.
-
 ## Funktionale Repository-Tests (und Controller-Tests)
 
 1. Legt testgetrieben (mit Unit-Tests) ein `Testimonial`-Model im
@@ -34,13 +29,15 @@
    - `creationDate` (`DateTime`)
    - `numberOfStars` (`int`)
    - n:1-Assoziation zum `Tea`-Model
-2. Legt für das Model SQL, TCA und Locallang an.
+2. Legt für das Model SQL und TCA an.
 3. Legt ein Repository für das Model an und ergänzt die minimalen Unit-Tests
    dafür.
 4. Legt funktionale Tests an, dass das Model aus der Datenbank gelesen und geschrieben werden kann. Das Repository soll die Storage-PID ignorieren.
-   Testet auch, dass die Spalte `crdate` auf das Feld `creationDate` gemappt
-   wird.
-5. Testet mit funktionalen Tests auch die Assotiation zum `Tea`-Model.
+   Testet auch, dass beim Lesen aus der Datenbank die Spalte `crdate` auf das
+   Feld `creationDate` gemappt wird. Ihr könnte dazu im TCA `mapOnProperty`
+   setzen.
+5. Testet mit funktionalen Tests auch die Assoziation zum `Tea`-Model.
+   (Die Assoziation von `Tea` zu `Testimonial` brauchen hier noch keine Tests.)
 6. Legt im `TeaController` eine `new`- und eine `create`-Action an und testet
    mit funktionalen Tests (zusätzlich zu den üblichen Unit-Tests), dass ein
    übergebenes Model persistiert wird. Diese Actions brauchen erst einmal noch
