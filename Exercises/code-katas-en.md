@@ -61,10 +61,72 @@ run-time complexity must be better than O(n^2)
 - data structure: [Prefix tree](https://en.wikipedia.org/wiki/Trie)
 - resource: [list of English words](https://github.com/dwyl/english-words)
 
-
 ```
 1 script and (at least) 1 additional class
 reads words from a file
 echos all words that are the prefix of another word, e.g., "pole(dance)"
 run-time complexity must be better than O(n^2)
+```
+
+## Crunching numbers
+
+### Duplicate finder
+- level 1
+- no dependencies
+
+```
+expects int[]
+returns the numbers that occur at least two times
+also test it with 1'000'000 random numbers
+run-time complexity must be better than O(n^2)
+```
+
+### Prime finder
+- level 1
+- no dependencies
+- algorithm: [the sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
+
+```
+returns whether an int is a prime
+echos the first n prime numbers
+manually test with n = 100
+optional: use memoization
+```
+
+### Median
+- level 1
+- no dependencies
+- resource: [definition of the median](https://en.wikipedia.org/wiki/Median)
+
+```
+returns the median of int[] (which also may include negative numbers)
+needs to work both with an even and odd number of numbers
+needs to deal correctly with duplicates
+should also work with unsorted input
+```
+
+### One neighbour avoider
+- level 2
+- no dependencies
+
+```
+for a positive int n, returns as stringsall n-digit binary numbers that have no subsequent 1s
+0 -> []
+1 -> [0, 1]
+2 -> [00, 01, 10]
+3 -> [000, 001, 010, 100, 101]
+4 -> …
+```
+
+### Roman numerals
+- level 3 (extremely hard!)
+- no dependencies
+- resources:
+  - [definition or roman numerals](https://en.wikipedia.org/wiki/Roman_numerals)
+  - [explanation of the conversion](https://www.mathsisfun.com/roman-numerals.html)
+  - [algorithm](http://blog.functionalfun.net/2009/01/project-euler-89-converting-to-and-from.html)
+
+```
+echos the numbers from 1 to 100 as roman numerals
+can convert roman numerals to ints
 ```
