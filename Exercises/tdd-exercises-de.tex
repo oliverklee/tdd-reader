@@ -20,7 +20,7 @@
   \item Schreibt in \texttt{Test/Unit/MathTest.php} einen Test, der überprüft, dass $1 + 1 = 2$ ist.\footnote{Es ist gut, das ab und an zu überprüfen, weil wir ein echtes Problem bekommen, falls das irgendwann nicht mehr stimmen sollte.} Führt die Tests aus.
   \item Nehmt euch ein Blatt Papier und schreibt \emph{Testliste} darauf. Das ist eure Testliste, auf die ihr notiert, welche Tests ihr schreiben möchtet.
   \item Legt ein \texttt{SizeOption}-Model an. Testet, dass es instanziiert werden kann.
-  \item Fügt (testgetrieben) ein Feld Integer-Feld \texttt{SizeOption.milliliters}  hinzu. Werft eine \texttt{UnexpecteValueException}, falls beim Setter 0 oder ein negativer Wert übergeben wird.
+  \item Fügt (testgetrieben) ein Feld Integer-Feld \texttt{SizeOption.milliliters}  hinzu. Werft eine \texttt{UnexpectedValueException}, falls beim Setter 0 oder ein negativer Wert übergeben wird.
   \item Fügt testgetrieben ein Boolean-Feld \texttt{SizeOption.isIncludedInPrice} mit Getter und Setter hinzu.
   \item Legt (testgetrieben) eine 1:n-Assoziation \texttt{CoffeeBeverage.sizeOptions} an (inklusive aller nötigen Methoden).
   \item Schreibt (testgetrieben) eine Methode \texttt{CoffeeBeverage.getPriceTag}, die als einen String die verfügbaren Größen zurückgibt inklusive der Information, ob die Größe im Preis enthalten ist oder extra bezahlt werden muss.
