@@ -15,7 +15,7 @@
 
 ### Test patterns
 
-1. Create a local branch `feature/sizes` from `master`.
+1. Create a local branch `feature/sizes` from `feature/coffee`.
 1. Create a `SizeOption`-Model. Test that it can be instantiated.
 1. Working in a test-driven way, add an `int` field `SizeOption.milliliters`
    (with a getter and setter).
