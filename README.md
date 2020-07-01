@@ -21,8 +21,8 @@ The directory [Resources/](Resources/) contains additional resources:
 
 ## Example projects
 
-* [Tea example](https://github.com/oliverklee/ext_tea)
-  for unit tests for extbase extensions for TYPO3 CMS
+* [Tea example](https://github.com/TYPO3-Documentation/tea)
+  for unit tests for Extbase extensions for TYPO3 CMS
 * [Selenium demo](https://github.com/oliverklee/selenium-demo)
   for using Selenium with PHPUnit
 * [Anagram finder](https://github.com/oliverklee/anagram-finder)
