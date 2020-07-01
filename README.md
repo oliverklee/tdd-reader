@@ -4,18 +4,15 @@ In this repository, you can find the English and German handout for my
 workshops on test-driven development (TDD) and unit testing for TYPO3 CMS
 using PHPUnit.
 
-
 The directory [AdditionalDocuments/](AdditionalDocuments/) contains additional
 single documents:
 
 * the [Prophecy cheatsheet](AdditionalDocuments/prophecy-cheatsheet.pdf)
 * the [PHPUnit mocking cheatsheet](AdditionalDocuments/mocking-cheatsheet.pdf)
 
-
 The directory [Resources/](Resources/) contains additional resources:
 
 * the [Live Templates for tests in PhpStorm](Resources/PhpStorm/LiveTemplates.zip)
-
 
 ## Example projects
 
@@ -30,7 +27,6 @@ The directory [Resources/](Resources/) contains additional resources:
 * [TDD Seed](https://github.com/oliverklee/tdd-seed)
   for starting PHPUnit projects with Composer (without TYPO3 CMS)
 
-
 ## About me (Oliver Klee)
 
 I am the maintainer of the
@@ -42,7 +38,6 @@ You can book me for
 at your company.
 
 I also frequently give workshops at the TYPO3 Developer Days.
-
 
 ## License
 
