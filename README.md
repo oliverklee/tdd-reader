@@ -16,7 +16,7 @@ single documents:
 
 The directory [Resources/](Resources/) contains additional resources:
 
-* the [Live Templates for tests in PhpStorm](Resources/PhpStorm/LiveTemplates.jar)
+* the [Live Templates for tests in PhpStorm](Resources/PhpStorm/LiveTemplates.zip)
 
 
 ## Example projects
