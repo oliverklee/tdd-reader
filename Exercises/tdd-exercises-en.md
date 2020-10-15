@@ -19,12 +19,12 @@ For these exercises, it is a requirement that you always use a test list and
 that you work strictly test-first.
 
 1. Create a local branch `feature/sizes` from `feature/coffee`.
-1. Create a `SizeOption`-Model. Test that it can be instantiated.
+1. Create a `SizeOption` model/entity. Test that it can be instantiated.
 1. Working in a test-driven way, add an `int` field `SizeOption.milliliters`
    (with a getter and setter).
    Throw an `UnexpectedValueException` if zero or a negative number is passed
    to the setter.
-1. Add a `bool` field SizeOption.includedInPrice`.
+1. Add a `bool` field `SizeOption.includedInPrice`.
 1. Add an 1:n association `CoffeeBeverave.sizeOptions`, including all necessary
    methods.
 1. Add a methods `CoffeeBeverage.getPriceTag` that returns a string containing
