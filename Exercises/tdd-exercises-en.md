@@ -15,6 +15,9 @@
 
 ### Test patterns
 
+For these exercises, it is a requirement that you always use a test list and
+that you work strictly test-first.
+
 1. Create a local branch `feature/sizes` from `feature/coffee`.
 1. Create a `SizeOption`-Model. Test that it can be instantiated.
 1. Working in a test-driven way, add an `int` field `SizeOption.milliliters`

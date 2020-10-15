@@ -1,5 +1,8 @@
 # Code katas
 
+For these exercises, it is a requirement that you always use a test list and
+that you work strictly test-first.
+
 ## Fun with words
 
 ### Character sorter
