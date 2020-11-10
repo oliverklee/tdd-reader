@@ -30,3 +30,21 @@ that you work strictly test-first.
 1. Add a method `CoffeeBeverage.getPriceTag` that returns a string containing
    all available size options with the information whether the size is included
    in the price.
+
+### Regression tests
+
+The `RunLengthEncoder` seems to have several bugs. Fix them using regression
+tests with a test-driven approach.
+
+- Just to make sure the special cases work fine, please test those cases:
+  - null characters
+  - umlauts
+  - encoded runs with a (compressed) length of 1 or 2
+- The marker character `@` can also occur in the payload.
+- The compressed data might also have runs with a length of 0. This needs to
+  be interpreted as a length of 256 (and be compressed accordingly).
+- The compressed data might end after the marker character, or one character
+  later. In those cases, the decompressor needs to throw an
+  `UnexpectedValueException`.
+- Sequences might be longer than 255 characters (in this case, >= 256)
+  characters.
