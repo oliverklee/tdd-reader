@@ -38,14 +38,16 @@ tests with a test-driven approach.
 
 Please create a new local branch off the `main` branch for this.
 
-- Just to make sure the special cases work fine, please test those cases:
-  - null characters
-  - umlauts
-- The marker character `@` can also occur in the payload.
-- The compressed data might also have runs with a length of 0. This needs to
-  be interpreted as a length of 256 (and be compressed accordingly).
-- The compressed data might end after the marker character, or one character
-  later. In those cases, the decompressor needs to throw an
+1. There are some special cases that currently are not covered with tests and
+  that may or may note have bugs. To make sure those cases work fine, please
+  test those cases (and fix any bugs you may encounter):
+  - null bytes: `chr(0)`
+  - umlauts and special characters: `äöüß,.-#'+*`
+1. The marker character/byte `@` can also occur in the payload.
+1. Sequences might be longer than 255 characters, e.g, 256 or 257 characters.
+1. If a sequence in the compressed data has a length of 0, this should not
+  create unwanted behavior. For better compression, let's use a length of 0
+  to encode a length of 256 bytes.  
+1. The compressed data might end after the marker character/byte, or one
+  character later. In those cases, the decompressor needs to throw an
   `UnexpectedValueException`.
-- Sequences might be longer than 255 characters (in this case, >= 256)
-  characters.

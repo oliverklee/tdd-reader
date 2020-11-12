@@ -11,8 +11,10 @@ that you work strictly test-first.
 
 ```
 sort(string $text): string
+"" => ""
 "hello" => "ehllo"
-hello world" => "dehllloorw "
+"hello world" => " dehllloorw"
+It will also lowercase the text.
 ```
 
 ### Word list reader
