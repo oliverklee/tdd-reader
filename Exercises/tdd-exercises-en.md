@@ -41,7 +41,6 @@ Please create a new local branch off the `main` branch for this.
 - Just to make sure the special cases work fine, please test those cases:
   - null characters
   - umlauts
-  - encoded runs with a (compressed) length of 1 or 2
 - The marker character `@` can also occur in the payload.
 - The compressed data might also have runs with a length of 0. This needs to
   be interpreted as a length of 256 (and be compressed accordingly).
