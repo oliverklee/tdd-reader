@@ -36,6 +36,8 @@ that you work strictly test-first.
 The `RunLengthEncoder` seems to have several bugs. Fix them using regression
 tests with a test-driven approach.
 
+Please create a new local branch off the `main` branch for this.
+
 - Just to make sure the special cases work fine, please test those cases:
   - null characters
   - umlauts
