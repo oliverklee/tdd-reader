@@ -31,7 +31,7 @@ that you work strictly test-first.
    all available size options with the information whether the size is included
    in the price.
 
-### Regression tests
+### Regression tests (complex)
 
 The `RunLengthEncoder` seems to have several bugs. Fix them using regression
 tests with a test-driven approach.
@@ -51,3 +51,11 @@ Please create a new local branch off the `main` branch for this.
 1. The compressed data might end after the marker character/byte, or one
   character later. In those cases, the decompressor needs to throw an
   `UnexpectedValueException`.
+
+### Virtual file systems
+
+Build a `SinglePhpStartTagSniffer` that has a method
+`sniff(string $path): string[]`. This method will scan the given path and
+recursively return all `*.php` files in the given directory that include
+at least two long PHP start tags.
+(The sniffer does not need to check for start tags within strings.)
