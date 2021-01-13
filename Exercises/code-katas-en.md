@@ -13,8 +13,9 @@ that you work strictly test-first.
 sort(string $text): string
 "" => ""
 "hello" => "ehllo"
-"hello world" => " dehllloorw"
 It will also lowercase the text.
+It does not matter where whitespace ends up after sorting.
+UTF-8 umlauts need to not break.
 ```
 
 ### Word list reader
