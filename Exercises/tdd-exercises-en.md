@@ -54,8 +54,30 @@ Please create a new local branch off the `main` branch for this.
 
 ### Virtual file systems
 
-Build a `SinglePhpStartTagSniffer` that has a method
-`sniff(string $path): string[]`. This method will scan the given path and
+Build a `SinglePhpStartTagSniffer` that extends `AbstractSniffer`.
+The `sniff` method will scan the given path and
 recursively return all `*.php` files in the given directory that include
 at least two long PHP start tags.
 (The sniffer does not need to check for start tags within strings.)
+
+Only use virtual files for this (no real files allowed).
+
+### Mocking
+
+1. Without mocking, create a `Rocket` that will return `"Swoosh!"`
+   if `launch()` is called.
+1. Build a `RocketLauncher` that can collect `Rocket`s.
+   `activate()` will `launch()` all `Rockets`.
+   (You do not want to actually call `launch` on the rockets here
+   for obvious reasons. To achieve this, use `Prophecy`).
+1. Using [Swift Mailer](https://swiftmailer.symfony.com/docs/introduction.html),
+   build a `QuickMailer` that sends an email with the following method:
+   `send(\Swift_Message $email, string $fromEmail, string $toEmail, string $subject, string $body): void`.
+   Use a partial mock for `$email` to avoid that the real `send()` method
+   is run.
+
+### Coverage and mutation testing
+
+1. Run your tests with coverage in PhpStorm.
+1. Run Infection (`vendor/bin/infection`), find out what your tests are
+   missing, and add the missing tests.
