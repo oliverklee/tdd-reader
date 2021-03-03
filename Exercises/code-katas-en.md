@@ -23,8 +23,8 @@ UTF-8 umlauts need to not break.
 - no dependencies
 
 ```
-reads a list of words from a file and returns it as string[]
-1 word per line
+reads a list of words from a file (one word per line) and returns it as string[]
+a word may be a compound word like "chicken soup"
 ```
 
 ### Palindrome finder
