@@ -53,12 +53,11 @@ echos all palindromes
 1 script and (at least) 1 additional class
 reads words from a file
 from a list of words, finds all anagram
-examples: "neo"/"one", "tip"/"pit"
+examples: "neo"/"one", "tip"/"pit", "Ampel"/"Lampe"/"Palme"
 ignores spaces
 ignores the casing
 echos all anagrams
-isAnagram(string $string1, string $string2): bool
-run-time complexity must be better than O(n^2)
+sorts the anagram
 ```
 
 ### PrefixFinder
